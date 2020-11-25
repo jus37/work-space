@@ -9,7 +9,6 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :telephone
-    validates :image
   end
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
