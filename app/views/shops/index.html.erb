@@ -1,1 +1,8 @@
 <h1>hello</h1>
+
+<%# ログイン情報 %>
+<%= "#{current_user.name}さん"%><br>
+<%= "#{current_user.email}"%><br>
+<%= "#{current_user.telephone}"%><br>
+<%= image_tag current_user.image%><br>
+<%= "#{current_user.comment}コメント"%>
