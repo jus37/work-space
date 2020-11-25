@@ -1,8 +1,13 @@
+<%= render "devise/shared/header" %>
+
+
 <h1>hello</h1>
 
+<%if user_signed_in?%>
 <%# ログイン情報 %>
 <%= "#{current_user.name}さん"%><br>
 <%= "#{current_user.email}"%><br>
 <%= "#{current_user.telephone}"%><br>
-<%= image_tag current_user.image%><br>
+<%= image_tag current_user.image, class: "user-icon"%><br>
 <%= "#{current_user.comment}コメント"%>
+<% end %>
