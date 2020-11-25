@@ -5,12 +5,12 @@
 
   <div class="field">
     <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "off" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "off" %>
+    <%= f.email_field :email, autocomplete: "off" %>
   </div>
 
   <div class="field">
@@ -23,22 +23,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-
-  <div class="field">
+    <div class="field">
     <%= f.label :電話番号 %><br />
     <%= f.text_field :telephone, autocomplete: "off" %>
   </div>
-
-  <div class="field">
-    <%= f.label :アイコン画像 %><br />
-    <%= f.file_field :image, autocomplete: "off" %>
-  </div>
-
-    <div class="field">
-    <%= f.label :一言 %><br />
-    <%= f.text_area :comment, autocomplete: "off" %>
-  </div>
-
 
   <div class="actions">
     <%= f.submit "会員登録" %>
