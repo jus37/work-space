@@ -8,9 +8,12 @@ class User < ApplicationRecord
   
   with_options presence: true do
     validates :name
-    validates :telephone
   end
 
+  with_options presence: true, format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 } do
+    validates :telephone
+  end
+  
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, presence: true, format: { with: PASSWORD_REGEX }
 

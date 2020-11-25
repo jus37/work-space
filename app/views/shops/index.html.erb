@@ -8,6 +8,10 @@
 <%= "#{current_user.name}さん"%><br>
 <%= "#{current_user.email}"%><br>
 <%= "#{current_user.telephone}"%><br>
-<%= image_tag current_user.image, class: "user-icon"%><br>
+<%if current_user.image.attached?%>
+  <%= image_tag current_user.image.variant(resize: '300x300')%><br>
+<% else %>
+  <%= image_tag "no_image.jpg"%>
+<% end %><br>
 <%= "#{current_user.comment}コメント"%>
 <% end %>
