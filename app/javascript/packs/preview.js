@@ -7,9 +7,11 @@ function preview() {
     const imageElement = document.createElement('div');
     const blobImage = document.createElement('img');
     blobImage.setAttribute('src', blob)
-    
+
     imageElement.appendChild(blobImage)
     IconImage.appendChild(imageElement)
   })
 }
-window.addEventListener("load", preview);
+if(document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+  window.addEventListener("load", preview);
+}
