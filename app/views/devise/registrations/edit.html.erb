@@ -1,0 +1,59 @@
+<h2>登録情報の編集</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :名前 %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :現在のパスワード %><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :新しいパスワード　※半角英数字6文字以上 %><br>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :新しいパスワード※確認用 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :電話番号 %><br />
+    <%= f.text_field :telephone, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <div id="icon-image">
+      <%= image_tag current_user.image.variant(resize: '300x300')%>
+    </div>
+    <%= f.label :アイコン画像 %><br />
+    <%= f.file_field :image, autocomplete: "off" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :一言 %><br />
+    <%= f.text_area :comment, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
+
+<h3>退会申請</h3>
+
+<p> <%= button_to "退会する", registration_path(resource_name), data: { confirm: "本当に退会しますか？" }, method: :delete %></p>
+
+<%= link_to "戻る", :back %>
