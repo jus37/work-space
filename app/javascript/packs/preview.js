@@ -11,6 +11,7 @@ function preview() {
     const imageElement = document.createElement('div');
     const blobImage = document.createElement('img');
     blobImage.setAttribute('src', blob)
+    blobImage.setAttribute('id',"preview-image")
 
     imageElement.appendChild(blobImage)
     IconImage.appendChild(imageElement)
