@@ -14,12 +14,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :パスワード　※半角英数字6文字以上 %><br>
+    <%= f.label :現在のパスワード %><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :新しいパスワード　※半角英数字6文字以上 %><br>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード確認用 %><br />
+    <%= f.label :新しいパスワード※確認用 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -41,7 +46,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "更新する" %>
   </div>
 <% end %>
 
