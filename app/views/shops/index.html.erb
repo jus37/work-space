@@ -3,6 +3,8 @@
 
 <h1>hello</h1>
 
+<h2>店舗登録ページ</h2>
+<%= link_to 'お店登録', new_shop_path%><br>
 <%if user_signed_in?%>
   <%# ログイン情報 %>
   <%= "#{current_user.name}さん"%><br>

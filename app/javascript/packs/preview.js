@@ -1,6 +1,6 @@
 function preview() {
   const IconImage = document.getElementById('icon-image')
-  document.getElementById('user_image').addEventListener('change',function(e){
+  document.getElementById('publish-image').addEventListener('change',function(e){
     const imageContent = document.querySelector('img');
     if (imageContent){
       imageContent.remove();
