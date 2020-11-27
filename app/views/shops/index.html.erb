@@ -12,8 +12,10 @@
 <ul>
   <% @shops.each do |shop| %>
     <li>
-      <% shop.images.each do |image| %>
-        <%= image_tag image.variant(resize: '300x300')%>
+      <% if shop.images.present? %>
+        <%= image_tag shop.images[0].variant(resize: '300x300') %>
+      <% else %>
+        <%= image_tag "no_image.jpg"%>
       <% end %>
       <%= shop.name%>
       <%= shop.area.name%>
