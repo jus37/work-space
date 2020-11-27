@@ -1,9 +1,8 @@
 <%= render "devise/shared/header" %>
 
 
-<h1>hello</h1>
+<h1>WORK-SPACE</h1>
 
-<h2>店舗ページ</h2>
 <%= link_to 'お店登録', new_shop_path%><br>
 
 <h3>店舗一覧</h3>
@@ -28,6 +27,7 @@
   <% end %> 
 </ul> 
 
+<h3>アカウント情報</h3>
 <%if user_signed_in?%>
   <%# ログイン情報 %>
   <%= "#{current_user.name}さん"%><br>
