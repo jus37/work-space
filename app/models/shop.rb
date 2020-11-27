@@ -14,10 +14,10 @@ class Shop < ApplicationRecord
     validates :address
     validates :image
   end
-  
+
   with_options numericality: { other_than: 1 } do
-    validates :genre
-    validates :area
-    validates :characteristic
+    validates :genre_id
+    validates :area_id
+    validates :characteristic_id
   end
 end
