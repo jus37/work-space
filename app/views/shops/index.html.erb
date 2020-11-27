@@ -3,8 +3,29 @@
 
 <h1>hello</h1>
 
-<h2>店舗登録ページ</h2>
+<h2>店舗ページ</h2>
 <%= link_to 'お店登録', new_shop_path%><br>
+
+<h3>店舗一覧</h3>
+
+
+<ul>
+  <% @shops.each do |shop| %>
+    <li>
+      <% shop.images.each do |image| %>
+        <%= image_tag image.variant(resize: '300x300')%>
+      <% end %>
+      <%= shop.name%>
+      <%= shop.area.name%>
+      <%= shop.nearest_station%>
+      <%= shop.genre.name%>
+      <%= shop.title%>
+      <%#= shop.評価%>
+      <%#= shop.コメント数%>
+    </li>
+  <% end %> 
+</ul> 
+
 <%if user_signed_in?%>
   <%# ログイン情報 %>
   <%= "#{current_user.name}さん"%><br>
@@ -17,3 +38,5 @@
   <% end %><br>
   <%= "#{current_user.comment}コメント"%>
 <% end %>
+
+<%= render "devise/shared/footer" %>
