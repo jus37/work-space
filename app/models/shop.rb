@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  has_one_attached :image
+  has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
@@ -12,7 +12,7 @@ class Shop < ApplicationRecord
     validates :open_hour
     validates :regular_holiday
     validates :address
-    validates :image
+    validates :images
   end
 
   with_options numericality: { other_than: 1 } do
