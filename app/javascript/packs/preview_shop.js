@@ -1,5 +1,5 @@
-function preview() {
-  const IconImage = document.getElementById('icon-image')
+function previewShop() {
+  const IconImage = document.getElementById('shop-image')
 
   const createImageHTML = (blob) =>{
     const imageElement = document.createElement('div');
@@ -27,7 +27,7 @@ function preview() {
     })
   }
 
-  document.getElementById('publish-image').addEventListener('change',function(e){
+  document.getElementById('publish-shop-image').addEventListener('change',function(e){
     // const imageContent = document.querySelector('img');
     // if (imageContent){
     //   imageContent.remove();
@@ -38,6 +38,6 @@ function preview() {
     createImageHTML(blob);
   })
 }
-if(document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
-  window.addEventListener("load", preview);
+if(document.URL.match( /shops/ ) && (document.URL.match( /new/ ) || document.URL.match( /edit/ ))) {
+  window.addEventListener("load", previewShop);
 }

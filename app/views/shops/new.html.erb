@@ -33,8 +33,8 @@
   こだわりポイント<br>
   <%= f.collection_select(:characteristic_id, Characteristic.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
   店舗画像<br>
-  <div id="icon-image"></div>
-  <%= f.file_field :images, name: 'shop[images][]', id:"publish-image" %><br>
+  <div id="shop-image"></div>
+  <%= f.file_field :images, name: 'shop[images][]', id:"publish-shop-image" %><br>
 
   <%= f.submit "出品する" ,class:"sell-btn" %><br>
   <%=link_to 'もどる', root_path, class:"back-btn" %>
