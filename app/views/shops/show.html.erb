@@ -1,5 +1,5 @@
 <%= render "devise/shared/header" %>
-
+<%= render "shop_info"%>
 
 <% if @shop.images.present?%>
   <% @shop.images.each do |image|%>
@@ -8,6 +8,27 @@
 <% else %>
   <%= image_tag "no_image.jpg" %>
 <% end %>
+
+<%= @shop.title %><br>
+<%= @shop.content%>
+
+<h5>店舗情報（詳細）</h5>
+<h6>店舗基本情報</h6>
+
+店名 <%=@shop.name%><br>
+ジャンル <%= @shop.genre.name%><br>
+お問い合わせ <%= @shop.telephone%><br>
+住所 <%= @shop.address%><br>
+最寄り駅 <%= @shop.nearest_station%><br>
+営業時間 <%= @shop.open_hour%><br>
+定休日 <%= @shop.regular_holiday%>
+
+<h6>席・設備</h6>
+席数 <%= @shop.capacity%><br>
+個室 <%= @shop.private_room%><br>
+wifi<br>
+電源<br> 
+こだわり <%= @shop.characteristic.name%>
 
 
 <%= render "devise/shared/footer" %>
