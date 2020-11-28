@@ -16,7 +16,9 @@
       <% else %>
         <%= image_tag "no_image.jpg"%>
       <% end %>
-      <%= shop.name%>
+      <%= link_to shop_path(shop.id) do %>
+        <%= shop.name%>
+      <% end %>
       <%= shop.area.name%>
       <%= shop.nearest_station%>
       <%= shop.genre.name%>

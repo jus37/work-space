@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_085100) do
     t.string "nearest_station"
     t.string "capacity"
     t.string "private_room"
+    t.string "wifi"
+    t.string "power_supply"
     t.integer "characteristic_id", null: false
     t.integer "genre_id", null: false
     t.integer "area_id", null: false

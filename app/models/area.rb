@@ -1,7 +1,6 @@
 class Area < ActiveHash::Base
-
   self.data = [
-    { id: 1, name: '--' },  
+    { id: 1, name: '--' },
     { id: 2, name: '梅田' },
     { id: 3, name: '難波' },
     { id: 4, name: '天王寺' },
@@ -11,9 +10,8 @@ class Area < ActiveHash::Base
     { id: 8, name: '江坂' },
     { id: 9, name: '京橋' },
     { id: 10, name: '堺' },
-    { id: 11, name: '高槻' },
+    { id: 11, name: '高槻' }
   ]
-
 
   include ActiveHash::Associations
   has_many :shops
