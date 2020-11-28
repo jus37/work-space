@@ -1,5 +1,6 @@
 class Shop < ApplicationRecord
   has_many_attached :images
+  has_many :reviews
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre

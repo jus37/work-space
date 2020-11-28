@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_11_28_050029) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "review_point", null: false
     t.date "date", null: false
+    t.string "title", null: false
     t.string "content", null: false
     t.bigint "user_id", null: false
     t.bigint "shop_id", null: false
