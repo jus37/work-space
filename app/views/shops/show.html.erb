@@ -1,5 +1,13 @@
 <%= render "devise/shared/header" %>
 
 
+<% if @shop.images.present?%>
+  <% @shop.images.each do |image|%>
+    <%= image_tag image.variant(resize: "300x300")%>
+  <% end %>
+<% else %>
+  <%= image_tag "no_image.jpg" %>
+<% end %>
+
 
 <%= render "devise/shared/footer" %>

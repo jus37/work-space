@@ -1,0 +1,13 @@
+
+<%= @shop.name%><br>
+<%#= @shop.評価%>
+<%#= @shop.コメント数%>
+<%#= @shop.保存した数%>
+
+<%= "最寄り駅：#{@shop.nearest_station}"%>
+<%= "ジャンル：#{@shop.genre.name}"%><br>
+<%= "定休日：#{@shop.regular_holiday}"%><br>
+
+<%= link_to "トップ", shops_path(@shop.id)%>
+<%= link_to "口コミ", "#" %>
+<%= link_to "地図", "#" %><br>
