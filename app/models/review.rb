@@ -5,6 +5,6 @@ class Review < ApplicationRecord
   with_options presence: true do
     validates :review_point
     validates :date
-    validates :content
+    validates :comment
   end
 end
