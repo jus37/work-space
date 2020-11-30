@@ -3,8 +3,9 @@
 <%= link_to "トップ", user_path(@user.id)%>
 行ったお店
 保存したお店
-<%= link_to '設定', edit_user_registration_path%>
-
+<% if @user == current_user%>
+  <%= link_to '設定', edit_user_registration_path%>
+<% end %>
 
 
 <h3>アカウント情報</h3>
