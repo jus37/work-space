@@ -21,6 +21,7 @@ class ShopsController < ApplicationController
     @shop_review = Review.all.sum(:review_point) / Review.count
     @shop_reviews = Review.count
   end
+  
 
   def edit
     @shop = Shop.find(params[:id])
@@ -36,6 +37,9 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    redirect_to root_path
   end
 
   private

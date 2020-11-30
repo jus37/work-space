@@ -1,6 +1,8 @@
 
 <%= @shop.name%>
-<%= link_to "編集", edit_shop_path(@shop.id)%><br>
+<%= link_to "編集", edit_shop_path(@shop.id)%>
+<%= link_to "削除", shop_path(@shop.id), method: :delete %>
+<br>
 <%= "評価：#{@shop_review}"%><br>
 <%= "口コミ数：#{@shop_reviews}"%><br>
 <%#= @shop.保存した数%>
