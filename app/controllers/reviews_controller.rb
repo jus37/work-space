@@ -46,8 +46,8 @@ class ReviewsController < ApplicationController
 
   def set_item
     @shop = Shop.find(params[:shop_id])
-    @shop_review = Review.all.sum(:review_point) / Review.count
-    @shop_reviews = Review.count
+    @shop_rate = @shop.reviews.average(:review_point)
+    @shop_count = @shop.reviews.count
   end
 
 end
