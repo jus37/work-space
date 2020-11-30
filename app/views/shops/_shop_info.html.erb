@@ -8,6 +8,6 @@
 <%= "ジャンル：#{@shop.genre.name}"%><br>
 <%= "定休日：#{@shop.regular_holiday}"%><br>
 
-<%= link_to "トップ", shops_path(@shop.id)%>
+<%= link_to "トップ", shop_path(@shop.id)%>
 <%= link_to "口コミ", shop_reviews_path(@shop.id) %>
 <%= link_to "地図", "#" %><br>
