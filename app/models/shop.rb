@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
   has_many_attached :images
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre

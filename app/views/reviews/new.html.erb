@@ -1,7 +1,7 @@
 <%= render "devise/shared/header" %>
 <%= render "shops/shop_info"%>
 
-a
+
 <%= form_with model:@review, url: shop_reviews_path(@shop.id),local: true do |f|%>
   評価<br>
   <%= f.number_field :review_point%><br>
