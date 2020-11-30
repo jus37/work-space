@@ -11,7 +11,7 @@
     <%= "評価：#{review.review_point}"%><br>
     <%= review.title%><br>
     <%= review.comment%><br>
-    <%= "訪問日： #{review.date}"%><br>
+    <%= "訪問日： #{review.date.year}/#{review.date.month}/#{review.date.day}"%><br>
   <% end %>
 <% end %>
 <%= render "devise/shared/footer" %>
