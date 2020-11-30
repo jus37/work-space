@@ -1,5 +1,11 @@
 <%= render "devise/shared/header" %>
 
+<%= link_to "トップ", user_path(@user.id)%>
+行ったお店
+保存したお店
+<%= link_to '設定', edit_user_registration_path%>
+
+
 
 <h3>アカウント情報</h3>
   <%= "#{@user.name}さん"%><br>

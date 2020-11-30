@@ -4,8 +4,7 @@
   <div class='nav'>
     <ul class='lists-right'>
       <%if user_signed_in?%>
-         <li><%= link_to"ようこそ#{current_user.name}さん", user_path(current_user.id) %></li>
-         <li><%= link_to '登録情報の変更・退会申請', edit_user_registration_path, class: "user-nickname" %></li> 
+         <li><%= link_to "マイページ", user_path(current_user.id) %></li>
          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
