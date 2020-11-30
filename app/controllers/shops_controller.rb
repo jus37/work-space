@@ -22,6 +22,22 @@ class ShopsController < ApplicationController
     @shop_reviews = Review.count
   end
 
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to shop_path(@shop.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
   private
 
   def shop_params
