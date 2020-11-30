@@ -7,13 +7,13 @@
   <% end %>
 <% else %>
   <%= image_tag "no_image.jpg" %>
-<% end %>
+<% end %><br>
 
 <%= @shop.title %><br>
 <%= @shop.content%>
 
-<h5>店舗情報（詳細）</h5>
-<h6>店舗基本情報</h6>
+<h3>店舗情報（詳細）</h3>
+<h4>店舗基本情報</h4>
 
 <%# 以下地図タブにも同様の情報を挿入予定 %>
 店名 <%=@shop.name%><br>
@@ -25,7 +25,7 @@
 営業時間 <%= @shop.open_hour%><br>
 定休日 <%= @shop.regular_holiday%>
 
-<h6>席・設備</h6>
+<h4>席・設備</h4>
 席数 <%= @shop.capacity%><br>
 個室 <%= @shop.private_room%><br>
 wifi<br>

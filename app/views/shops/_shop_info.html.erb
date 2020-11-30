@@ -1,13 +1,13 @@
 
 <%= @shop.name%><br>
-<%#= @shop.評価%>
-<%#= @shop.コメント数%>
+<%= "評価：#{@shop_review}"%><br>
+<%= "口コミ数：#{@shop_reviews}"%><br>
 <%#= @shop.保存した数%>
 
 <%= "エリア：#{@shop.area.name}"%>
 <%= "ジャンル：#{@shop.genre.name}"%><br>
 <%= "定休日：#{@shop.regular_holiday}"%><br>
 
-<%= link_to "トップ", shops_path(@shop.id)%>
-<%= link_to "口コミ", "#" %>
+<%= link_to "トップ", shop_path(@shop.id)%>
+<%= link_to "口コミ", shop_reviews_path(@shop.id) %>
 <%= link_to "地図", "#" %><br>

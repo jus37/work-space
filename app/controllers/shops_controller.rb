@@ -18,6 +18,8 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @shop_review = Review.all.sum(:review_point) / Review.count
+    @shop_reviews = Review.count
   end
 
   private
