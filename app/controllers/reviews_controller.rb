@@ -50,4 +50,6 @@ class ReviewsController < ApplicationController
     @shop_count = @shop.reviews.count
   end
 
+
+
 end
