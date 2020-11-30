@@ -7,7 +7,7 @@
 <%if @reviews.present?%>
   <% @reviews.each do |review|%>
     <%= image_tag review.user.image.variant(resize:'50x50')%>
-    <%="#{review.user.name}さんの口コミ"%>
+    <%=link_to "#{review.user.name}", user_path(review.user.id)%>
     <%= link_to "編集", edit_shop_review_path(shop_id: @shop.id, id: review.id)%>
     <%= link_to "削除", shop_review_path(shop_id: @shop.id, id: review.id), method: :delete %>
     <br>
