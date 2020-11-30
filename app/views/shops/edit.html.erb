@@ -1,5 +1,5 @@
 <%= render "devise/shared/header" %>
-<h1>お店登録ページ</h1>
+<h1>お店編集ページ</h1>
 
 <%= form_with model:@shop, local: true do |f| %>
 
@@ -35,8 +35,8 @@
   <div id="shop-image"></div>
   <%= f.file_field :images, name: 'shop[images][]', id:"publish-shop-image" %><br>
 
-  <%= f.submit "登録する" ,class:"sell-btn" %><br>
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
+  <%= f.submit "変更する" ,class:"sell-btn" %><br>
+  <%=link_to 'もどる', shop_path(@shop.id), class:"back-btn" %>
 
 <% end %>
 

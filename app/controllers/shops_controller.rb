@@ -21,6 +21,26 @@ class ShopsController < ApplicationController
     @shop_review = Review.all.sum(:review_point) / Review.count
     @shop_reviews = Review.count
   end
+  
+
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to shop_path(@shop.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    redirect_to root_path
+  end
 
   private
 
