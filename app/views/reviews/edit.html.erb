@@ -1,0 +1,20 @@
+<%= render "devise/shared/header" %>
+<%= render "shops/shop_info"%>
+
+
+<%= form_with model:@review, url: shop_review_path(shop_id: @shop.id, id: @review.id),local: true do |f|%>
+  評価<br>
+  <%= f.number_field :review_point%><br>
+  タイトル<br>
+  <%= f.text_field :title%><br>
+  コメント<br>
+  <%= f.text_area :comment%><br>
+  訪問日<br>
+  <%= f.date_field :date%><br>
+
+  送信する
+  <%= f.submit "変更" %>
+
+<% end %>
+
+<%= render "devise/shared/footer" %>

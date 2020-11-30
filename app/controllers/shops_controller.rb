@@ -18,8 +18,8 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @shop_review = Review.all.sum(:review_point) / Review.count
-    @shop_reviews = Review.count
+    @shop_rate = @shop.reviews.average(:review_point)
+    @shop_count = @shop.reviews.count
   end
   
 
@@ -39,6 +39,7 @@ class ShopsController < ApplicationController
   def destroy
     @shop = Shop.find(params[:id])
     @shop.destroy
+    @shop.reviews.destroy
     redirect_to root_path
   end
 
