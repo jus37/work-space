@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_item
+  # before_action :set_user
 
   def index
     @reviews = @shop.reviews.includes(:user)
@@ -50,6 +51,9 @@ class ReviewsController < ApplicationController
     @shop_count = @shop.reviews.count
   end
 
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
 
 end
