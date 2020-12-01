@@ -28,8 +28,8 @@
 <h4>席・設備</h4>
 席数 <%= @shop.capacity%><br>
 個室 <%= @shop.private_room%><br>
-wifi<br>
-電源<br> 
+wifi <%= @shop.wifi%><br>
+電源 <%= @shop.power_supply%> <br> 
 こだわり
   <% @shop.characteristics.each do |charateristic|%>
     <%= charateristic.name%>

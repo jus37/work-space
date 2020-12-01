@@ -25,6 +25,10 @@
   <%= f.text_field :capacity %><br>
   個室の有無<br>
   <%= f.text_field :private_room %><br>
+  wifi<br>
+  <%= f.text_field :wifi %><br>
+  電源<br>
+  <%= f.text_field :power_supply %><br>
   エリア<br>
   <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
   ジャンル<br>
