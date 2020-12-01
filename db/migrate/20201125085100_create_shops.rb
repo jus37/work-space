@@ -15,8 +15,6 @@ class CreateShops < ActiveRecord::Migration[6.0]
       t.string :private_room
       t.string :wifi
       t.string :power_supply
-      t.integer :genre_id, null:false
-      t.integer :area_id, null:false
     end
   end
 end
