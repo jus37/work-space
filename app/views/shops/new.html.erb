@@ -25,12 +25,16 @@
   <%= f.text_field :capacity %><br>
   個室の有無<br>
   <%= f.text_field :private_room %><br>
+  wifi<br>
+  <%= f.text_field :wifi %><br>
+  電源<br>
+  <%= f.text_field :power_supply %><br>
   エリア<br>
   <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
   ジャンル<br>
   <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
   こだわりポイント<br>
-  <%= f.collection_select(:characteristic_id, Characteristic.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
+  <%= f.collection_check_boxes(:characteristic_ids, Characteristic.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
   店舗画像<br>
   <div id="shop-image"></div>
   <%= f.file_field :images, name: 'shop[images][]', id:"publish-shop-image" %><br>
