@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_050029) do
+ActiveRecord::Schema.define(version: 2020_12_01_014421) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(version: 2020_11_28_050029) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "characteristics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
+  end
+
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -44,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_11_28_050029) do
     t.bigint "shop_id", null: false
     t.index ["shop_id"], name: "index_reviews_on_shop_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "shop_caracteristics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "shop_id"
+    t.bigint "characteristic_id"
+    t.index ["characteristic_id"], name: "index_shop_caracteristics_on_characteristic_id"
+    t.index ["shop_id"], name: "index_shop_caracteristics_on_shop_id"
   end
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,7 +76,6 @@ ActiveRecord::Schema.define(version: 2020_11_28_050029) do
     t.string "private_room"
     t.string "wifi"
     t.string "power_supply"
-    t.integer "characteristic_id", null: false
     t.integer "genre_id", null: false
     t.integer "area_id", null: false
   end
@@ -82,4 +96,6 @@ ActiveRecord::Schema.define(version: 2020_11_28_050029) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "shop_caracteristics", "characteristics"
+  add_foreign_key "shop_caracteristics", "shops"
 end
