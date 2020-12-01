@@ -5,7 +5,6 @@ class Shop < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
   belongs_to :area
-  belongs_to :characteristic
 
   with_options presence: true do
     validates :name
