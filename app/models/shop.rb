@@ -24,7 +24,7 @@ class Shop < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Shop.where('name LIKE(?)',"%#{search}%")
+      Shop.where(['name LIKE ? OR nearest_station LIKE ?',"%#{search}%","%#{search}%"])
     else
       Shop.all
     end
