@@ -1,0 +1,2 @@
+class ShopCaracteristic < ApplicationRecord
+end
