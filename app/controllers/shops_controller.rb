@@ -45,9 +45,8 @@ class ShopsController < ApplicationController
   end
 
   def search
-    @q = Shop.ransack(params[:q])
-    @shops = @q.result(distinct: true)
-    @shops = Shop.all if @q.name_cont == ""
+    @q = Shop.search(search_params)
+    # @shops = Shop.all if @q.name_or_title_cont == ""
   end
 
 
@@ -70,6 +69,10 @@ class ShopsController < ApplicationController
           images: [],
           characteristic_ids: []
                 )
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
 end

@@ -15,7 +15,8 @@
 
 
   <%= search_form_for @q,url: search_shops_path do |f|%>
-    <%= f.search_field :name_cont, plaseholder: "キーワード[店名]"%>
+    <% f.label :name_or_characteristics_name_cont, "Keyword"%>
+    <%= f.search_field :name_or_characteristics_name_cont, placeholder: "キーワード[店名]"%>
 
     <%= f.submit "検索"%>
   <% end %>

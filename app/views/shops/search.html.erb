@@ -4,7 +4,7 @@
 <%= link_to 'お店登録', new_shop_path%><br>
 
 <h3>店舗検索結果</h3>
-<%= "#{@q.name_cont} による検索結果"%>
+<%= "#{params[:q]} による検索結果"%>
 
 <ul>
   <% @shops.each do |shop| %>
