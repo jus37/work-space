@@ -3,10 +3,11 @@ class Shop < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :shop_caracteristics
   has_many :characteristics, through: :shop_caracteristics, dependent: :destroy
+  has_many :shop_areas
+  has_many :areas, through: :shop_areas, dependent: :destroy
+  has_many :shop_genres
+  has_many :genres, through: :shop_genres, dependent: :destroy
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
-  belongs_to :area
 
   with_options presence: true do
     validates :name
@@ -16,11 +17,5 @@ class Shop < ApplicationRecord
     validates :address
     validates :images
   end
-
-  with_options numericality: { other_than: 1 } do
-    validates :genre_id
-    validates :area_id
-  end
-
 
 end
