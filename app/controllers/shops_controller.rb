@@ -45,9 +45,11 @@ class ShopsController < ApplicationController
   end
 
   def search
-    @shops = Shop.search(params[:keyword])
-    @keyword = params[:keyword]
+    @q = Shop.ransack(params[:q])
+    @shops = @q.result(distinct: true)
+    @shops = Shop.all if @q.name_cont == ""
   end
+
 
   private
 

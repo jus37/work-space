@@ -13,9 +13,11 @@
     </ul>
   </div>
 
-  <%= form_with(url: search_shops_path, local: true, method: :get) do |f|%>
-    <%= f.text_field :keyword, placeholder: "エリア[例: 梅田]"%>
-    <%= f.text_field :keyword, placeholder: "キーワード[例: スターバックスコーヒー]"%>
+
+  <%= search_form_for @q,url: search_shops_path do |f|%>
+    <%= f.search_field :name_cont, plaseholder: "キーワード[店名]"%>
+
     <%= f.submit "検索"%>
   <% end %>
+
 </header>
