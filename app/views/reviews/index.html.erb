@@ -6,7 +6,11 @@
 <h4>口コミ一覧</h4>
 <%if @reviews.present?%>
   <% @reviews.each do |review|%>
-    <%= image_tag review.user.image.variant(resize:'50x50')%>
+    <%if review.user.image.present?%>
+      <%= image_tag review.user.image.variant(resize:'50x50')%>
+    <% else %>
+      <%=image_tag "no_image.jpg"%>
+    <% end %>
     <%=link_to "#{review.user.name}", user_path(review.user.id)%>
     <% if review.user == current_user%>
       <%= link_to "編集", edit_shop_review_path(shop_id: @shop.id, id: review.id)%>
