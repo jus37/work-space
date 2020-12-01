@@ -30,7 +30,10 @@
 個室 <%= @shop.private_room%><br>
 wifi<br>
 電源<br> 
-こだわり <%= @shop.characteristic.name%>
+こだわり
+  <% @shop.characteristics.each do |charateristic|%>
+    <%= charateristic.name%>
+  <% end %>
 
 
 <%= render "devise/shared/footer" %>
