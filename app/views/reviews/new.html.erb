@@ -4,7 +4,7 @@
 
 <%= form_with model:@review, url: shop_reviews_path(@shop.id),local: true do |f|%>
   評価<br>
-  <%= f.number_field :review_point%><br>
+  <%= f.number_field :review_point, min: 0, max: 5%><br>
   タイトル<br>
   <%= f.text_field :title%><br>
   コメント<br>

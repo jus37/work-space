@@ -3,8 +3,8 @@
 
 <%= link_to 'お店登録', new_shop_path%><br>
 
-<h3>店舗一覧</h3>
-
+<h3>店舗検索結果</h3>
+<%= "#{@keyword} による検索結果"%>
 
 <ul>
   <% @shops.each do |shop| %>
@@ -21,8 +21,8 @@
       <%= shop.nearest_station%>
       <%= shop.genre.name%>
       <%= shop.title%>
-      評価<%= shop.reviews.average(:review_point)%>
-      口コミ数<%= shop.reviews.count%>
+      <%#= shop.評価%>
+      <%#= shop.コメント数%>
     </li>
   <% end %> 
 </ul> 
