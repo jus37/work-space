@@ -30,9 +30,9 @@
   電源<br>
   <%= f.text_field :power_supply %><br>
   エリア<br>
-  <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
+  <%= f.collection_select(:area_id, Area.all, :id, :name, {include_blank: "選択してください"}, {class:"select-box", id:"item-category"}) %><br>
   ジャンル<br>
-  <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
+  <%= f.collection_select(:genre_id, Genre.all, :id, :name, {include_blank: "選択してください"}, {class:"select-box", id:"item-category"}) %><br>
   こだわりポイント<br>
   <%= f.collection_check_boxes(:characteristic_ids, Characteristic.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
   店舗画像<br>
