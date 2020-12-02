@@ -2,20 +2,18 @@
 <header class='top-page-header'>
   <h1><%= link_to "WORK-SPACE", root_path %></h1>
   <div class='nav'>
-    <ul class='lists-right'>
       <%if user_signed_in?%>
-         <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+        <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
       <% end %>
     </ul>
   </div>
 
 
   <%= search_form_for @q,url: search_shops_path do |f|%>
-    <% f.label :name_or_genre_name_cont, "Keyword"%>
     <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪梅田駅]"%>
     <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]"%>
     <%= f.submit "検索"%>
