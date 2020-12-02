@@ -15,6 +15,8 @@ class CreateShops < ActiveRecord::Migration[6.0]
       t.string :private_room
       t.string :wifi
       t.string :power_supply
+      t.references :genre, null: false, foreign_keys: true
+      t.references :area, null: false, foreign_keys: true
     end
   end
 end

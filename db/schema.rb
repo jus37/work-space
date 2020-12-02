@@ -106,6 +106,10 @@ ActiveRecord::Schema.define(version: 2020_12_01_101227) do
     t.string "private_room"
     t.string "wifi"
     t.string "power_supply"
+    t.bigint "genre_id", null: false
+    t.bigint "area_id", null: false
+    t.index ["area_id"], name: "index_shops_on_area_id"
+    t.index ["genre_id"], name: "index_shops_on_genre_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

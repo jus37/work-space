@@ -45,7 +45,7 @@ class ShopsController < ApplicationController
   end
 
   def search
-    @q = Shop.search(search_params)
+    # @q = Shop.search(search_params)
     # @shops = Shop.all if @q.name_or_title_cont == ""
   end
 
@@ -68,7 +68,7 @@ class ShopsController < ApplicationController
           :area_id,
           images: [],
           characteristic_ids: []
-                )
+    )
   end
 
   def search_params
