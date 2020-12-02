@@ -15,9 +15,9 @@
 
 
   <%= search_form_for @q,url: search_shops_path do |f|%>
-    <% f.label :name_or_characteristics_name_cont, "Keyword"%>
-    <%= f.search_field :name_or_characteristics_name_cont, placeholder: "キーワード[店名]"%>
-
+    <% f.label :name_or_genre_name_cont, "Keyword"%>
+    <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪梅田駅]"%>
+    <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]"%>
     <%= f.submit "検索"%>
   <% end %>
 
