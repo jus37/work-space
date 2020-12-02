@@ -27,5 +27,9 @@
   <% end %> 
 </ul> 
 
+<% @genres.each do |genre| %>
+  <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
+<% end %>
+
 
 <%= render "devise/shared/footer" %>
