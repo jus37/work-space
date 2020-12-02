@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # ジャンル登録
-Genre.create(name:"選択してください")
 Genre.create(name:"カフェ")
 Genre.create(name:"コワーキングスペース")
 Genre.create(name:"カラオケボックス")
@@ -17,7 +16,6 @@ Genre.create(name:"図書館")
 Genre.create(name:"その他")
 
 # エリア登録
-Area.create(name:"選択してください")
 Area.create(name:"梅田")
 Area.create(name:"難波")
 Area.create(name:"天王寺")
