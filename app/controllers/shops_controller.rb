@@ -3,6 +3,8 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.all
     @genres = Genre.all
+    @areas = Area.all
+    @characteristics = Characteristic.all
   end
 
   def new

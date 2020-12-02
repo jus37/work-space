@@ -27,9 +27,14 @@
   <% end %> 
 </ul> 
 
+<% @areas.each do |area| %>
+  <%= link_to area.name, search_shops_path(@q, 'q[area_name_eq]': area.name)%>
+<% end %><br>
 <% @genres.each do |genre| %>
   <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
+<% end %><br>
+<% @characteristics.each do |characteristic| %>
+  <%= link_to characteristic.name, search_shops_path(@q, 'q[characteristic_name_eq]': characteristic.name)%>
 <% end %>
-
 
 <%= render "devise/shared/footer" %>
