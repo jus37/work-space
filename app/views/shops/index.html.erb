@@ -17,11 +17,9 @@
       <%= link_to shop_path(shop.id) do %>
         <%= shop.name%>
       <% end %>
-      <% shop.areas.each do |area|%>
-        <%= area.name%>
-      <% end %>
+      <%= shop.area.name%>
       <%= shop.nearest_station%>
-      <%= shop.genres.name%>
+      <%= shop.genre.name%>
       <%= shop.title%>
       評価<%= shop.reviews.average(:review_point)%>
       口コミ数<%= shop.reviews.count%>

@@ -64,6 +64,8 @@ class ShopsController < ApplicationController
           :nearest_station,
           :capacity,
           :private_room,
+          :wifi,
+          :power_supply,
           :genre_id,
           :area_id,
           images: [],

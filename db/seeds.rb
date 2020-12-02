@@ -42,3 +42,6 @@ Characteristic.create(name:"禁煙席あり")
 
 # 店舗登録
 # Shop.create()
+
+User.create(name: 'ジャス', email: 'test037@com', password: '111111a', password_confirmation: '111111a', telephone: "0120444444",comment: "hello!")
+User.create(name: 'テストユーザ', email: 'test@com', password: '111111a', password_confirmation: '111111a', telephone: "0120444444")
