@@ -1,4 +1,8 @@
+
 <%= render "devise/shared/header" %>
+<% breadcrumb :shop%>
+<%= render "layouts/breadcrumb"%>
+
 <%= render "shop_info"%>
 
 <% if @shop.images.present?%>

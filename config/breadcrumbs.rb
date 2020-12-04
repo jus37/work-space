@@ -13,8 +13,14 @@ crumb :new_user_registration do
 end
 
 crumb :user do
-  link "#{current_user.name}さん", user_path(current_user.id)
-  parent :root
+  if params[:id].present?
+    user = User.find(params[:id])
+    link "#{user.name}さん", user_path(user.id)
+    parent :root
+  else
+    link "#{current_user.name}さん", user_path(current_user.id)
+    parent :root
+  end
 end
 
 crumb :edit_user do
@@ -27,10 +33,47 @@ crumb :search_shops do
   parent :root
 end
 
-crumb :
+crumb :shop do |shop|
+    if params[:shop_id].present?
+      shop = Shop.find(params[:shop_id])
+      link shop.name, shop_path(shop.id)
+      parent :root
+    else 
+      shop = Shop.find(params[:id])
+      link shop.name, shop_path(shop.id)
+      parent :root
+    end
+end
 
-# crumb :user do
-#   user = User.find(params[:])
+crumb :new_shop do
+  link "新規店舗の登録", new_shop_path
+  parent :root
+end
+
+crumb :edit_shop do
+  shop = Shop.find(params[:id])
+  link "店舗情報の編集", edit_shop_path(shop.id)
+  parent :shop
+end
+
+crumb :shop_reviews do |shop|
+  shop = Shop.find(params[:shop_id])
+  link "口コミ一覧", shop_reviews_path(shop)
+  parent :shop
+end
+
+crumb :new_shop_review do
+  shop = Shop.find(params[:shop_id])
+  link "口コミ投稿", new_shop_review_path(shop_id: shop.id)
+  parent :shop_reviews
+end
+
+crumb :edit_shop_review do
+  shop = Shop.find(params[:shop_id])
+  link "口コミの編集", edit_shop_review_path(shop_id: shop.id)
+  parent :shop_reviews
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
