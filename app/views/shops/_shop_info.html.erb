@@ -10,7 +10,11 @@
 <%= "エリア：#{@shop.area.name}"%>
 <%= "ジャンル：#{@shop.genre.name}"%><br>
 <%= "定休日：#{@shop.regular_holiday}"%><br>
-
+<% if @clip.present?%>
+  <%= link_to "保存をやめる", shop_clip_path(shop_id: @shop.id, id: @clip.id), method: :delete%><br>
+<% else %>
+  <%= link_to "保存", shop_clips_path(@shop.id), method: :post%><br>
+<% end %>
 <%= link_to "トップ", shop_path(@shop.id)%>
 <%= link_to "口コミ", shop_reviews_path(@shop.id) %>
 <%= link_to "地図", "#" %><br>
