@@ -1,13 +1,15 @@
 <%= render "devise/shared/header" %>
+<% breadcrumb :search_shops%>
+<%= render "layouts/breadcrumb"%>
 
 
 <%= link_to 'お店登録', new_shop_path%><br>
 
 <h3>店舗検索結果</h3>
-<%= "#{params[:q]} による検索結果"%>
+<%= search_result %>
 
 <ul>
-  <% @shops.each do |shop| %>
+  <% @search_shops.each do |shop| %>
     <li>
       <% if shop.images.present? %>
         <%= image_tag shop.images[0].variant(resize: '300x300') %>

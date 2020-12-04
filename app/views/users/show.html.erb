@@ -1,4 +1,7 @@
 <%= render "devise/shared/header" %>
+<% breadcrumb :user%>
+<%= render "layouts/breadcrumb"%>
+
 
 <%= link_to "トップ", user_path(@user.id)%>
 行ったお店

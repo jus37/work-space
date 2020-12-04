@@ -8,6 +8,7 @@ class ShopsController < ApplicationController
     @areas = Area.all
     @top_characteristics = Characteristic.limit(5)
     @characteristics = Characteristic.all
+
   end
 
   def new
@@ -51,9 +52,12 @@ class ShopsController < ApplicationController
   end
 
   def search
-    # @q = Shop.search(search_params)
-    # @shops = Shop.all if @q.name_or_title_cont == ""
-  end
+    @area = params.require(:q)[:area_name_eq]
+    @genre = params.require(:q)[:genre_name_eq]
+    @characteristic = params.require(:q)[:characteristics_name_eq]
+    @area_form = params.require(:q)[:area_name_or_nearest_station_cont]
+    @name_form = params.require(:q)[:name_or_genre_name_cont]
+    end
 
 
   private

@@ -1,4 +1,7 @@
 <%= render "devise/shared/header" %>
+<% breadcrumb :edit_shop%>
+<%= render "layouts/breadcrumb"%>
+
 <h1>お店編集ページ</h1>
 
 <%= form_with model:@shop, local: true do |f| %>
