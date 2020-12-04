@@ -2,6 +2,36 @@ crumb :root do
   link "Home", root_path
 end
 
+crumb :new_user_session do
+  link "ログイン", new_user_session_path
+  parent :root
+end
+
+crumb :new_user_registration do
+  link "新規登録", new_user_registration_path
+  parent :root
+end
+
+crumb :user do
+  link "#{current_user.name}さん", user_path(current_user.id)
+  parent :root
+end
+
+crumb :edit_user do
+  link "マイページ設定", edit_user_path(current_user.id)
+  parent :user
+end
+
+crumb :search_shops do
+  link search_word, search_shops_path
+  parent :root
+end
+
+crumb :
+
+# crumb :user do
+#   user = User.find(params[:])
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

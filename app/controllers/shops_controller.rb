@@ -57,7 +57,7 @@ class ShopsController < ApplicationController
     @characteristic = params.require(:q)[:characteristics_name_eq]
     @area_form = params.require(:q)[:area_name_or_nearest_station_cont]
     @name_form = params.require(:q)[:name_or_genre_name_cont]
-  end
+    end
 
 
   private

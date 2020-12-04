@@ -1,5 +1,19 @@
 module ShopsHelper
-  def keyword
+  def search_word
+    if @area.present?
+      @area
+    elsif @genre.present?
+      @genre
+    elsif @characteristic.present?
+      @characteristic
+    elsif @area_form.present?
+      @area_form
+    elsif @name_form.present?
+      @name_form
+    end
+  end
+
+  def search_result
     if @area.present?
       "#{@area}による検索結果 #{@search_shops.count}件"
     elsif @genre.present?

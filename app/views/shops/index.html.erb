@@ -1,3 +1,4 @@
+<% breadcrumb :root%>
 <%= render "devise/shared/header" %>
 
 
@@ -27,7 +28,6 @@
   <% end %> 
 </ul> 
 
-<%# top_○○には画像差し込み予定 %>
 <% @top_areas.each do |top_area| %>
   <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name)%>
   <%= "#{top_area.shops.count}件"%>
