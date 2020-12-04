@@ -5,6 +5,7 @@ class Shop < ApplicationRecord
   has_many :characteristics, through: :shop_caracteristics, dependent: :destroy
   belongs_to :genre
   belongs_to :area
+  has_many :clips
 
   with_options presence: true do
     validates :name

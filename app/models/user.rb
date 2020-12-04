@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :reviews
+  has_many :clips
 
   with_options presence: true do
     validates :name
