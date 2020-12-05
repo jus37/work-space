@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :shops do
     resources :reviews
     resources :clips
-    resources :histories
     collection do
       get 'search'
     end

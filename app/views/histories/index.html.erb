@@ -1,0 +1,18 @@
+<%= render "devise/shared/header" %>
+<%# breadcrumb :user%>
+<%= render "layouts/breadcrumb"%>
+<%= render "users/user_tab"%><br>
+
+<% @reviews.each do |review|%>
+  <%= link_to review.shop.name, "#"%><br>
+  <%= review.shop.area.name%>
+  <%= review.shop.genre.name%><br>
+  <%= link_to "編集", edit_shop_review_path(shop_id: review.shop_id, id: review.id)%>
+  <%= link_to "削除", shop_review_path(shop_id: review.shop_id, id: review.id), method: :delete %><br>
+  <%= "評価：#{review.review_point}"%><br>
+  <%= "訪問日： #{review.date.year}/#{review.date.month}/#{review.date.day}"%><br>
+  <%= review.title%><br>
+  <%= review.comment%><br>
+<% end %>
+
+<%= render "devise/shared/footer" %>
