@@ -8,7 +8,6 @@ class ShopsController < ApplicationController
     @areas = Area.all
     @top_characteristics = Characteristic.limit(5)
     @characteristics = Characteristic.all
-
   end
 
   def new
@@ -26,7 +25,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @clip = Clip.find_by(params[shop_id: @shop.id, user_id:current_user.id])
+    @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id)
     @shop_rate = @shop.reviews.average(:review_point)
     @shop_count = @shop.reviews.count
   end
@@ -83,14 +82,4 @@ class ShopsController < ApplicationController
           characteristic_ids: []
     )
   end
-
-  # def search_params
-  #   params.require(:q).permit!
-  # end
-
-  def set_clip
-    @shop = Shop.find(params[:id])
-    @clip = Clip.find([shop_id: id, user_id:current_user.id])
-  end 
-
 end

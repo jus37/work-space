@@ -11,7 +11,7 @@
 <%= "ジャンル：#{@shop.genre.name}"%><br>
 <%= "定休日：#{@shop.regular_holiday}"%><br>
 <% if @clip.present?%>
-  <%= link_to "保存をやめる", shop_clip_path(shop_id: @shop.id, id: @clip.id), method: :delete%><br>
+  <%= link_to "保存をやめる", shop_clip_path(shop_id: @clip.shop.id, id: @clip.id), method: :delete%><br>
 <% else %>
   <%= link_to "保存", shop_clips_path(@shop.id), method: :post%><br>
 <% end %>

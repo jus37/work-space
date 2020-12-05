@@ -1,0 +1,7 @@
+<%= link_to "トップ", user_path(@user.id)%>
+<%= link_to "行ったお店",user_clips_path(@user.id) %>
+保存したお店
+<% if @user == current_user%>
+  <%= link_to '登録情報の編集', edit_user_registration_path%>
+<% end %>
+

@@ -1,13 +1,7 @@
 <% breadcrumb :edit_user%>
 <%= render "layouts/breadcrumb"%>
 <%= render "devise/shared/header" %>
-
-<%= link_to "トップ", user_path(@user.id)%>
-行ったお店
-保存したお店
-<% if @user == current_user%>
-  <%= link_to '登録情報の編集', edit_user_registration_path%>
-<% end %>
+<%= render "users/user_tab"%>
 
 
 <h2>登録情報の編集</h2>

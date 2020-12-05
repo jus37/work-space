@@ -6,6 +6,7 @@ class Shop < ApplicationRecord
   belongs_to :genre
   belongs_to :area
   has_many :clips
+  has_many :users, through: :clips
 
   with_options presence: true do
     validates :name
