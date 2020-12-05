@@ -23,6 +23,28 @@ crumb :user do
   end
 end
 
+crumb :user_histories do
+  if params[:id].present?
+    user = User.find(params[:id])
+    link "行ったお店", user_histories_path(user.id)
+    parent :user
+  else
+    link "行ったお店", user_histories_path(current_user.id)
+    parent :user
+  end
+end
+
+crumb :user_clips do
+  if params[:id].present?
+    user = User.find(params[:id])
+    link "行ったお店", user_clips_path(user.id)
+    parent :user
+  else
+    link "行ったお店", user_clips_path(current_user.id)
+    parent :user
+  end
+end
+
 crumb :edit_user do
   link "マイページ設定", edit_user_path(current_user.id)
   parent :user
