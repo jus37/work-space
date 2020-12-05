@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   root to: "shops#index"
   resources :shops do
     resources :reviews
+    resources :clips
     collection do
       get 'search'
     end
   end
-  resources :users
+  resources :users do
+    resources :clips
+    resources :histories
+  end
 
 end

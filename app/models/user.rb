@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :reviews
+  has_many :clips
+  has_many :shops, through: :clips
+  has_many :histories
+  has_many :shops, through: :histories
 
   with_options presence: true do
     validates :name
