@@ -50,26 +50,31 @@ crumb :edit_user do
   parent :user
 end
 
+crumb :shops do
+  link "店舗一覧", shops_path
+  parent :root
+end
+
 crumb :search_shops do
   link search_word, search_shops_path
-  parent :root
+  parent :shops
 end
 
 crumb :shop do |shop|
     if params[:shop_id].present?
       shop = Shop.find(params[:shop_id])
       link shop.name, shop_path(shop.id)
-      parent :root
+      parent :shops
     else 
       shop = Shop.find(params[:id])
       link shop.name, shop_path(shop.id)
-      parent :root
+      parent :shops
     end
 end
 
 crumb :new_shop do
   link "新規店舗の登録", new_shop_path
-  parent :root
+  parent :shops
 end
 
 crumb :edit_shop do
