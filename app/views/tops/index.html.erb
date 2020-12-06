@@ -1,0 +1,34 @@
+<%= render "devise/shared/header" %>
+<% breadcrumb :root%>
+<%= render "layouts/breadcrumb"%>
+
+
+<% @top_areas.each do |top_area| %>
+  <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name)%>
+  <%= "#{top_area.shops.count}件"%>
+<% end %><br>
+<% @areas.each do |area| %>
+  <%= link_to area.name, search_shops_path(@q, 'q[area_name_eq]': area.name)%>
+<% end %><br>
+<%= link_to "全店舗一覧へ", shops_path %><br>
+
+<% @top_genres.each do |top_genre| %>
+  <%= link_to top_genre.name, search_shops_path(@q, 'q[genre_name_eq]': top_genre.name)%>
+  <%= "#{top_genre.shops.count}件"%>
+<% end %><br>
+<% @genres.each do |genre| %>
+  <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
+<% end %><br>
+<%= link_to "全店舗一覧へ", shops_path %><br>
+
+<% @top_characteristics.each do |top_characteristic| %>
+  <%= link_to top_characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': top_characteristic.name)%>
+  <%= "#{top_characteristic.shops.count}件"%>
+<% end %><br>
+<% @characteristics.each do |characteristic| %>
+  <%= link_to characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': characteristic.name)%>
+<% end %><br>
+<%= link_to "全店舗一覧へ", shops_path %><br>
+
+
+<%= render "devise/shared/footer" %>
