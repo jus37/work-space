@@ -1,0 +1,100 @@
+$link_color: #06c;
+a{
+  text-decoration: none;
+  color: $link_color;
+ }
+ 
+a:hover :not(.title){
+  text-decoration: underline;
+  color:#ff9933;
+  cursor: pointer;
+ }
+ 
+ .title {
+  text-decoration: none;
+  color: #000000;
+  font-size: 30px;
+}
+.title:hover{
+  text-decoration: none;
+  color: #000000;
+  font-size: 30px;
+}
+
+.nav {
+  margin: 5px 0 ;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav li{
+  display: inline-block;
+}
+
+.search-fields{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.shop_search{
+  width: 100%;
+  font-size: 0;
+}
+
+.shop_search input[type='search']{
+  font: 15px/24px sans-serif;
+	box-sizing: border-box;
+  width: 40%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	border: 1px solid #1b2538;
+  border-radius: 0;
+  border-right: none;
+  
+}
+
+.shop_search input[type='search']:focus{
+	border: 1px solid #da3c41;
+	outline: none;
+}
+.search-btn{
+  width: 30px;
+  height: 30px;
+}
+
+
+
+.col-sm-2{
+ background-color: red;
+}
+.col-sm-4{
+ background-color: red;
+}
+.col-sm-6{
+ background-color: red;
+}
+.col-sm-8{
+ background-color: blue;
+}
+.col-sm-10{
+ background-color: blue;
+}
+.col-sm-12{
+ background-color: red;
+}
+.col-sm-1{
+ background-color: red;
+}
+.col-sm-3{
+ background-color: red;
+}
+.col-sm-5{
+ background-color: red;
+}
+.col-sm-offset-8{
+ background-color: red;
+}
+
+footer.footer{
+ background-color: red;
+}
