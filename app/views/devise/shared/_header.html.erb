@@ -1,22 +1,28 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <h1><%= link_to "WORK-SPACE", root_path %></h1>
-  <div class='nav'>
-      <%if user_signed_in?%>
-        <%= link_to "マイページ", user_path(current_user.id) %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-      <% else %>
-        <%= link_to 'ログイン', new_user_session_path, class: "login" %>
-        <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-      <% end %>
-    </ul>
+  <nav class="navbar navbar-light">
+  <h1><%= link_to "WORK-SPACE", root_path ,class:"title"%></h1>
+  <div class = "search-head">
+    <%= search_form_for @q,url: search_shops_path do |f|%>
+      <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪梅田駅]", class:"search-form"%>
+      <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]", class: "search-form"%>
+      <%= f.submit "検索", class: "search-btn"%>
+    <% end %>
   </div>
 
+  <div class='nav'>
+      <%if user_signed_in?%>
+        <ul>
+          <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        </ul>
+      <% end %>
+  </div>
 
-  <%= search_form_for @q,url: search_shops_path do |f|%>
-    <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪梅田駅]"%>
-    <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]"%>
-    <%= f.submit "検索"%>
-  <% end %>
-
+  <nav>
 </header>
