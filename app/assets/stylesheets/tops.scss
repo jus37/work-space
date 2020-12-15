@@ -6,16 +6,23 @@
   position: relative;
   height: 500px;
   .top-image{
-    width: 100%;
+    width: 100vw;
     height: 500px;
     position: absolute;
   }
   .top-title{
-    background-color: white;
+    background-color: rgba(255,255,255,0.5);
     position: absolute;
     color: black;
     top: 200px;
     left: 100px;
+    height: 100px;
+    width: 400px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    border: black;
   }
 }
 .search{
