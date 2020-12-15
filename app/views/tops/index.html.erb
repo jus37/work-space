@@ -2,7 +2,11 @@
 <% breadcrumb :root%>
 <%= render "layouts/breadcrumb"%>
 
-
+<div class="top">
+  <%=image_tag "work-space-top.jpg", class:"top-image"%>
+  <p class="top-title">働く場所探すならWORK-SPACE</p>
+</div>
+<div class="search">
 <% @top_areas.each do |top_area| %>
   <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name)%>
   <%= "#{top_area.shops.count}件"%>
@@ -29,6 +33,6 @@
   <%= link_to characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': characteristic.name)%>
 <% end %><br>
 <%= link_to "全店舗一覧へ", shops_path %><br>
-
+</div>
 
 <%= render "devise/shared/footer" %>
