@@ -23,11 +23,13 @@
             <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪梅田駅]",class:"shop_search shop_search_area"%>
             <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]"%>
             <%= button_tag type:'submit' , class: "search-btn" do%>
-              <i class="fas fa-search"></i>検索
+              <%= fa_icon "search"%>
             <% end %>
           <% end %>
         </div>
       </div>
     </div>
+            <%= fa_icon "search 5x"%>
+                          <i class="fas fa-search"></i>
 
 </header>
