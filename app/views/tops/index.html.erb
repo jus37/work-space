@@ -39,7 +39,10 @@
       <ul class="genre-top-list">
         <% @top_genres.each do |top_genre| %>
           <li class="genre-top-box">
-            <%= link_to top_genre.name, search_shops_path(@q, 'q[genre_name_eq]': top_genre.name),class:"genre-top-name"%>
+            <%= link_to(search_shops_path(@q, 'q[genre_name_eq]': top_genre.name),class:"genre-top-link") do%>
+              <%=image_tag asset_path(genres.image), class:"genre-top-image"%>
+            <%end%>
+            <span class="genre-top-name"><%= top_genre.name%></span>
             <span class="genre-top-count"><%= "#{top_genre.shops.count}件"%></span>
           </li>
         <% end %>
