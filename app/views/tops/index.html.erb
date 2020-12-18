@@ -11,10 +11,14 @@
   <div class="area">
     <p class="search-title">エリアから探す</p>
     <div class="area-top">
-      <% @top_areas.each do |top_area| %>
-        <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name)%>
-        <%= "#{top_area.shops.count}件"%>
-      <% end %>
+      <ul class="area-tops">
+        <li class="area-tops-box">
+          <% @top_areas.each do |top_area| %>
+            <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name),class:top-area-name%>
+            <%= "#{top_area.shops.count}件",class:top-area-count%>
+          <% end %>
+        </li>
+      </ul>
     </div>
     <div class="area-bottom">
       <% @areas.each do |area| %>
