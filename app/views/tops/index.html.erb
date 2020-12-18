@@ -6,33 +6,53 @@
   <%=image_tag "work-space-top.jpg", class:"top-image"%>
   <div class="top-title">働く場所探すならWORK-SPACE</div>
 </div>
-<div class="search">
-<% @top_areas.each do |top_area| %>
-  <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name)%>
-  <%= "#{top_area.shops.count}件"%>
-<% end %><br>
-<% @areas.each do |area| %>
-  <%= link_to area.name, search_shops_path(@q, 'q[area_name_eq]': area.name)%>
-<% end %><br>
-<%= link_to "全店舗一覧へ", shops_path %><br>
 
-<% @top_genres.each do |top_genre| %>
-  <%= link_to top_genre.name, search_shops_path(@q, 'q[genre_name_eq]': top_genre.name)%>
-  <%= "#{top_genre.shops.count}件"%>
-<% end %><br>
-<% @genres.each do |genre| %>
-  <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
-<% end %><br>
-<%= link_to "全店舗一覧へ", shops_path %><br>
-
-<% @top_characteristics.each do |top_characteristic| %>
-  <%= link_to top_characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': top_characteristic.name)%>
-  <%= "#{top_characteristic.shops.count}件"%>
-<% end %><br>
-<% @characteristics.each do |characteristic| %>
-  <%= link_to characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': characteristic.name)%>
-<% end %><br>
-<%= link_to "全店舗一覧へ", shops_path %><br>
+<div class="main">
+  <div class="area">
+    <p class="search-title">エリアから探す</p>
+    <div class="area-top">
+      <% @top_areas.each do |top_area| %>
+        <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name)%>
+        <%= "#{top_area.shops.count}件"%>
+      <% end %>
+    </div>
+    <div class="area-bottom">
+      <% @areas.each do |area| %>
+        <%= link_to area.name, search_shops_path(@q, 'q[area_name_eq]': area.name)%>
+      <% end %>
+      <%= link_to "全店舗一覧へ", shops_path %>
+    </div>
+  </div>
+  <div class="genre">
+    <p class="search-title">ジャンルから探す</p>
+    <div class="genre-top">
+      <% @top_genres.each do |top_genre| %>
+        <%= link_to top_genre.name, search_shops_path(@q, 'q[genre_name_eq]': top_genre.name)%>
+        <%= "#{top_genre.shops.count}件"%>
+      <% end %>
+    </div>
+    <div class="genre-bottom">
+      <% @genres.each do |genre| %>
+        <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
+      <% end %>
+      <%= link_to "全店舗一覧へ", shops_path %>
+    </div>
+  </div>
+  <div class="characteristic">
+    <p class="search-title">おすすめポイントから探す</p>
+    <div class="characteristic-top">
+      <% @top_characteristics.each do |top_characteristic| %>
+        <%= link_to top_characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': top_characteristic.name)%>
+        <%= "#{top_characteristic.shops.count}件"%>
+      <% end %>
+    </div>
+    <div class="characteristic-bottom">
+      <% @characteristics.each do |characteristic| %>
+        <%= link_to characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': characteristic.name)%>
+      <% end %>
+      <%= link_to "全店舗一覧へ", shops_path %>
+    </div>
+  </div>
 </div>
 
 <%= render "devise/shared/footer" %>
