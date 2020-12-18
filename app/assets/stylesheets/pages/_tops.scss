@@ -36,26 +36,61 @@
     margin: 10px 0px ;
   }
   .area{
+    height: 200px;
     .area-top{
       .area-tops{
         display: flex;
         .area-tops-box{
+          display: flex;
           @include content-link;
-          .top-area-name{
+          list-style-type: none;
+          height: 48px;
+          margin: 4px;
+          padding: 0 16px 0;
+          border: $border_style_inner;
+          border-radius: 4px;
+          box-shadow: $shadow_content;
+          .area-top-name{
             @include up-down-center;
-            height: 48px;
-            margin: 4px;
-            padding: 0 16px 0;
-            border: $border_style_inner;
-            border-radius: 4px;
-            box-shadow: $shadow_content;
+            font-size: $fSize_default;
+            font-weight: bold;
             cursor: pointer;
+          }
+          .area-top-count{
+            @include up-down-center;
+            font-size: $fSize_content;
+            margin-left: 5px;
           }
         }
       }
     }
     .area-bottom{
+      .area-bottom-list{
+        padding: 20px 8px 4px 8px;
+        width: 60%;
+        .area-bottom-name{
+          float: left;
+          position: relative;
+          list-style-type: square;
 
+          width: 15%;
+          height: 28px;
+          padding-left: 2px;
+          font-size: $fSize_content;
+          cursor: pointer;
+        }
+        .area-bottom-list:before{
+          position: absolute;
+          top: .35em;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-width: 4px;
+          border-style: solid;
+          border-color: transparent transparent transparent orange;
+          content: "";
+        }
+      }
     }
   }
   .genre{

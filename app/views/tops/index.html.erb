@@ -14,17 +14,23 @@
       <ul class="area-tops">
           <% @top_areas.each do |top_area| %>
             <li class="area-tops-box">
-              <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name),class:"top-area-name"%>
+              <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name),class:"area-top-name"%>
               <span class="area-top-count"><%= "#{top_area.shops.count}件"%></span>
             </li>
           <% end %>
       </ul>
     </div>
     <div class="area-bottom">
-      <% @areas.each do |area| %>
-        <%= link_to area.name, search_shops_path(@q, 'q[area_name_eq]': area.name)%>
-      <% end %>
-      <%= link_to "全店舗一覧へ", shops_path %>
+      <ul class="area-bottom-list">
+        <% @areas.each do |area| %>
+          <li class="area-bottom-name">
+            <%= link_to area.name, search_shops_path(@q, 'q[area_name_eq]': area.name)%>
+          </li>
+        <% end %>
+        <li class="area-bottom-name">
+          <%= link_to "全店舗一覧へ", shops_path %>
+        </li>
+      </ul>
     </div>
   </div>
   <div class="genre">
