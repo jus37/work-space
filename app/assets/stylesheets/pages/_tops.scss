@@ -29,6 +29,8 @@
 .main{
   margin: 20px;
   padding-left: 20px ;
+  max-width: $wrapper_max_width;
+  min-width: $wrapper_min_width;
   .search-title{
     font-size: 20px;
     font-weight: bold;
@@ -37,8 +39,14 @@
   }
   .area{
     height: 200px;
+    width: 50%;
+    margin: 16px 0;
+    padding: 12px 24px;
+    border: $border_style_inner;
+    border-radius: 4px;
+    box-shadow: $shadow_content;
     .area-top{
-      .area-tops{
+      .area-top-list{
         display: flex;
         .area-tops-box{
           display: flex;
@@ -65,40 +73,53 @@
       }
     }
     .area-bottom{
-      .area-bottom-list{
-        padding: 20px 8px 4px 8px;
-        width: 60%;
+    .area-bottom-list{
+        padding: 20px 8px 4px 20px;
+        width: 100%;
         .area-bottom-name{
           float: left;
           position: relative;
           list-style-type: square;
-
           width: 15%;
           height: 28px;
           padding-left: 2px;
           font-size: $fSize_content;
           cursor: pointer;
         }
-        .area-bottom-list:before{
-          position: absolute;
-          top: .35em;
-          left: 0;
-          width: 0;
-          height: 0;
-          border-width: 4px;
-          border-style: solid;
-          border-color: transparent transparent transparent orange;
-          content: "";
-        }
+        // .area-bottom-list:before{
+        //   position: absolute;
+        //   top: .35em;
+        //   left: 0;
+        //   width: 0;
+        //   height: 0;
+        //   border-width: 4px;
+        //   border-style: solid;
+        //   border-color: transparent transparent transparent orange;
+        //   content: "";
+        // }
       }
     }
   }
   .genre{
     .genre-top{
+      .genre-top-list{
+        .genre-top-box{
+          .genre-top-name{
+
+          }
+          .genre-top-count{
+
+          }
+        }
+      }
 
     }
     .genre-bottom{
-
+      .genre-bottom-list{
+        .genre-bottom-name{
+          
+        }
+      }
     }
   }
   .characteristic{

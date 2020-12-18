@@ -11,7 +11,7 @@
   <div class="area">
     <p class="search-title">エリアから探す</p>
     <div class="area-top">
-      <ul class="area-tops">
+      <ul class="area-top-list">
           <% @top_areas.each do |top_area| %>
             <li class="area-tops-box">
               <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name),class:"area-top-name"%>
@@ -36,16 +36,26 @@
   <div class="genre">
     <p class="search-title">ジャンルから探す</p>
     <div class="genre-top">
-      <% @top_genres.each do |top_genre| %>
-        <%= link_to top_genre.name, search_shops_path(@q, 'q[genre_name_eq]': top_genre.name)%>
-        <%= "#{top_genre.shops.count}件"%>
-      <% end %>
+      <ul class="genre-top-list">
+        <% @top_genres.each do |top_genre| %>
+          <li class="genre-top-box">
+            <%= link_to top_genre.name, search_shops_path(@q, 'q[genre_name_eq]': top_genre.name),class:"genre-top-name"%>
+            <span class="genre-top-count"><%= "#{top_genre.shops.count}件"%></span>
+          </li>
+        <% end %>
+      </ul>
     </div>
     <div class="genre-bottom">
-      <% @genres.each do |genre| %>
-        <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
-      <% end %>
-      <%= link_to "全店舗一覧へ", shops_path %>
+      <ul class="genre-bottom-list">
+        <% @genres.each do |genre| %>
+          <li class="genre-bottom-name">
+            <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
+          </li>
+        <% end %>
+        <li class="genre-bottom-name">
+          <%= link_to "全店舗一覧へ", shops_path %>
+        </li>
+      </ul>
     </div>
   </div>
   <div class="characteristic">
