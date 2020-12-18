@@ -40,7 +40,17 @@
       .area-tops{
         display: flex;
         .area-tops-box{
-          
+          @include content-link;
+          .top-area-name{
+            @include up-down-center;
+            height: 48px;
+            margin: 4px;
+            padding: 0 16px 0;
+            border: $border_style_inner;
+            border-radius: 4px;
+            box-shadow: $shadow_content;
+            cursor: pointer;
+          }
         }
       }
     }

@@ -14,8 +14,8 @@
       <ul class="area-tops">
         <li class="area-tops-box">
           <% @top_areas.each do |top_area| %>
-            <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name),class:top-area-name%>
-            <%= "#{top_area.shops.count}件",class:top-area-count%>
+            <%= link_to top_area.name, search_shops_path(@q, 'q[area_name_eq]': top_area.name),class:"top-area-name"%>
+            <span class="area-top-count"><%= "#{top_area.shops.count}件"%></span>
           <% end %>
         </li>
       </ul>
