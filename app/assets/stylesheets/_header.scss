@@ -58,9 +58,15 @@ a:hover{
 	outline: none;
 }
 .search-btn{
-  width: 30px;
-  height: 30px;
-  background:none;
+  position: relative;
+  background-image: url("search-icon.png") ;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 35px;
+  width: 50px;
+  border: 1px solid gray;
+  background-color: gray;
+  }
 }
 
 
