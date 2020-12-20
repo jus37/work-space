@@ -104,6 +104,7 @@
     }
   }
   .genre{
+    margin-top: 50px;
     .genre-top{
       .genre-top-list{
         display: flex;
@@ -152,6 +153,7 @@
       .genre-bottom-list{
         display: flex;
         .genre-bottom-name{
+          @include content-link;
           display: flex;
           .genre-bottom-link{
             float: left;
@@ -171,11 +173,29 @@
 
   }
   .characteristic{
-    .characteristic-top{
-
-    }
+    margin-top: 50px;
+    // .characteristic-top{
+    // }
     .characteristic-bottom{
-
+      .characteristic-bottom-list{
+        display: flex;
+        .characteristic-bottom-name{
+          @include content-link;
+          list-style-type: none;
+          .characteristic-bottom-link{
+            float: left;
+            padding: 6px 16px;
+            margin: 4px 8px 4px 0;
+            border: $border_style_inner;
+            border-radius: 4px;
+            box-shadow: $shadow_content;
+            color: $link_color_content;
+            font-size: $fSize_content;
+            white-space: nowrap;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 }

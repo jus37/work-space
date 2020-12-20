@@ -63,17 +63,21 @@
   </div>
   <div class="characteristic">
     <p class="search-title">おすすめポイントから探す</p>
-    <div class="characteristic-top">
-      <% @top_characteristics.each do |top_characteristic| %>
-        <%= link_to top_characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': top_characteristic.name)%>
-        <%= "#{top_characteristic.shops.count}件"%>
-      <% end %>
-    </div>
+    <%# <div class="characteristic-top"> %>
+      <%# @top_characteristics.each do |top_characteristic| %>
+        <%#= link_to top_characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': top_characteristic.name)%>
+      <%#= "#{top_characteristic.shops.count}件"%>
+      <%# end %>
+    <%# </div> %>
     <div class="characteristic-bottom">
-      <% @characteristics.each do |characteristic| %>
-        <%= link_to characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': characteristic.name)%>
+      <ul class="characteristic-bottom-list">
+        <% @characteristics.each do |characteristic| %>
+          <li class="characteristic-bottom-name">
+            <%= link_to characteristic.name, search_shops_path(@q, 'q[characteristics_name_eq]': characteristic.name),class:"characteristic-bottom-link"%>
+          </li>
       <% end %>
-      <%= link_to "全店舗一覧へ", shops_path %>
+      </ul>
+      <%#= link_to "全店舗一覧へ", shops_path %>
     </div>
   </div>
 </div>
