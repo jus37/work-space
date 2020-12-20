@@ -125,23 +125,25 @@
             font-weight: bold;
             text-align: center;
             cursor: pointer;
-          }
-          .genre-top-image{
-            height: 136px;
-            width: 136px;
-            object-fit: cover;
-          }
-          .genre-top-name{
-            position: absolute;
-            bottom: 32px;
-            width: 100%;
-            font-size: $fSize_default;
-          }
-          .genre-top-count{
-            position: absolute;
-            bottom: 16px;
-            width: 100%;
-            font-size: $fSize_content;
+            .genre-top-image{
+              height: 136px;
+              width: 136px;
+              object-fit: cover;
+            }
+            .genre-top-name{
+              position: absolute;
+              right: 0px;
+              bottom: 32px;
+              width: 100%;
+              font-size: $fSize_default;
+            }
+            .genre-top-count{
+              position: absolute;
+              right: 0px;
+              bottom: 16px;
+              width: 100%;
+              font-size: $fSize_content;
+            }
           }
         }
       }
