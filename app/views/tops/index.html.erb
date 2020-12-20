@@ -52,12 +52,12 @@
       <ul class="genre-bottom-list">
         <% @genres.each do |genre| %>
           <li class="genre-bottom-name">
-            <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name)%>
+            <%= link_to genre.name, search_shops_path(@q, 'q[genre_name_eq]': genre.name),class:"genre-bottom-link"%>
           </li>
         <% end %>
-        <li class="genre-bottom-name">
-          <%= link_to "全店舗一覧へ", shops_path %>
-        </li>
+        <%# <li class="genre-bottom-name"> %>
+          <%#= link_to "全店舗一覧へ", shops_path %>
+        <%# </li> %>
       </ul>
     </div>
   </div>

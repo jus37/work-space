@@ -147,15 +147,28 @@
           }
         }
       }
-
     }
     .genre-bottom{
       .genre-bottom-list{
+        display: flex;
         .genre-bottom-name{
-          
+          display: flex;
+          .genre-bottom-link{
+            float: left;
+            padding: 6px 16px;
+            margin: 4px 8px 4px 0;
+            border: $border_style_inner;
+            border-radius: 4px;
+            box-shadow: $shadow_content;
+            color: $link_color_content;
+            font-size: $fSize_content;
+            white-space: nowrap;
+            cursor: pointer;
+          }
         }
       }
     }
+
   }
   .characteristic{
     .characteristic-top{
