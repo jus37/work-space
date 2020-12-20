@@ -5,11 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :image
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :clips
-  has_many :shops, through: :clips
-  has_many :histories
-  has_many :shops, through: :histories
+  has_many :shops, through: :clips, dependent: :destroy
 
   with_options presence: true do
     validates :name

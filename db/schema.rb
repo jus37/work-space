@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_100645) do
+ActiveRecord::Schema.define(version: 2020_12_04_080435) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,10 +45,20 @@ ActiveRecord::Schema.define(version: 2020_12_01_100645) do
     t.string "name", null: false
   end
 
+  create_table "clips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "shop_id", null: false
+    t.index ["shop_id"], name: "index_clips_on_shop_id"
+    t.index ["user_id"], name: "index_clips_on_user_id"
+  end
+
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
+    t.string "image"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,15 +74,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_100645) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "shop_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "shop_id"
-    t.bigint "area_id"
-    t.index ["area_id"], name: "index_shop_areas_on_area_id"
-    t.index ["shop_id"], name: "index_shop_areas_on_shop_id"
-  end
-
   create_table "shop_caracteristics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -80,15 +81,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_100645) do
     t.bigint "characteristic_id"
     t.index ["characteristic_id"], name: "index_shop_caracteristics_on_characteristic_id"
     t.index ["shop_id"], name: "index_shop_caracteristics_on_shop_id"
-  end
-
-  create_table "shop_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "shop_id"
-    t.bigint "genre_id"
-    t.index ["genre_id"], name: "index_shop_genres_on_genre_id"
-    t.index ["shop_id"], name: "index_shop_genres_on_shop_id"
   end
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -128,10 +120,10 @@ ActiveRecord::Schema.define(version: 2020_12_01_100645) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "shop_areas", "areas"
-  add_foreign_key "shop_areas", "shops"
+  add_foreign_key "clips", "shops"
+  add_foreign_key "clips", "users"
+  add_foreign_key "reviews", "shops"
+  add_foreign_key "reviews", "users"
   add_foreign_key "shop_caracteristics", "characteristics"
   add_foreign_key "shop_caracteristics", "shops"
-  add_foreign_key "shop_genres", "genres"
-  add_foreign_key "shop_genres", "shops"
 end
