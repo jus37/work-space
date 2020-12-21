@@ -7,7 +7,9 @@
     <%= render "layouts/breadcrumb"%>
   </div>
   <div class="master">
-    <%= link_to 'お店登録', new_shop_path%><br>
+    <%if user_signed_in? && current_user.admin == 1%>
+      <%= link_to 'お店登録', new_shop_path%><br>
+    <% end %>
   </div>
   <div class="title">
     <h3>店舗一覧</h3>
