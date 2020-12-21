@@ -1,0 +1,11 @@
+.breadcrumbs{
+  font-size: $fSize_content;
+  & a {
+    text-decoration: none;
+    color: $link_color;
+    &:hover {
+      color: orange;
+      text-decoration: underline;
+    }
+  }
+}

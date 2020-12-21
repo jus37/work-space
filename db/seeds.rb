@@ -43,6 +43,15 @@ Characteristic.create!(name:"禁煙席あり")
 Shop.create!(name:"スターバックスコーヒー NU茶屋町プラス店", title:"NU茶屋町にあるスタバ", content:"美味しい", open_hour:"9:00~22:00", regular_holiday:"日曜日", telephone:"0120444444", address:"大阪市北区", nearest_station:"阪急大阪梅田駅", capacity:"44席", private_room:"無", wifi:"有", power_supply:"有", genre_id:"1", area_id:"1")
 Shop.create!(name:"wework LINKS UMEDA", title:"駅直結梅田のコワーキングスペース", content:"最高", open_hour:"9:00~18:00", regular_holiday:"土日", telephone:"0120117117", address:"〒530-0011 大阪府大阪市北区大深町１−１", nearest_station:"JR大阪駅", capacity:"150席", private_room:"有", wifi:"有", power_supply:"有", genre_id:"2", area_id:"1")
 
+#店舗おすすめポイント登録
+# ShopCaracteristic.create!(shop_id:"", characteristic_id:"")
+ShopCaracteristic.create!(shop_id:"1", characteristic_id:"4")
+ShopCaracteristic.create!(shop_id:"1", characteristic_id:"6")
+ShopCaracteristic.create!(shop_id:"1", characteristic_id:"7")
+ShopCaracteristic.create!(shop_id:"1", characteristic_id:"9")
+ShopCaracteristic.create!(shop_id:"2", characteristic_id:"4")
+ShopCaracteristic.create!(shop_id:"2", characteristic_id:"5")
+ShopCaracteristic.create!(shop_id:"2", characteristic_id:"9")
 #ユーザー登録
 User.create!(name: 'ジャス', email: 'test037@com', password: '111111a', password_confirmation: '111111a', telephone: "0120444444",comment: "hello!")
 User.create!(name: 'テストユーザ', email: 'test@com', password: '111111a', password_confirmation: '111111a', telephone: "0120444444")

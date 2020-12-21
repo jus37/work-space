@@ -4,6 +4,8 @@
  @import "config/variables";
  @import "config/mixin";
  @import "header";
+ @import "footer";
+ @import "breadcrumbs";
  @import "pages/tops";
  
  $fa-font-path: '@fortawesome/fontawesome-free/webfonts';

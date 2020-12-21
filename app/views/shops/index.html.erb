@@ -1,34 +1,50 @@
-<%= render "devise/shared/header" %>
-<% breadcrumb :shops%>
-<%= render "layouts/breadcrumb"%>
-
-
-
-<%= link_to 'お店登録', new_shop_path%><br>
-
-<h3>店舗一覧</h3>
-
-
-<ul>
-  <% @shops.each do |shop| %>
-    <li>
-      <% if shop.images.present? %>
-        <%= image_tag shop.images[0].variant(resize: '300x300') %>
-      <% else %>
-        <%= image_tag "no_image.jpg"%>
-      <% end %>
-      <%= link_to shop_path(shop.id) do %>
-        <%= shop.name%>
-      <% end %>
-      <%= shop.area.name%>
-      <%= shop.nearest_station%>
-      <%= shop.genre.name%>
-      <%= shop.title%>
-      評価<%= shop.reviews.average(:review_point)%>
-      口コミ数<%= shop.reviews.count%>
-    </li>
-  <% end %> 
-</ul> 
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="main">
+  <div class="breadcrumbs">
+    <% breadcrumb :shops%>
+    <%= render "layouts/breadcrumb"%>
+  </div>
+  <div class="master">
+    <%= link_to 'お店登録', new_shop_path%><br>
+  </div>
+  <div class="title">
+    <h3>店舗一覧</h3>
+  </div>
+  <div class="shop">
+    <%# <ul class="shop-list"> %>
+      <% @shops.each do |shop| %>
+          <div class="shop-top">
+            <%= link_to shop_path(shop.id) do %>
+              <span class="shop-name"><%= shop.name%></span>
+            <% end %>
+            <%= shop.area.name%>
+            <%= shop.nearest_station%>
+            <%= shop.genre.name%>
+          </div>
+        <%# <li class="shop-content"> %>
+          <% if shop.images.present? %>
+            <%= image_tag shop.images[0].variant(resize: '300x300'), class:"shop-image"%>
+          <% else %>
+            <%= image_tag "no_image.jpg", class:"shop-image"%>
+          <% end %>
+          <%= shop.title%>
+          評価<%= shop.reviews.average(:review_point)%>
+          口コミ数<%= shop.reviews.count%>
+          <% shop.characteristics.each do |characteristic|%>
+            <%= characteristic.name%>
+          <% end %>
+          <% shop.reviews.each do |review|%>
+            <%= review.title%>
+            <%= review.user.name%>
+          <% end %>
+          <%#= shop.reviews.user.name%>
+        <%# </li> %>
+      <% end %> 
+    <%# </ul>  %>
+  </div>
+</div>
 
 
 <%= render "devise/shared/footer" %>
