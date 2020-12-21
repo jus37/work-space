@@ -53,5 +53,5 @@ ShopCaracteristic.create!(shop_id:"2", characteristic_id:"4")
 ShopCaracteristic.create!(shop_id:"2", characteristic_id:"5")
 ShopCaracteristic.create!(shop_id:"2", characteristic_id:"9")
 #ユーザー登録
-User.create!(name: 'ジャス', email: 'test037@com', password: '111111a', password_confirmation: '111111a', telephone: "0120444444",comment: "hello!")
-User.create!(name: 'テストユーザ', email: 'test@com', password: '111111a', password_confirmation: '111111a', telephone: "0120444444")
+User.create!(name: 'ジャス', email: 'jus_37@outlook.jp', password: '123abc', password_confirmation: '123abc', telephone: "09011528938",comment: "I'm master user", admin: "1")
+User.create!(name: 'テストユーザ', email: 'test@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "hello!", admin:"0")

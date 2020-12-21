@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
     t.string "name", null: false
     t.string "telephone", null: false
     t.text "comment"
+    t.integer "admin"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
