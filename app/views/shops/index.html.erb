@@ -1,7 +1,7 @@
 <div class="header">
   <%= render "devise/shared/header" %>
 </div>
-<div class="main">
+<div class="shop-index">
   <div class="breadcrumbs">
     <% breadcrumb :shops%>
     <%= render "layouts/breadcrumb"%>
@@ -14,34 +14,58 @@
   </div>
   <div class="shop">
     <%# <ul class="shop-list"> %>
-      <% @shops.each do |shop| %>
-          <div class="shop-top">
-            <%= link_to shop_path(shop.id) do %>
-              <span class="shop-name"><%= shop.name%></span>
-            <% end %>
+    <% @shops.each do |shop| %>
+      <div class="shop-top">
+        <div class="shop-top-name">
+          <%= link_to shop_path(shop.id) do %>
+            <span class="shop-name"><%= shop.name%></span>
+          <% end %>
+        <div class="shop-top-info">
+          <div class="shop-top-area">
             <%= shop.area.name%>
             <%= shop.nearest_station%>
+          </div>
+          <div class="shop-top-genre">
             <%= shop.genre.name%>
           </div>
+        </div>
+      </div>
+      <div class="shop-info">
         <%# <li class="shop-content"> %>
+        <div class="shop-box">
           <% if shop.images.present? %>
             <%= image_tag shop.images[0].variant(resize: '300x300'), class:"shop-image"%>
           <% else %>
             <%= image_tag "no_image.jpg", class:"shop-image"%>
           <% end %>
-          <%= shop.title%>
-          評価<%= shop.reviews.average(:review_point)%>
-          口コミ数<%= shop.reviews.count%>
-          <% shop.characteristics.each do |characteristic|%>
-            <%= characteristic.name%>
-          <% end %>
-          <% shop.reviews.each do |review|%>
-            <%= review.title%>
-            <%= review.user.name%>
-          <% end %>
-          <%#= shop.reviews.user.name%>
-        <%# </li> %>
-      <% end %> 
+        </div>
+        <div class="shop-bottom">
+          <div class="shop-bottom-title">
+            <%= shop.title%>
+          </div>
+          <div class="shop-bottom-comment">
+            <div class="shop-bottom-point">
+              評価<%= shop.reviews.average(:review_point)%>
+            </div>
+            <div class="shop-bottom-comment-count">
+              口コミ数<%= shop.reviews.count%>
+            </div>
+          </div>
+          <div class="shop-bottom-characteristic">
+            <% shop.characteristics.each do |characteristic|%>
+              <%= characteristic.name%>
+            <% end %>
+          </div>
+          <div class="shop-bottom-review">
+            <% shop.reviews.first(1).each do |review|%>
+              <span class="shop-bottom-review-title"><%= review.title%></span>
+              <span class="shop-bottom-review-user"><%= review.user.name%></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%# </li> %>
+    <% end %> 
     <%# </ul>  %>
   </div>
 </div>
