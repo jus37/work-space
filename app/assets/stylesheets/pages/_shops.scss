@@ -1,7 +1,5 @@
 // Shop一覧
 .shop-index{
-  // display: flex;
-  // justify-content: center;
   max-width: $wrapper_max_width;
   min-width: $wrapper_min_width;
   width: 100%;
@@ -13,8 +11,7 @@
   .title{
     margin-bottom: 30px;
     &-name{
-      font-size: 30px;
-      font-weight: bold;
+      font-size: 25px;
     }
     &-count{
       font-size: 20px;
@@ -22,23 +19,36 @@
   }
   .shop{
     &-list{
-      &:hover div .shop-top-name {
+      a:hover{
         color: $color_action;
-        text-decoration: underline;
+        text-decoration: none;
       }
       &:hover div .shop-box {
         border: $border_style_hover;
       }
       .shop-top{
         @include up-down-center;
-        // justify-content: space-between;
+        justify-content: flex-start;
         height: 50px;
         padding-left: 16px;
         border-top: solid 2px gray;
         border-bottom: $border_style_default;
+        &-name{
+          @include up-down-center;
+          .shop-name{
+            font-weight: bold;
+          }
+        }
+        &-info{
+          @include up-down-center;
+          justify-content: flex-start;
+          margin-left: 12px;
+          color: $color_default;
+          font-size: $fSize_content;
+        }
       }
       .shop-info{
-        height: 200px;
+        display: flex;
         .shop-box{
           .shop-image{
             width: 30px;
