@@ -1,0 +1,50 @@
+// Shop一覧
+.shop-index{
+  // display: flex;
+  // justify-content: center;
+  max-width: $wrapper_max_width;
+  min-width: $wrapper_min_width;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 240px 0;
+  .breadcrumbs{
+    padding: 10px 0;
+  }
+  .title{
+    margin-bottom: 30px;
+    &-name{
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &-count{
+      font-size: 20px;
+    }
+  }
+  .shop{
+    &-list{
+      &:hover div .shop-top-name {
+        color: $color_action;
+        text-decoration: underline;
+      }
+      &:hover div .shop-box {
+        border: $border_style_hover;
+      }
+      .shop-top{
+        @include up-down-center;
+        // justify-content: space-between;
+        height: 50px;
+        padding-left: 16px;
+        border-top: solid 2px gray;
+        border-bottom: $border_style_default;
+      }
+      .shop-info{
+        height: 200px;
+        .shop-box{
+          .shop-image{
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
