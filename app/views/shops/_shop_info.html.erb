@@ -1,36 +1,56 @@
 <div class="shop">
-  <%= @shop.name%>
-  <div class="master">
-    <%if user_signed_in? && current_user.admin == 1%>
-      <%= link_to "編集", edit_shop_path(@shop.id)%>
-      <%= link_to "削除", shop_path(@shop.id), method: :delete %>
-    <% end %>
-  </div>
-  <div class="shop-comment">
-    <div class="shop-comment-point">
-      評価<%= @shop_rate%>
+  <div class="info">
+    <div class="shop-controller">
+      <div class="shop-name">
+        <%= @shop.name%>
+      </div>
+      <div class="master">
+        <%if user_signed_in? && current_user.admin == 1%>
+          <%= link_to "編集", edit_shop_path(@shop.id)%>
+          <%= link_to "削除", shop_path(@shop.id), method: :delete %>
+        <% end %>
+      </div>
     </div>
-    <div class="shop-comment-count">
-      口コミ数<%=@shop_count%>
+    <div class="shop-comment">
+      <div class="shop-comment-point">
+        評価<%= @shop_rate%>
+      </div>
+      <div class="shop-comment-count">
+        口コミ数<%=@shop_count%>
+      </div>
+      <%#= @shop.保存した数%>
     </div>
-    <%#= @shop.保存した数%>
+    <div class="shop-details">
+      <%= "エリア：#{@shop.area.name}"%>
+      <%= "ジャンル：#{@shop.genre.name}"%>
+      <%= "定休日：#{@shop.regular_holiday}"%>
+    </div>
   </div>
-  <div class="shop-details">
-    <%= "エリア：#{@shop.area.name}"%>
-    <%= "ジャンル：#{@shop.genre.name}"%>
-    <%= "定休日：#{@shop.regular_holiday}"%>
-  </div>
-  <div class="shop-clip">
+  <div class="action">
     <% if @clip.present?%>
-      <%= link_to "保存をやめる", shop_clip_path(shop_id: @clip.shop.id, id: @clip.id), method: :delete, class:"shop-clip-clip"%>
+      <%= link_to "保存をやめる", shop_clip_path(shop_id: @clip.shop.id, id: @clip.id), method: :delete, class:"shop-clip"%>
     <% else %>
-      <%= link_to "保存", shop_clips_path(@shop.id), method: :post, class:"shop-clip-clip"%>
+      <%= link_to "保存", shop_clips_path(@shop.id), method: :post, class:"shop-clip"%>
     <% end %>
-    <%=link_to "行った(口コミを投稿)", new_shop_review_path(@shop.id),class:"shop-clip-history"%>
+    <%=link_to "行った", new_shop_review_path(@shop.id),class:"shop-history"%>
   </div>
 </div>
 <div class="tab">
-  <%= link_to "店舗トップ", shop_path(@shop.id)%>
-  <%= link_to "口コミ", shop_reviews_path(@shop.id) %>
-  <%= link_to "地図", "#" %>
+  <ul class="shop-menu-bar">
+    <li class="shop-menu selected-menu">
+      <%= link_to(shop_path(@shop.id),class:"shop-menu-link") do%>
+        <span class="shop-menu-name">店舗トップ</span>
+      <% end %>
+    </li>
+    <li class="shop-menu">
+      <%= link_to(shop_reviews_path(@shop.id),class:"shop-menu-link") do%>
+        <span class="shop-menu-name">口コミ</span>
+      <% end %>
+    </li>
+    <li class="shop-menu">
+      <%= link_to("#",class:"shop-menu-link") do%>
+        <span class="shop-menu-name">地図</span>
+      <% end %>
+    </li>
+  </ul>
 </div>

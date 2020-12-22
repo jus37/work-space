@@ -3,6 +3,14 @@
   align-items: center;
 }
 
+@mixin view-center{
+  max-width: $wrapper_max_width;
+  min-width: $wrapper_min_width;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 240px 0;
+}
+
 @mixin before-triangle {
   &:before {
     content: "";
