@@ -1,22 +1,36 @@
-
-<%= @shop.name%>
-<%= link_to "編集", edit_shop_path(@shop.id)%>
-<%= link_to "削除", shop_path(@shop.id), method: :delete %>
-<br>
-<%= "評価：#{@shop_rate}"%><br>
-<%= "口コミ数：#{@shop_count}"%><br>
-<%#= @shop.保存した数%>
-
-<%= "エリア：#{@shop.area.name}"%>
-<%= "ジャンル：#{@shop.genre.name}"%><br>
-<%= "定休日：#{@shop.regular_holiday}"%><br>
-<% if @clip.present?%>
-  <%= link_to "保存をやめる", shop_clip_path(shop_id: @clip.shop.id, id: @clip.id), method: :delete%>
-<% else %>
-  <%= link_to "保存", shop_clips_path(@shop.id), method: :post%>
-<% end %>
-<%=link_to "行った(口コミを投稿)", new_shop_review_path(@shop.id)%><br>
-
-<%= link_to "トップ", shop_path(@shop.id)%>
-<%= link_to "口コミ", shop_reviews_path(@shop.id) %>
-<%= link_to "地図", "#" %><br>
+<div class="shop">
+  <%= @shop.name%>
+  <div class="master">
+    <%if user_signed_in? && current_user.admin == 1%>
+      <%= link_to "編集", edit_shop_path(@shop.id)%>
+      <%= link_to "削除", shop_path(@shop.id), method: :delete %>
+    <% end %>
+  </div>
+  <div class="shop-comment">
+    <div class="shop-comment-point">
+      評価<%= @shop_rate%>
+    </div>
+    <div class="shop-comment-count">
+      口コミ数<%=@shop_count%>
+    </div>
+    <%#= @shop.保存した数%>
+  </div>
+  <div class="shop-details">
+    <%= "エリア：#{@shop.area.name}"%>
+    <%= "ジャンル：#{@shop.genre.name}"%>
+    <%= "定休日：#{@shop.regular_holiday}"%>
+  </div>
+  <div class="shop-clip">
+    <% if @clip.present?%>
+      <%= link_to "保存をやめる", shop_clip_path(shop_id: @clip.shop.id, id: @clip.id), method: :delete, class:"shop-clip-clip"%>
+    <% else %>
+      <%= link_to "保存", shop_clips_path(@shop.id), method: :post, class:"shop-clip-clip"%>
+    <% end %>
+    <%=link_to "行った(口コミを投稿)", new_shop_review_path(@shop.id),class:"shop-clip-history"%>
+  </div>
+</div>
+<div class="tab">
+  <%= link_to "店舗トップ", shop_path(@shop.id)%>
+  <%= link_to "口コミ", shop_reviews_path(@shop.id) %>
+  <%= link_to "地図", "#" %>
+</div>

@@ -36,7 +36,7 @@
           <div class="shop-info">
             <div class="shop-box">
               <% if shop.images.present? %>
-                <%= image_tag shop.images[0].variant(resize: '300x300'), class:"shop-image"%>
+                <%= image_tag shop.images[0], class:"shop-image"%>
               <% else %>
                 <%= image_tag "no_image.jpg", class:"shop-image"%>
               <% end %>
