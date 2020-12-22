@@ -1,3 +1,7 @@
+.breadcrumbs{
+  padding: 10px 0;
+}
+
 // Shop一覧
 .shop-index{
   max-width: $wrapper_max_width;
@@ -5,9 +9,6 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 240px 0;
-  .breadcrumbs{
-    padding: 10px 0;
-  }
   .title{
     margin-bottom: 30px;
     &-name{
@@ -124,3 +125,5 @@
     }
   }
 }
+
+// Shop詳細

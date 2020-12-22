@@ -20,7 +20,7 @@
       </div>
       <div class = "col-xs-12 col-sm-8 search-fields">
         <%= search_form_for @q,url: search_shops_path do |f| %>
-          <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪梅田駅]",class:"shop_search shop_search_area"%>
+          <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪駅]",class:"shop_search shop_search_area"%>
           <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]"%>
           <%= f.submit :button, class:"search-btn"%>
         <% end %>

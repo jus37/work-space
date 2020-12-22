@@ -1,0 +1,20 @@
+<div class="shop">
+  店名 <%=@shop.name%><br>
+  ジャンル <%= @shop.genre.name%><br>
+  お問い合わせ <%= @shop.telephone%><br>
+  住所 <%= @shop.address%><br>
+  最寄り駅 <%= @shop.nearest_station%><br>
+  <%# マップ導入したい %>
+  営業時間 <%= @shop.open_hour%><br>
+  定休日 <%= @shop.regular_holiday%>
+
+  <h4>席・設備</h4>
+  席数 <%= @shop.capacity%><br>
+  個室 <%= @shop.private_room%><br>
+  wifi <%= @shop.wifi%><br>
+  電源 <%= @shop.power_supply%> <br> 
+  こだわり
+    <% @shop.characteristics.each do |charateristic|%>
+      <%= charateristic.name%>
+    <% end %>
+</div>
