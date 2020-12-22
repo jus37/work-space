@@ -10,6 +10,11 @@
     <span class="title-name">店舗一覧</span>
     <span class="title-count"><%="#{@shops.count}件"%></span>
   </div>
+  <div class="master">
+    <%if user_signed_in? && current_user.admin == 1%>
+      <%= link_to 'お店登録', new_shop_path%><br>
+    <% end %>
+  </div>
   <div class="shop">
     <% @shops.each do |shop| %>
       <div class="shop-list">
@@ -41,7 +46,7 @@
                 <%= shop.title%>
               </div>
               <div class="shop-bottom-comment">
-                <div class="shop-bottom-point">
+                <div class="shop-bottom-comment-point">
                   評価<%= shop.reviews.average(:review_point)%>
                 </div>
                 <div class="shop-bottom-comment-count">
@@ -50,13 +55,13 @@
               </div>
               <div class="shop-bottom-characteristic">
                 <% shop.characteristics.each do |characteristic|%>
-                  <%= characteristic.name%>
+                  <span class="shop-bottom-characteristic-name"><%= characteristic.name%></span>
                 <% end %>
               </div>
               <div class="shop-bottom-review">
                 <% shop.reviews.first(1).each do |review|%>
                   <span class="shop-bottom-review-title"><%= review.title%></span>
-                  <span class="shop-bottom-review-user"><%= review.user.name%></span>
+                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
                 <% end %>
               </div>
             </div>
@@ -64,11 +69,6 @@
         <% end %>
       </div>
     <% end %> 
-  </div>
-  <div class="master">
-    <%if user_signed_in? && current_user.admin == 1%>
-      <%= link_to 'お店登録', new_shop_path%><br>
-    <% end %>
   </div>
 </div>
 
