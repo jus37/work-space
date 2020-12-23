@@ -126,6 +126,7 @@
 .shop-show{
   @include view-center;
   .shop{
+    // _shop_info css
     &-info{
       .shop{
         @include up-down-center;
@@ -206,18 +207,21 @@
               color: $color_default;  
               text-align: center;
               text-decoration: none;
-            }
-            .shop-menu-name{
-              display: table-cell;
-              vertical-align: middle;
-              width: 100%;
+              .shop-menu-name{
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+              }
             }
           }
-          .selected-menu{
+          .top-menu{
             background: none;
             background-color: gray;
             a {
               color: white;
+              &:hover{
+                background-color: gray;
+              }
             }
           }
         }

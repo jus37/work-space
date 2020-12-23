@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      t.integer :review_point, null: false
+      t.float :review_point, null: false
       t.date :date, null: false
       t.string :title, null: false
       t.string :comment, null: false
