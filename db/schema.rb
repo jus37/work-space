@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "review_point", null: false
+    t.float "review_point", null: false
     t.date "date", null: false
     t.string "title", null: false
     t.string "comment", null: false
