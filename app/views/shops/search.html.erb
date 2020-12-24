@@ -1,9 +1,76 @@
-<%= render "devise/shared/header" %>
-<% breadcrumb :search_shops%>
-<%= render "layouts/breadcrumb"%>
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="shop-search">
+  <div class="breadcrumbs">
+    <% breadcrumb :search_shops%>
+    <%= render "layouts/breadcrumb"%>
+  </div>
+  <div class="title">
+    <span class="title-name">検索結果</span>
+    <span class="title-count"><%=search_result%></span>
+  </div>
+  <div class="master">
+    <%if user_signed_in? && current_user.admin == 1%>
+      <%= link_to 'お店登録', new_shop_path%>
+    <% end %>
+  </div>
+  <div class="shop">
+    <% @search_shops.each do |shop| %>
+      <div class="shop-list">
+        <%= link_to shop_path(shop.id) do %>
+          <div class="shop-top">
+            <div class="shop-top-name">
+                <span class="shop-name"><%= shop.name%></span>
+            </div>
+            <div class="shop-top-info">
+              <div class="shop-top-area">
+                <%= "[#{shop.area.name}]"%>
+                <%= shop.nearest_station%>
+              </div>
+              <div class="shop-top-genre">
+                <%= "　/　#{shop.genre.name}"%>
+              </div>
+            </div>
+          </div>
+          <div class="shop-info">
+            <div class="shop-box">
+              <% if shop.images.present? %>
+                <%= image_tag shop.images[0], class:"shop-image"%>
+              <% else %>
+                <%= image_tag "no_image.jpg", class:"shop-image"%>
+              <% end %>
+            </div>
+            <div class="shop-bottom">
+              <div class="shop-bottom-title">
+                <%= shop.title%>
+              </div>
+              <div class="shop-bottom-comment">
+                <div class="shop-bottom-comment-point">
+                  評価<%= shop.reviews.average(:review_point)%>
+                </div>
+                <div class="shop-bottom-comment-count">
+                  口コミ数<%= shop.reviews.count%>
+                </div>
+              </div>
+              <div class="shop-bottom-characteristic">
+                <% shop.characteristics.each do |characteristic|%>
+                  <span class="shop-bottom-characteristic-name"><%= characteristic.name%></span>
+                <% end %>
+              </div>
+              <div class="shop-bottom-review">
+                <% shop.reviews.first(1).each do |review|%>
+                  <span class="shop-bottom-review-title"><%= review.title%></span>
+                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %> 
+  </div>
 
-
-<%= link_to 'お店登録', new_shop_path%><br>
 
 <h3>店舗検索結果</h3>
 <%= search_result %>

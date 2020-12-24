@@ -121,6 +121,125 @@
     }
   }
 }
+// Shop検索
+.shop-search{
+  @include view-center;
+  .title{
+    margin-bottom: 30px;
+    &-name{
+      font-size: 25px;
+    }
+    &-count{
+      font-size: 20px;
+    }
+  }
+  .shop{
+    &-list{
+      a:hover{
+        color: $color_action;
+        text-decoration: none;
+      }
+      &:hover div .shop-box {
+        border: $border_style_hover;
+      }
+      .shop-top{
+        @include up-down-center;
+        justify-content: flex-start;
+        height: 50px;
+        padding-left: 16px;
+        border-top: solid 2px gray;
+        border-bottom: $border_style_default;
+        &-name{
+          @include up-down-center;
+          .shop-name{
+            font-weight: bold;
+          }
+        }
+        &-info{
+          @include up-down-center;
+          justify-content: flex-start;
+          margin-left: 12px;
+          color: $color_default;
+          font-size: $fSize_content;
+        }
+      }
+      .shop-info{
+        display: flex;
+        padding: 16px;
+        color: $color_default;
+        .shop-box{
+          width: 146px;
+          height: 146px;
+          padding: 4px;
+          border: $border_style_default;
+          .shop-image{
+            width: 136px;
+            height: 136px;
+            object-fit: cover;
+            margin: 0 auto;
+            &:hover {
+              opacity: $hover_opacity;
+            }
+          }
+        }
+        .shop-bottom{
+          padding: 8px 16px;
+          font-size: $fSize_content;
+          &-title{
+            // display: -webkit-box;
+            // -webkit-box-orient: vertical;
+            // -webkit-line-clamp: 2;
+            height: 32px;
+            overflow: hidden;
+          }
+          &-comment{
+            @include up-down-center;
+            padding: 8px 0;
+            &-point{
+              padding: 0 8px;
+              color: $color_rate;
+              font-size: $fSize_h3;
+              font-weight: bold;
+            }
+            &-count{
+              margin-left: 8px;
+              color: $color_no_action;
+              text-decoration: underline;
+            }
+          }
+          &-characteristic{
+            &-name{
+              float: left;
+              padding: 6px 8px;
+              margin: 4px 8px 4px 0;
+              border: $border_style_inner;
+              border-radius: 4px;
+              // box-shadow: $shadow_content;
+              color: $link_color_content;
+              font-size: $fSize_content;
+              white-space: nowrap;
+            }
+          }
+          &-review{
+            display: flex;
+            padding: 12px;
+            background-color: floralwhite;
+            &-title{
+              margin-right: 8px;
+              border-bottom: dotted 1px;
+              font-weight: bold;
+            }
+            &-user{
+              color: $color_no_action;
+              font-size: 9px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
 
 // Shop詳細
 .shop-show{
