@@ -1,23 +1,28 @@
-
-<%= render "devise/shared/header" %>
-<% breadcrumb :edit_shop_review%>
-<%= render "layouts/breadcrumb"%>
-<%= render "shops/shop_info"%>
-
-
-<%= form_with model:@review, url: shop_review_path(shop_id: @shop.id, id: @review.id),local: true do |f|%>
-  評価<br>
-  <%= f.number_field :review_point, min: 0, max: 5%><br>
-  タイトル<br>
-  <%= f.text_field :title%><br>
-  コメント<br>
-  <%= f.text_area :comment%><br>
-  訪問日<br>
-  <%= f.date_field :date%><br>
-  <%= f.submit "変更" %>
-
-  送信する
-
-<% end %>
-
-<%= render "devise/shared/footer" %>
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="review-edit">
+  <div class="breradcrumbs">
+    <% breadcrumb :edit_shop_review%>
+    <%= render "layouts/breadcrumb"%>
+  </div>
+  <div class="review-info">
+    <%= render "shops/shop_info"%>
+  </div>
+  <div class="">
+    <%= form_with model:@review, url: shop_review_path(shop_id: @shop.id, id: @review.id),local: true do |f|%>
+      評価
+      <%= f.number_field :review_point, min: 0, max: 5%>
+      タイトル
+      <%= f.text_field :title%>
+      コメント
+      <%= f.text_area :comment%>
+      訪問日
+      <%= f.date_field :date%>
+      <%= f.submit "変更" %>
+      送信する
+    <% end %>
+  </div>
+<div class="footer">
+  <%= render "devise/shared/footer" %>
+</div>

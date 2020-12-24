@@ -70,31 +70,7 @@
       </div>
     <% end %> 
   </div>
-
-
-<h3>店舗検索結果</h3>
-<%= search_result %>
-
-<ul>
-  <% @search_shops.each do |shop| %>
-    <li>
-      <% if shop.images.present? %>
-        <%= image_tag shop.images[0].variant(resize: '300x300') %>
-      <% else %>
-        <%= image_tag "no_image.jpg"%>
-      <% end %>
-      <%= link_to shop_path(shop.id) do %>
-        <%= shop.name%>
-      <% end %>
-      <%= shop.area.name%>
-      <%= shop.nearest_station%>
-      <%= shop.genre.name%>
-      <%= shop.title%>
-      <%#= shop.評価%>
-      <%#= shop.コメント数%>
-    </li>
-  <% end %> 
-</ul> 
-
-
-<%= render "devise/shared/footer" %>
+</div>
+<div class="footer">
+  <%= render "devise/shared/footer" %>
+</div>
