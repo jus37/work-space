@@ -17,39 +17,39 @@
       <%if @reviews.present?%>
         <% @reviews.each do |review|%>
           <div class="review-detail-box">
-          <div class="top">
-            <div class="user-info">
-              <div class="review-image">
-                <%if review.user.image.present?%>
-                  <%= image_tag review.user.image,class:"user-image"%>
-                <% else %>
-                  <%=image_tag "no_image.jpg",class:"user-image"%>
+            <div class="top">
+              <div class="user-info">
+                <div class="review-image">
+                  <%if review.user.image.present?%>
+                    <%= image_tag review.user.image,class:"user-image"%>
+                  <% else %>
+                    <%=image_tag "no_image.jpg",class:"user-image"%>
+                  <% end %>
+                </div>
+                <div class="review-name">
+                  <%=link_to(user_path(review.user.id) ,class:"review-user") do%>
+                    <span class="user-name"><%=review.user.name%></span>
+                  <% end %>
+                  <span>の口コミ</span>
+                </div>
+              </div>
+              <div class="master">
+                <% if review.user == current_user%>
+                  <%= link_to "編集", edit_shop_review_path(shop_id: @shop.id, id: review.id)%>
+                  <%= link_to "削除", shop_review_path(shop_id: @shop.id, id: review.id), method: :delete, data: {confirm: "削除しますか？"} %>
                 <% end %>
               </div>
-              <div class="review-name">
-                <%=link_to(user_path(review.user.id) ,class:"review-user") do%>
-                  <span class="user-name"><%=review.user.name%></span>
-                <% end %>
-                <span>の口コミ</span>
+            </div>
+            <div class="review-info">
+              <div class="review-rate">
+                <span class="review-rate-point"><%= "評価：#{review.review_point}"%></span>
+              </div>
+              <div class="review-content">
+                <div class="review-visit"><%= "訪問日： #{review.date.year}/#{review.date.month}/#{review.date.day}"%></div>
+                <div class="review-title"><%= review.title%></div>
+                <div class="review-comment"><%= review.comment%></div>
               </div>
             </div>
-            <div class="master">
-              <% if review.user == current_user%>
-                <%= link_to "編集", edit_shop_review_path(shop_id: @shop.id, id: review.id)%>
-                <%= link_to "削除", shop_review_path(shop_id: @shop.id, id: review.id), method: :delete, data: {confirm: "削除しますか？"} %>
-              <% end %>
-            </div>
-          </div>
-          <div class="review-info">
-            <div class="review-rate">
-              <span class="review-rate-point"><%= "評価：#{review.review_point}"%></span>
-            </div>
-            <div class="review-content">
-              <div class="review-visit"><%= "訪問日： #{review.date.year}/#{review.date.month}/#{review.date.day}"%></div>
-              <div class="review-title"><%= review.title%></div>
-              <div class="review-comment"><%= review.comment%></div>
-            </div>
-          </div>
           </div>
         <% end %>
       <% end %>
