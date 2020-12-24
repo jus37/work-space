@@ -1,18 +1,25 @@
-<%= render "devise/shared/header" %>
-<% breadcrumb :user%>
-<%= render "layouts/breadcrumb"%>
-<%= render "users/user_tab"%>
-
-
-<h3>アカウント情報</h3>
-  <%= "#{@user.name}さん"%><br>
-  <%= "#{@user.email}"%><br>
-  <%= "#{@user.telephone}"%><br>
-  <%if @user.image.attached?%>
-    <%= image_tag @user.image.variant(resize: '300x300')%><br>
-  <% else %>
-    <%= image_tag "no_image.jpg"%>
-  <% end %><br>
-  <%= "#{@user.comment}コメント"%>
-
-<%= render "devise/shared/footer" %>
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="user-show">
+  <div class="breadcrumbs">
+    <% breadcrumb :user%>
+    <%= render "layouts/breadcrumb"%>
+  </div>
+  <div class="user">
+    <div class="user-header">
+    <div class="user-tab">
+      <%= render "users/header"%>
+    </div>
+    <div class="user-info">
+      <div class="user-info-top">
+        <p>アカウント情報</p>
+      </div>
+      <div class="user-info-content">
+    <%= "#{@user.email}"%>
+    <%= "#{@user.telephone}"%>
+    <%= "#{@user.comment}コメント"%>
+</div>
+<div class="footer">
+  <%= render "devise/shared/footer" %>
+</div>
