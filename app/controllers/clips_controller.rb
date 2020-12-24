@@ -2,7 +2,7 @@ class ClipsController < ApplicationController
   
   def index
     @user = User.find(params[:user_id])
-    @clips = Clip.where(params[user_id: @user.id])
+    @clips = Clip.where(user_id: @user.id)
   end
 
   def create

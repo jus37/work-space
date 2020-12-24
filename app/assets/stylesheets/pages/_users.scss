@@ -34,10 +34,10 @@
           @include  up-down-center;
           justify-content: space-between;
           width: 100%;
-          margin-left: 128px;
-            .user-name{
-              font-weight: bold;
-           }
+          margin-left: 64px;
+          .user-name{
+            font-weight: bold;
+          }
           .user-nav-bar{
             @include  up-down-center;
             .user-nav{
