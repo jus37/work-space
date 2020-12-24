@@ -8,17 +8,24 @@
   </div>
   <div class="user">
     <div class="user-header">
-    <div class="user-tab">
       <%= render "users/header"%>
     </div>
     <div class="user-info">
-      <div class="user-info-top">
-        <p>アカウント情報</p>
+      <div class="user-info-comment">
+        <span><%= @user.comment %></span>
       </div>
-      <div class="user-info-content">
-    <%= "#{@user.email}"%>
-    <%= "#{@user.telephone}"%>
-    <%= "#{@user.comment}コメント"%>
+      <ul class="user-info-action">
+        <li class="user-action-list">
+          <div class="user-action-list-title">行ったお店</div>
+          <div class="user-action-list-histories"><%="#{@user.reviews.count}件"%></div>
+        </li>
+        <li class="user-action-list">
+          <div class="user-action-list-title">保存したお店</div>
+          <div class="user-action-list-clips"><%="#{@user.clips.count}件"%></div>
+        </li>
+      </ul>
+    </div>
+  </div>  
 </div>
 <div class="footer">
   <%= render "devise/shared/footer" %>
