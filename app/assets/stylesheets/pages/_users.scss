@@ -475,3 +475,109 @@
     }
   }
 }
+
+// 新規会員登録
+.user-sign-up{
+  @include view-center;
+  .user{
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    &:after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+    &-info{
+      float: left;
+      width: 50%;
+      .sign-up-title{
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+        font-size: 24px;
+        font-weight: 200;
+  
+        &:after {
+          display: block;
+          width: 60px;
+          margin-top: 5px;
+          border-bottom: $border_style_btn;
+          content: '';
+        }  
+      }
+      .sign-in{
+        .sign-in-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #ccc;
+          font-size: $fSize_h5;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+      .test-sign-in{
+        margin-top: 20px;
+        .test-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #03A9F4;
+          font-size: $fSize_content;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+    }
+    &-form{
+      float: left;
+      width: 50%;
+      .field{
+        margin-bottom: 10px;
+        &-label{
+          margin-right: 24px;
+          padding: 10px 0;
+          letter-spacing: 1px;
+          font-size: 12px;
+          font-weight: 200;
+        }
+        &-area{
+          font-size: $fSize_content;
+          input {
+            width: 100%;
+            padding: 4px 8px;
+            letter-spacing: 1px;
+          }
+        }
+      }
+      .actions{
+        .sign-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #03A9F4;
+          font-size: $fSize_h5;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
