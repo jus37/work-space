@@ -1,6 +1,7 @@
 .breadcrumbs{
   padding: 10px 0;
 }
+// 口コミ一覧画面
 .review-index{
   @include view-center;
   .review{
@@ -183,6 +184,194 @@
             .review-comment{
               white-space: pre-wrap;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 口コミ編集画面
+.review-new-edit{
+  @include view-center;
+  .review{
+    .review-info{
+      .shop{
+        @include up-down-center;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-top: $border_style_inner;
+        .info{
+          width: 100%;
+          .shop-controller{
+            display: flex;
+            align-items: center;
+            .shop-name{
+              font-size: $fSize_h2;
+              font-weight: bold;
+            }
+            .master{
+              margin-left: 12px;
+            }
+          }
+          .shop-comment{
+            @include up-down-center;
+            border-bottom: dotted 1px lightgray;
+            color: $color_no_action;
+            font-size: $fSize_content;
+            &-point{
+              padding: 0 8px;
+              color: $color_rate;
+              font-size: $fSize_h2;
+              font-weight: bold;
+            }
+            &-count{
+              padding: 0 8px;
+            }
+          }
+          .shop-details{
+            padding: 8px 0;
+            font-size: $fSize_content;
+            // color: $color_no_action;
+            margin-right: 16px;
+          }
+        }
+        .action{
+          padding: 12px 16px 8px 16px;
+          background-color: ivory;
+          @include up-down-center;
+          .shop-clip{
+
+          }
+          .shop-history{
+
+          }
+        }
+      }
+      .tab{
+        .shop-menu-bar{
+          display: flex;
+          list-style-type: none;
+          border-top: $border_style_inner;
+          border-bottom: $border_style_inner;
+          border-right: $border_style_inner;
+          .shop-menu{
+            width: calc(100% / 3);
+            height: 48px;
+            border-left: $border_style_inner;
+            cursor: pointer;
+            background: -moz-linear-gradient(bottom, whitesmoke, #FFF);
+            background: -webkit-linear-gradient(bottom, whitesmoke, #FFF);
+            background: linear-gradient(to top, whitesmoke, #FFF);
+            &:hover {
+              background: -moz-linear-gradient(top, whitesmoke, #FFF);
+              background: -webkit-linear-gradient(top, whitesmoke, #FFF);
+              background: linear-gradient(to bottom, whitesmoke, #FFF);
+            }
+            &-link{
+              @include up-down-center;
+              width: 100%;
+              height: 48px;
+              color: $color_default;  
+              text-align: center;
+              text-decoration: none;
+              .shop-menu-name{
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+              }
+            }
+          }
+          .review-menu{
+            background: none;
+            background-color: gray;
+            a {
+              color: white;
+              &:hover{
+                background-color: gray;
+              }
+            }
+          }
+        }
+      }
+    }
+    .review-form{
+      padding: 20px 24px;
+      border: $border_style_inner;
+      &-header{
+        height: 4vh;
+        padding: 4px 8px;
+        border-bottom: $border_style_inner;
+        .form-title{
+          margin-left: 16px;
+          font-size: $fSize_content;
+        }
+      }
+      &-body{
+        margin: 0 24px;
+        text-align: center;
+        .input-rate{
+          padding: 8px 0;
+          .input-review-rate{
+            width: 50px;
+          }
+        }
+        .input-title{
+          margin-bottom: 8px;
+          .input-review-title{
+            width: 100%;
+            height: 48px;
+            padding: 0 4px;
+            border-radius: 4px;
+            border: $border_style_field;
+            outline: none;
+            font-size: 18px;
+            &:focus {
+              border: solid 3px $color_buy;
+              box-shadow: 0 0 3px $color_buy;
+            }
+          }
+        }
+        .input-content{
+          .input-review-content{
+            font-size: $fSize_content;
+            width: 100%;
+            height: 160px;
+            padding: 4px 4px;
+            border-radius: 4px;
+            border: $border_style_field;
+            outline: none;
+            &:focus {
+              border: solid 3px $color_buy;
+              box-shadow: 0 0 3px $color_buy;
+            }
+          }
+        }
+      }
+      &-footer{
+        @include up-down-center;
+        width: 100%;
+        height: 8vh;
+        padding: 0 24px;
+        border-radius: 0 0 6px 6px;
+        background-color: ivory;
+        .visit-date{
+          font-size: $fSize_content;
+        }
+        .send-btn{
+          margin-left: 22%;
+          .review-btn{
+            width: 120px;
+            height: 40px;
+            padding: 0.25em 0.5em;
+            border: $border_style_btn;
+            border-radius: 4px;
+            color: #FFF;
+            font-size: $fSize_content;
+            box-shadow: $shadow_btn_box;
+            background: $color_btn;
+            text-decoration: none;
+            text-shadow: $shadow_btn_text;
           }
         }
       }

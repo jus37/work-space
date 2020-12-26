@@ -1,22 +1,45 @@
-<%= render "devise/shared/header" %>
-<% breadcrumb :new_shop_review%>
-<%= render "layouts/breadcrumb"%>
-<%= render "shops/shop_info"%>
-
-
-<%= form_with model:@review, url: shop_reviews_path(@shop.id),local: true do |f|%>
-  評価<br>
-  <%= f.number_field :review_point, min: 0, max: 5%><br>
-  タイトル<br>
-  <%= f.text_field :title%><br>
-  コメント<br>
-  <%= f.text_area :comment%><br>
-  訪問日<br>
-  <%= f.date_field :date%><br>
-
-  送信する
-  <%= f.submit "送信" %>
-
-<% end %>
-
-<%= render "devise/shared/footer" %>
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="review-new-edit">
+  <div class="breradcrumbs">
+    <% breadcrumb :new_shop_review%>
+    <%= render "layouts/breadcrumb"%>
+  </div>
+  <div class="review">
+    <div class="review-info">
+      <%= render "shops/shop_info"%>
+    </div>
+    <div class="review-form">
+      <div class=review-form-header>
+        <span class="form-title">口コミを投稿する</span>
+      </div>
+      <%= form_with model:@review, url: shop_reviews_path(@shop.id),local: true do |f|%>
+        <div class="review-form-body">
+          <div class="input-rate">
+            <%= f.label :rate, "評価"%>
+            <%= f.number_field :review_point, min: 0, max: 5, class:"input-review-rate"%>
+          </div>
+          <div class="input-title">
+            <%= f.text_field :title, placeholder: "口コミのタイトルを入力してください", class:"input-review-title"%>
+          </div>
+          <div class="input-content">
+            <%= f.text_area :comment, placeholder: "口コミの内容を入力してください", class:"input-review-content"%>
+          </div>
+        </div>
+        <div class="review-form-footer">
+          <div class="visit-date">
+            <%= f.label :visit_date, "訪問日"%>
+            <%= f.date_field :date,class:"input-visit-date"%>
+          </div>
+          <div class="send-btn">
+            <%= f.submit "登録", class: "review-btn" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <%= render "devise/shared/footer" %>
+</div>
