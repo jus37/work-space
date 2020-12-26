@@ -1,4 +1,5 @@
 class ClipsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
   
   def index
     @user = User.find(params[:user_id])

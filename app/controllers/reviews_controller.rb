@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except:[:index]
   before_action :set_item
 
   def index
@@ -46,9 +47,11 @@ class ReviewsController < ApplicationController
 
   def set_item
     @shop = Shop.find(params[:shop_id])
-    @clip = Clip.find_by(params[shop_id: @shop.id, user_id:current_user.id])
     @shop_rate = @shop.reviews.average(:review_point)
     @shop_count = @shop.reviews.count
-  end
+    if user_signed_in?
+      @clip = Clip.find_by(params[shop_id: @shop.id, user_id:current_user.id])
+    end
+    end
 
 end
