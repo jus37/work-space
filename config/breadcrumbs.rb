@@ -17,6 +17,10 @@ crumb :user do
     user = User.find(params[:id])
     link "#{user.name}さん", user_path(user.id)
     parent :root
+  elsif params[:user_id].present?
+    user = User.find(params[:user_id])
+    link "#{user.name}さん", user_path(user.id)
+    parent :root
   else
     link "#{current_user.name}さん", user_path(current_user.id)
     parent :root
@@ -24,8 +28,8 @@ crumb :user do
 end
 
 crumb :user_histories do
-  if params[:id].present?
-    user = User.find(params[:id])
+  if params[:user_id].present?
+    user = User.find(params[:user_id])
     link "行ったお店", user_histories_path(user.id)
     parent :user
   else
@@ -35,8 +39,8 @@ crumb :user_histories do
 end
 
 crumb :user_clips do
-  if params[:id].present?
-    user = User.find(params[:id])
+  if params[:user_id].present?
+    user = User.find(params[:user_id])
     link "行ったお店", user_clips_path(user.id)
     parent :user
   else
@@ -102,27 +106,3 @@ crumb :edit_shop_review do
 end
 
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
-
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
-
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
-
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
-
-# If you want to split your breadcrumbs configuration over multiple files, you
-# can create a folder named `config/breadcrumbs` and put your configuration
-# files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
-# folder are loaded and reloaded automatically when you change them, just like
-# this file (`config/breadcrumbs.rb`).

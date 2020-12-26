@@ -19,9 +19,11 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id)
     @shop_rate = @shop.reviews.average(:review_point)
     @shop_count = @shop.reviews.count
+    if user_signed_in?
+      @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id)
+    end
   end
   
 
