@@ -267,6 +267,7 @@
           }
           .shop-comment{
             @include up-down-center;
+            padding: 5px 0;
             border-bottom: dotted 1px lightgray;
             color: $color_no_action;
             font-size: $fSize_content;
