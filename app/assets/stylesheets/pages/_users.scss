@@ -1,0 +1,583 @@
+.breadcrumbs{
+  padding: 10px 0;
+}
+// user-show マイページ画面
+.user-show{
+  @include view-center;
+  margin-bottom: 24px;
+  .user{
+    &-header{
+      .user{
+        height: 128px;
+        @include  up-down-center;
+        position: relative;
+        height: 50%;
+        padding-left: 16px;
+        .user-box{
+          // position: absolute;
+          // margin-top: -30px;
+          @include up-down-center;
+          width: 98px;
+          height: 98px;
+          padding: 4px;
+          border: $border_style_inner;
+          border-radius: 6px;
+          .user-image{
+            position: relative;
+            width: 88px;
+            height: 88px;
+            object-fit: cover;
+            margin: 0 auto;
+            border-radius: 4px;
+          }
+        }
+        .user-top{
+          @include  up-down-center;
+          justify-content: space-between;
+          width: 100%;
+          margin-left: 64px;
+          .user-name{
+            font-weight: bold;
+          }
+          .user-nav-bar{
+            @include  up-down-center;
+            .user-nav{
+              @include  up-down-center;
+              position: relative;
+              width: 96px;
+              height: 64px;
+              cursor: pointer;
+              &:before {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                right: -1px;
+                height: 2.2em;/*線の太さ*/
+                width: 1px;/*線の長さ*/
+                margin-top: -1.1em;
+                background-color: lightgray;/*線の色*/
+              }
+              &-link{
+                @include  up-down-center;
+                width: 96px;
+                height: 64px;
+                color: gray; 
+                font-size: $fSize_h5;
+                text-align: center;
+                &a{
+                  vertical-align: middle;
+                  color: gray;
+                  text-decoration: none;
+                }
+                .user-nav-name{
+                  display: table-cell;
+                  vertical-align: middle;
+                  width: 100%;
+                }
+              }
+              &:hover {
+                background-color: whitesmoke;
+                &:before {
+                  width: 0px;
+                }
+                &:after {
+                  width: 0px;
+                }
+              }
+              &:hover a {
+                color: $link_color_hover;
+              }  
+            }
+            .nav-top{
+              &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 1px;
+                display: inline-block;
+                width: 1px;/*線の長さ*/
+                height: 2.2em;/*線の太さ*/
+                margin-top: -1.1em;
+                background-color: lightgray;/*線の色*/
+              }
+            }
+          }
+        }
+      }
+      .user-header-line{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        min-width: $wrapper_min_width;
+        border-top: $border_style_default;
+        overflow: hidden;
+      }
+    }
+    &-info{
+      display: flex;
+      justify-content: space-around;
+      height: 100%;
+      margin: 32px 0;
+      padding: 32px 32px;
+      background-color: oldlace;
+      &-comment{
+        width: 60%;
+        height: 240px;
+        padding: 16px;
+        border: $border_style_inner;
+        background-color: white;
+        white-space: pre-wrap;
+      }
+      &-action{
+        width: 32%;
+        padding: 16px;
+        border: $border_style_inner;
+        background-color: white;
+        font-size: 12px;
+        .user-action-list{
+          @include  up-down-center;
+          justify-content: space-between;
+          position: relative;
+          height: 36px;
+          border-bottom: dotted 1px lightgray;
+        }
+        &-title{
+
+        }
+        &-histories{
+
+        }
+        &-clips{
+
+        }
+      }
+    }
+  }
+}
+
+// registration-edit
+.user-edit{
+  @include view-center;
+  .user-header{
+    margin-bottom: 24px;
+    .user{
+      height: 128px;
+      @include  up-down-center;
+      position: relative;
+      height: 50%;
+      padding-left: 16px;
+      .user-box{
+        // position: absolute;
+        // margin-top: -30px;
+        @include up-down-center;
+        width: 98px;
+        height: 98px;
+        padding: 4px;
+        border: $border_style_inner;
+        border-radius: 6px;
+        .user-image{
+          position: relative;
+          width: 88px;
+          height: 88px;
+          object-fit: cover;
+          margin: 0 auto;
+          border-radius: 4px;
+        }
+      }
+      .user-top{
+        @include  up-down-center;
+        justify-content: space-between;
+        width: 100%;
+        margin-left: 64px;
+        .user-name{
+          font-weight: bold;
+        }
+        .user-nav-bar{
+          @include  up-down-center;
+          .user-nav{
+            @include  up-down-center;
+            position: relative;
+            width: 96px;
+            height: 64px;
+            cursor: pointer;
+            &:before {
+              content: '';
+              display: inline-block;
+              position: absolute;
+              top: 50%;
+              right: -1px;
+              height: 2.2em;/*線の太さ*/
+              width: 1px;/*線の長さ*/
+              margin-top: -1.1em;
+              background-color: lightgray;/*線の色*/
+            }
+            &-link{
+              @include  up-down-center;
+              width: 96px;
+              height: 64px;
+              color: gray; 
+              font-size: $fSize_h5;
+              text-align: center;
+              &a{
+                vertical-align: middle;
+                color: gray;
+                text-decoration: none;
+              }
+              .user-nav-name{
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+              }
+            }
+            &:hover {
+              background-color: whitesmoke;
+              &:before {
+                width: 0px;
+              }
+              &:after {
+                width: 0px;
+              }
+            }
+            &:hover a {
+              color: $link_color_hover;
+            }  
+          }
+          .nav-top{
+            &:after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 1px;
+              display: inline-block;
+              width: 1px;/*線の長さ*/
+              height: 2.2em;/*線の太さ*/
+              margin-top: -1.1em;
+              background-color: lightgray;/*線の色*/
+            }
+          }
+        }
+      }
+    }
+    .user-header-line{
+      position: absolute;
+      left: 0;
+      width: 100%;
+      min-width: $wrapper_min_width;
+      border-top: $border_style_default;
+      overflow: hidden;
+    }
+  }
+  .account{
+    display: flex;
+    justify-content: space-between;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    // &:after {
+    //   display: block;
+    //   clear: both;
+    //   content: "";
+    // }
+    &-top{
+      // float: left;
+      width: 50%;
+      &-title{
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+        font-size: 24px;
+        font-weight: 200;
+  
+        &:after {
+          display: block;
+          width: 60px;
+          margin-top: 5px;
+          border-bottom: $border_style_btn;
+          content: '';
+        }
+      }
+      &-subtitle{
+        margin-bottom: 20px;
+        font-size: $fSize_h5;
+        font-weight: 200;
+      }
+    }
+    &-content{
+      float: right;
+      width: 50%;
+      .field{
+        margin-bottom: 10px;
+        &-label{
+          margin-right: 24px;
+          padding: 10px 0;
+          letter-spacing: 1px;
+          font-size: 12px;
+          font-weight: 200;
+        }
+        &-input{
+          font-size: $fSize_content;
+          input {
+            width: 100%;
+            padding: 4px 8px;
+            letter-spacing: 1px;
+          }
+          .text-area{
+            width: 100%;
+            height: 7em;
+            padding: 4px;
+          }
+        }
+        .user-image{
+          padding: 3px;
+          border: solid 1px gray;
+          height: 128px;
+          width: 128px;
+        }
+        #preview-image{
+          padding: 3px;
+          border: solid 1px gray;
+          height: 128px;
+          width: 128px;
+        }
+      }
+      .btn{
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 30px;
+        border: none;
+        border-radius: 2px;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+      input[type='submit'] {
+        display: block;
+        float: left;
+        margin-top: 20px;
+        background-color: $color_btn;
+        color: #fff;
+      }
+      .user-delete{
+        margin-top: 100px;
+        font-size: $fSize_content;
+        a{
+          color: $link_color_content;
+        }
+      }
+    }
+  }
+}
+
+// ログイン
+.user-sign-in{
+  @include view-center;
+  .user{
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    &:after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+    &-info{
+      float: left;
+      width: 50%;
+      .sign-in-title{
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+        font-size: 24px;
+        font-weight: 200;
+  
+        &:after {
+          display: block;
+          width: 60px;
+          margin-top: 5px;
+          border-bottom: $border_style_btn;
+          content: '';
+        }  
+      }
+      .sign-up{
+        .sign-up-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #ccc;
+          font-size: $fSize_h5;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+      .test-sign-in{
+        margin-top: 20px;
+        .test-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #03A9F4;
+          font-size: $fSize_content;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+    }
+    &-form{
+      float: left;
+      width: 50%;
+      .field{
+        margin-bottom: 10px;
+        &-label{
+          margin-right: 24px;
+          padding: 10px 0;
+          letter-spacing: 1px;
+          font-size: 12px;
+          font-weight: 200;
+        }
+        &-area{
+          font-size: $fSize_content;
+          input {
+            width: 100%;
+            padding: 4px 8px;
+            letter-spacing: 1px;
+          }
+        }
+      }
+      .actions{
+        .sign-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #03A9F4;
+          font-size: $fSize_h5;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// 新規会員登録
+.user-sign-up{
+  @include view-center;
+  .user{
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    &:after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+    &-info{
+      float: left;
+      width: 50%;
+      .sign-up-title{
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+        font-size: 24px;
+        font-weight: 200;
+  
+        &:after {
+          display: block;
+          width: 60px;
+          margin-top: 5px;
+          border-bottom: $border_style_btn;
+          content: '';
+        }  
+      }
+      .sign-in{
+        .sign-in-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #ccc;
+          font-size: $fSize_h5;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+      .test-sign-in{
+        margin-top: 20px;
+        .test-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #03A9F4;
+          font-size: $fSize_content;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+    }
+    &-form{
+      float: left;
+      width: 50%;
+      .field{
+        margin-bottom: 10px;
+        &-label{
+          margin-right: 24px;
+          padding: 10px 0;
+          letter-spacing: 1px;
+          font-size: 12px;
+          font-weight: 200;
+        }
+        &-area{
+          font-size: $fSize_content;
+          input {
+            width: 100%;
+            padding: 4px 8px;
+            letter-spacing: 1px;
+          }
+        }
+      }
+      .actions{
+        .sign-btn{
+          margin-top: 20px;
+          color: #fff;
+          background-color: #03A9F4;
+          font-size: $fSize_h5;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          border: none;
+          border-radius: 2px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

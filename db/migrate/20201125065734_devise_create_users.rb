@@ -9,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.string :telephone, null: false
       t.text :comment
+      t.integer :admin
       
 
 

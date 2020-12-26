@@ -6,9 +6,7 @@ class Shop < ApplicationRecord
   belongs_to :genre
   belongs_to :area
   has_many :clips
-  has_many :users, through: :clips
-  has_many :histories
-  has_many :users, through: :histories
+  has_many :users, through: :clips, dependent: :destroy
 
   with_options presence: true do
     validates :name
@@ -16,7 +14,7 @@ class Shop < ApplicationRecord
     validates :open_hour
     validates :regular_holiday
     validates :address
-    validates :images
+    # validates :images seedファイルのために
   end
 
 end
