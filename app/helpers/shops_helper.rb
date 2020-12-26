@@ -24,6 +24,8 @@ module ShopsHelper
       "#{@area_form}による検索結果 #{@search_shops.count}件"
     elsif @name_form.present?
       "#{@name_form}による検索結果 #{@search_shops.count}件"
+    else
+      "店舗一覧 #{Shop.all.count}件"
     end
   end
 end

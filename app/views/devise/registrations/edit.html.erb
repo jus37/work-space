@@ -1,70 +1,104 @@
-<% breadcrumb :edit_user%>
-<%= render "layouts/breadcrumb"%>
-<%= render "devise/shared/header" %>
-<%= render "users/user_tab"%>
-
-
-<h2>登録情報の編集</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", model: f.object %>
-
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "off" %>
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="user-edit">
+  <div class="breadcrumbs">
+    <% breadcrumb :edit_user%>
+    <%= render "layouts/breadcrumb"%>
   </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autocomplete: "off" %>
+  <div class="user-header">
+    <%= render "users/header"%>
   </div>
-
-  <div class="field">
-    <%= f.label :現在のパスワード %><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :新しいパスワード　※半角英数字6文字以上 %><br>
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :新しいパスワード※確認用 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :電話番号 %><br />
-    <%= f.text_field :telephone, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <div id="icon-image">
-      <% if current_user.image.present?%>
-        <%= image_tag current_user.image.variant(resize: '300x300')%>
-      <% end %>
+  <div class="account">
+    <div clas="account-top">
+      <p class="account-top-title">設定</p>
+      <p class="account-top-subtitle">登録情報の変更</p>
     </div>
-    <%= f.label :アイコン画像 %><br />
-    <%= f.file_field :image, id: "publish-user-image", autocomplete: "off" %>
+    <div class="account-content">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", model: f.object %>
+        <div class="field">
+          <div class="field-label">
+            <%= f.label :ユーザー名 %>
+          </div>
+          <div class="field-input">
+            <%= f.text_field :name, autofocus: true, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="field">
+          <div id="icon-image">
+            <% if current_user.image.present?%>
+              <%= image_tag current_user.image,class:"user-image"%>
+            <% end %>
+          </div>
+          <div class="field-label">
+          <%= f.label :アイコン画像 %>
+          </div>
+          <div class="field-input">
+          <%= f.file_field :image, id: "publish-user-image", autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">
+          <%= f.label :コメント %>
+          </div>
+          <div class="field-input">
+          <%= f.text_area :comment, autocomplete: "off",class:"text-area" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">
+          <%= f.label :メールアドレス %>
+          </div>
+          <div class="field-input">
+          <%= f.email_field :email, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">
+          <%= f.label :現在のパスワード %>
+          </div>
+          <div class="field-input">
+          <%= f.password_field :current_password, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">
+          <%= f.label :新しいパスワード　※半角英数字6文字以上 %><br>
+          </div>
+          <div class="field-input">
+          <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">
+          <%= f.label :新しいパスワード※確認用 %>
+          </div>
+          <div class="field-input">
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">
+          <%= f.label :電話番号 %>
+          </div>
+          <div class="field-input">
+          <%= f.text_field :telephone, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "更新する",class:"btn" %>
+        </div>
+      <% end %>
+      <div class="user-delete">
+        <%= link_to(registration_path(resource_name), data: { confirm: "本当に退会しますか？" }, method: :delete,class:"user-delete-link") do %>
+          <span class="user-delete-name">退会はこちら</span>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :一言 %><br />
-    <%= f.text_area :comment, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新する" %>
-  </div>
-<% end %>
-
-<h3>退会申請</h3>
-
-<p> <%= button_to "退会する", registration_path(resource_name), data: { confirm: "本当に退会しますか？" }, method: :delete %></p>
-
-<%= link_to "戻る", :back %>
-
-<%= render "devise/shared/footer" %>
+</div>
+<div class="footer">
+  <%= render "devise/shared/footer" %>
+</div>
 

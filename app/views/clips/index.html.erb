@@ -1,20 +1,71 @@
-<%= render "devise/shared/header" %>
-<% breadcrumb :user_clips%>
-<%= render "layouts/breadcrumb"%>
-<%= render "users/user_tab"%><br>
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="clip-index">
+  <div class="breadcrumbs">
+    <% breadcrumb :user_clips%>
+    <%= render "layouts/breadcrumb"%>
+    </div>
+  <div class="user-header">
+    <%= render "users/header"%>
+  </div>
+  <div class="shop">
+    <% @clips.each do |clip| %>
+      <div class="shop-list">
+        <%= link_to shop_path(clip.shop.id) do %>
+          <div class="shop-top">
+            <div class="shop-top-name">
+                <span class="shop-name"><%= clip.shop.name%></span>
+            </div>
+            <div class="shop-top-info">
+              <div class="shop-top-area">
+                <%= "[#{clip.shop.area.name}]"%>
+                <%= clip.shop.nearest_station%>
+              </div>
+              <div class="shop-top-genre">
+                <%= "　/　#{clip.shop.genre.name}"%>
+              </div>
+            </div>
+          </div>
+          <div class="shop-info">
+            <div class="shop-box">
+              <% if clip.shop.images.present? %>
+                <%= image_tag clip.shop.images[0], class:"shop-image"%>
+              <% else %>
+                <%= image_tag "no_image.jpg", class:"shop-image"%>
+              <% end %>
+            </div>
+            <div class="shop-bottom">
+              <div class="shop-bottom-title">
+                <%= clip.shop.title%>
+              </div>
+              <div class="shop-bottom-comment">
+                <div class="shop-bottom-comment-point">
+                  評価<%= clip.shop.reviews.average(:review_point)%>
+                </div>
+                <div class="shop-bottom-comment-count">
+                  口コミ数<%= clip.shop.reviews.count%>
+                </div>
+              </div>
+              <div class="shop-bottom-characteristic">
+                <% clip.shop.characteristics.each do |characteristic|%>
+                  <span class="shop-bottom-characteristic-name"><%= characteristic.name%></span>
+                <% end %>
+              </div>
+              <div class="shop-bottom-review">
+                <% clip.shop.reviews.first(1).each do |review|%>
+                  <span class="shop-bottom-review-title"><%= review.title%></span>
+                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %> 
+  </div>
+</div>
 
-<% @clips.each do |clip|%>
-  <% if clip.shop.images.present?%>
-    <%= image_tag clip.shop.images[0].variant(resize: '300x300')%>
-  <% else %>
-    <%= image_tag "no_image.jpg"%>
-  <% end %><br>
-  <%= clip.shop.name%><br>
-  <%= clip.shop.area.name%><br>
-  <%= clip.shop.genre.name%><br>
-  評価<%= clip.shop.reviews.average(:review_point)%><br>
-  口コミ数<%= clip.shop.reviews.count%><br>
-<% end %>
-    
-
-<%= render "devise/shared/footer" %>
+<div class="footer">
+  <%= render "devise/shared/footer" %>
+</div>

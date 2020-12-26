@@ -1,18 +1,71 @@
-<%= render "devise/shared/header" %>
-<% breadcrumb :user_histories%>
-<%= render "layouts/breadcrumb"%>
-<%= render "users/user_tab"%><br>
-
-<% @reviews.each do |review|%>
-  <%= link_to review.shop.name, "#"%><br>
-  <%= review.shop.area.name%>
-  <%= review.shop.genre.name%><br>
-  <%= link_to "編集", edit_shop_review_path(shop_id: review.shop_id, id: review.id)%>
-  <%= link_to "削除", shop_review_path(shop_id: review.shop_id, id: review.id), method: :delete %><br>
-  <%= "評価：#{review.review_point}"%><br>
-  <%= "訪問日： #{review.date.year}/#{review.date.month}/#{review.date.day}"%><br>
-  <%= review.title%><br>
-  <%= review.comment%><br>
-<% end %>
-
-<%= render "devise/shared/footer" %>
+<div class="header">
+  <%= render "devise/shared/header" %>
+</div>
+<div class="history-index">
+  <div class="breadcrumbs">
+    <% breadcrumb :user_histories%>
+    <%= render "layouts/breadcrumb"%>
+  </div>
+  <div class="user-header">
+    <%= render "users/header"%>
+  </div>
+  <div class="shop">
+    <% @reviews.each do |review| %>
+      <div class="shop-list">
+        <%= link_to shop_path(review.shop.id) do %>
+          <div class="shop-top">
+            <div class="shop-top-name">
+                <span class="shop-name"><%= review.shop.name%></span>
+            </div>
+            <div class="shop-top-info">
+              <div class="shop-top-area">
+                <%= "[#{review.shop.area.name}]"%>
+                <%= review.shop.nearest_station%>
+              </div>
+              <div class="shop-top-genre">
+                <%= "　/　#{review.shop.genre.name}"%>
+              </div>
+            </div>
+          </div>
+          <div class="shop-info">
+            <div class="shop-box">
+              <% if review.shop.images.present? %>
+                <%= image_tag review.shop.images[0], class:"shop-image"%>
+              <% else %>
+                <%= image_tag "no_image.jpg", class:"shop-image"%>
+              <% end %>
+            </div>
+            <div class="shop-bottom">
+              <div class="shop-bottom-title">
+                <%= review.shop.title%>
+              </div>
+              <div class="shop-bottom-comment">
+                <div class="shop-bottom-comment-point">
+                  評価<%= review.shop.reviews.average(:review_point)%>
+                </div>
+                <div class="shop-bottom-comment-count">
+                  口コミ数<%= review.shop.reviews.count%>
+                </div>
+              </div>
+              <div class="shop-bottom-characteristic">
+                <% review.shop.characteristics.each do |characteristic|%>
+                  <span class="shop-bottom-characteristic-name"><%= characteristic.name%></span>
+                <% end %>
+              </div>
+              <div class="shop-bottom-review">
+                <% review.shop.reviews.first(1).each do |review|%>
+                  <span class="shop-bottom-review-title"><%= review.title%></span>
+                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %> 
+  </div>
+  <%# ユーザーのレビュー内容を表示 %>
+</div>
+<div class="footer">
+  <%= render "devise/shared/footer" %>
+</div>
