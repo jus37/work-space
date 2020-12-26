@@ -9,20 +9,35 @@
   <div class="review-info">
     <%= render "shops/shop_info"%>
   </div>
-  <div class="">
+  <div class="review-form">
+    <div class=recview-form-header>
+      <span>口コミを投稿する</span>
+    </div>
     <%= form_with model:@review, url: shop_review_path(shop_id: @shop.id, id: @review.id),local: true do |f|%>
-      評価
-      <%= f.number_field :review_point, min: 0, max: 5%>
-      タイトル
-      <%= f.text_field :title%>
-      コメント
-      <%= f.text_area :comment%>
-      訪問日
-      <%= f.date_field :date%>
-      <%= f.submit "変更" %>
-      送信する
+      <div class="review-form-body">
+        <div class="input-rate">
+          <%= f.label :rate, "評価"%>
+          <%= f.number_field :review_point, min: 0, max: 5, class:"input-review-rate"%>
+        </div>
+        <div class="input-title">
+          <%= f.text_field :title, placeholder: "口コミのタイトルを入力してください", class:"input-review-title"%>
+        </div>
+        <div class="input-content">
+          <%= f.text_area :comment, placeholder: "口コミの内容を入力してください", class:"input-review-content"%>
+        </div>
+      </div>
+      <div class="review-form-footer">
+        <div class="visit-date">
+          <%= f.label :visit_date, "訪問日"%>
+          <%= f.date_field :date,class:"input-visit-date"%>
+        </div>
+        <div class="send-btn">
+          <%= f.submit "登録", class: "review-btn" %>
+        </div>
+      </div>
     <% end %>
   </div>
+</div>
 <div class="footer">
   <%= render "devise/shared/footer" %>
 </div>
