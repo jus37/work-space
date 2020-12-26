@@ -26,6 +26,7 @@
           }
           .shop-comment{
             @include up-down-center;
+            padding: 5px 0;
             border-bottom: dotted 1px lightgray;
             color: $color_no_action;
             font-size: $fSize_content;
@@ -216,6 +217,7 @@
           }
           .shop-comment{
             @include up-down-center;
+            padding: 5px 0;
             border-bottom: dotted 1px lightgray;
             color: $color_no_action;
             font-size: $fSize_content;
@@ -296,6 +298,7 @@
       }
     }
     .review-form{
+      margin: 24px 0;
       padding: 20px 24px;
       border: $border_style_inner;
       &-header{
