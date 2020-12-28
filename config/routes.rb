@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :clips
     collection do
       get 'search'
+      get 'map'
     end
   end
   resources :users do
