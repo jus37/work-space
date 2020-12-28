@@ -87,6 +87,12 @@ crumb :edit_shop do
   parent :shop
 end
 
+crumb :map_shop do |shop|
+  shop = Shop.find(params[:id])
+  link "口コミ一覧", map_shop_path(shop.id)
+  parent :shop
+end
+
 crumb :shop_reviews do |shop|
   shop = Shop.find(params[:shop_id])
   link "口コミ一覧", shop_reviews_path(shop)
