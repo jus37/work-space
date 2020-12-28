@@ -53,8 +53,16 @@ class ShopsController < ApplicationController
     @characteristic = params.require(:q)[:characteristics_name_eq]
     @area_form = params.require(:q)[:area_name_or_nearest_station_cont]
     @name_form = params.require(:q)[:name_or_genre_name_cont]
-    end
+  end
 
+  def map
+    @shop = Shop.find(params[:id])
+    @shop_rate = @shop.reviews.average(:review_point)
+    @shop_count = @shop.reviews.count
+    if user_signed_in?
+      @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id)
+    end
+  end
 
   private
 
