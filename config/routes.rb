@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    member do
+      get 'map'
+    end
   end
   resources :users do
     resources :clips
