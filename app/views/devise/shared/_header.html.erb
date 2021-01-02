@@ -1,30 +1,25 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <div class="container">
-    <div class="row">
-      <div class='nav'>
-        <ul class="toplink">
-          <%if user_signed_in?%>
-            <li><%= link_to "マイページ", user_path(current_user.id), class:"mpage" %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-          <% else %>
-            <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-            <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-3">
-        <h1><%= link_to "WORK-SPACE", root_path ,class:"title"%></h1>
-      </div>
-      <div class = "col-xs-12 col-sm-8 search-fields">
-        <%= search_form_for @q,url: search_shops_path do |f| %>
-          <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪駅]",class:"shop_search shop_search_area"%>
-          <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]"%>
-          <%= f.submit :button, class:"search-btn"%>
-        <% end %>
-      </div>
+  <div class='top-link'>
+    <ul class="account">
+      <%if user_signed_in?%>
+        <li><%= link_to "マイページ", user_path(current_user.id), class:"my-page" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "sign-in" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="main-link">
+    <%# <div class="col-xs-12 col-sm-3"> %>
+      <p class="title"><%= link_to "WORK-SPACE", root_path ,class:"title-name"%></p>
+    <%# </div> %>
+    <div class = "search-fields">
+      <%= search_form_for @q,url: search_shops_path,class:"search-link" do |f| %>
+        <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪駅]",class:"search-field shop_search shop_search_area"%>
+        <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]", class:"search-field genre-search"%>
+        <%= f.submit value:"", class:"search-btn"%>
+      <% end %>
     </div>
   </div>
 </header>
