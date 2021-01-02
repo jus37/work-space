@@ -1,1 +1,12 @@
-.pagination{}
+.pagination{
+  li{
+    a{
+          color: gray !important;
+    }
+  }
+  .active{
+    a{
+      color: white !important;
+    }
+  }
+}
