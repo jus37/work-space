@@ -37,12 +37,37 @@
     </div>
   </div>
   <div class="action">
-    <% if @clip.present?%>
-      <%= link_to "保存をやめる", shop_clip_path(shop_id: @clip.shop.id, id: @clip.id), method: :delete, class:"shop-clip"%>
+    <%if user_signed_in?%>
+      <% if @clip.present?%>
+        <div class="action-btn">
+          <%= link_to(shop_clip_path(shop_id: @clip.shop.id, id: @clip.id), method: :delete, class:"action-link") do%>
+            <span class="action-name history-delete">保存</span>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="action-no-btn">
+          <%= link_to(shop_clips_path(@shop.id), method: :post, class:"action-link shop-clip") do%>
+            <span class="action-name history-post">保存</span>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="action-btn">
+        <%=link_to(new_shop_review_path(@shop.id),class:"action-link shop-history") do %>
+          <span class="action-name link-clip">行った</span>
+        <% end %>
+      </div>
     <% else %>
-      <%= link_to "保存", shop_clips_path(@shop.id), method: :post, class:"shop-clip"%>
+      <div class="action-btn">
+        <%= link_to(new_user_session_path, class:"action-link shop-clip") do%>
+          <span class="action-name history-post">保存</span>
+        <% end %>
+      </div>
+      <div class="action-btn">
+        <%=link_to(new_user_session_path,class:"action-link shop-history") do %>
+          <span class="action-name link-clip">行った</span>
+        <% end %>
+      </div>
     <% end %>
-    <%=link_to "行った", new_shop_review_path(@shop.id),class:"shop-history"%>
   </div>
 </div>
 <div class="tab">
