@@ -41,8 +41,18 @@
               </div>
             </div>
             <div class="review-info">
-              <div class="review-rate">
-                <span class="review-rate-point"><%= "評価：#{review.review_point}"%></span>
+              <div class="review-rate", id="star-rate-<%=review.id%>">
+                <script>
+                  $("#star-rate-<%=review.id%>").raty({
+                    size     : 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHarf: '<%= asset_path('star-half.png')%>',
+                    readOnly: true,
+                    score: "<%=review.review_point%>"
+                  });
+                </script>  
+                <span class="review-rate-point"><%= review.review_point%></span>
               </div>
               <div class="review-content">
                 <div class="review-visit"><%= "訪問日： #{review.date.year}/#{review.date.month}/#{review.date.day}"%></div>
