@@ -101,3 +101,14 @@ hr {
 input, select {
   vertical-align:middle;
 }
+
+// aタグ設定
+a{
+  text-decoration: none;
+ }
+ 
+a:hover{
+  text-decoration: underline;
+  color:#ff9933;
+  cursor: pointer;
+ }
