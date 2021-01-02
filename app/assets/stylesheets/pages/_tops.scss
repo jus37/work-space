@@ -27,9 +27,6 @@
   }
 
   .main{
-    // display: flex;
-    // justify-content: space-between;
-    // サイドバー実装時に挿入
     margin: 20px;
     padding-left: 20px ;
     max-width: $wrapper_max_width;
@@ -89,17 +86,6 @@
             font-size: $fSize_content;
             cursor: pointer;
           }
-          // .area-bottom-list:before{
-          //   position: absolute;
-          //   top: .35em;
-          //   left: 0;
-          //   width: 0;
-          //   height: 0;
-          //   border-width: 4px;
-          //   border-style: solid;
-          //   border-color: transparent transparent transparent orange;
-          //   content: "";
-          // }
         }
       }
     }
@@ -111,7 +97,7 @@
           list-style-type: none;
           .genre-top-box{
             & a:hover {
-              color: black;
+              color: rgb(44, 44, 44);
               text-decoration: underline;
               & img {
                 opacity: 0.5;
