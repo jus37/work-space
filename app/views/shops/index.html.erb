@@ -8,12 +8,15 @@
   </div>
   <div class="title">
     <span class="title-name">店舗一覧</span>
-    <span class="title-count"><%="#{@shops.count}件"%></span>
+    <span class="title-count"><%="#{@shops_count}件"%></span>
   </div>
   <div class="master">
     <%if user_signed_in? && current_user.admin == 1%>
       <%= link_to 'お店登録', new_shop_path%>
     <% end %>
+  </div>
+  <div class="paginate">
+    <%= paginate @shops %>
   </div>
   <div class="shop">
     <% @shops.each do |shop| %>
@@ -79,6 +82,9 @@
         <% end %>
       </div>
     <% end %> 
+  </div>
+  <div class="paginate">
+    <%= paginate @shops %>
   </div>
 </div>
 <div class="footer">

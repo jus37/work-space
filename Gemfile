@@ -77,3 +77,4 @@ gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem "aws-sdk-s3", require: false
+gem "kaminari"

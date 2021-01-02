@@ -15,6 +15,9 @@
       <%= link_to 'お店登録', new_shop_path%>
     <% end %>
   </div>
+  <div class="paginate">
+    <%= paginate @shops %>
+  </div>
   <div class="shop">
     <% @search_shops.each do |shop| %>
       <div class="shop-list">
@@ -79,6 +82,9 @@
         <% end %>
       </div>
     <% end %> 
+  </div>
+  <div class="paginate">
+    <%= paginate @shops %>
   </div>
 </div>
 <div class="footer">
