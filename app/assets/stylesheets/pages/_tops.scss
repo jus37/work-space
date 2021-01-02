@@ -4,32 +4,29 @@
 .top-index{
   .top{
     position: relative;
+    width: 100%;
+    min-width: 1280px;
+    background-size:cover ;
     height: 500px;
-    .top-image{
-      width: 100vw;
-      height: 500px;
-      position: absolute;
-    }
+    background-image: url("work-space-top.jpg");
     .top-title{
-      background-color: rgba(255,255,255,0.5);
+      background-color: rgba(255,255,255,0.8);
       position: absolute;
       color: black;
       top: 200px;
       left: 100px;
-      height: 100px;
+      height: 200px;
       width: 400px;
       text-align: center;
       display: flex;
+      justify-content: center;
       align-items: center;
-      font-size: 20px;
+      font-size: 40px;
       border: black;
     }
   }
 
   .main{
-    // display: flex;
-    // justify-content: space-between;
-    // サイドバー実装時に挿入
     margin: 20px;
     padding-left: 20px ;
     max-width: $wrapper_max_width;
@@ -89,17 +86,6 @@
             font-size: $fSize_content;
             cursor: pointer;
           }
-          // .area-bottom-list:before{
-          //   position: absolute;
-          //   top: .35em;
-          //   left: 0;
-          //   width: 0;
-          //   height: 0;
-          //   border-width: 4px;
-          //   border-style: solid;
-          //   border-color: transparent transparent transparent orange;
-          //   content: "";
-          // }
         }
       }
     }
@@ -111,7 +97,7 @@
           list-style-type: none;
           .genre-top-box{
             & a:hover {
-              color: black;
+              color: rgb(44, 44, 44);
               text-decoration: underline;
               & img {
                 opacity: 0.5;
