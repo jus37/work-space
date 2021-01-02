@@ -16,10 +16,20 @@
       </div>
       <%= form_with model:@review, url: shop_reviews_path(@shop.id),local: true do |f|%>
         <div class="review-form-body">
-          <div class="input-rate">
+          <div class="input-rate", id="star">
             <%= f.label :rate, "評価"%>
-            <%= f.number_field :review_point, min: 0, max: 5, class:"input-review-rate"%>
+            <%= f.hidden_field :review_point, min: 0, max: 5, class:"input-review-rate"%>
           </div>
+          <script>
+            $('#star').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHarf: '<%= asset_path('star-half.png')%>',
+              scoreName: 'review[review_point]',
+              half: false,
+            });
+          </script>  
           <div class="input-title">
             <%= f.text_field :title, placeholder: "口コミのタイトルを入力してください", class:"input-review-title"%>
           </div>
