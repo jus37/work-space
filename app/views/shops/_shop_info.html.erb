@@ -12,8 +12,18 @@
       </div>
     </div>
     <div class="shop-comment">
-      <div class="shop-comment-point">
-        評価<%= @shop_rate%>
+      <div class="shop-comment-point", id="shop-star-rate-<%=@shop.id%>">
+        <script>
+          $("#shop-star-rate-<%=@shop.id%>").raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHarf: '<%= asset_path('star-half.png')%>',
+            readOnly: true,
+            score: "<%=@shop_rate%>"
+          });
+        </script>  
+        <span><%= @shop_rate%></span>
       </div>
       <div class="shop-comment-count">
         口コミ数<%=@shop_count%>
