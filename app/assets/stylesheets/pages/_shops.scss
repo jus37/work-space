@@ -718,12 +718,28 @@
 // Shop登録
 .shop-new{
   @include view-center;
+  .title{
+    font-size: 30px;
+    font-weight: bold;
+  }
   .shop-form{
     display: flex;
     justify-content: space-between;
     margin: 20px 30px;
     &-field{
       width: 400px;
+    }
+    .select-box{
+      width: 400px;
+    }
+  }
+  .shop-check{
+    display: flex;
+    .select-check-shop{
+      width: 400px;
+      .select-check-box{
+        margin: 0px 4px;
+      }
     }
   }
   .shop-send{
