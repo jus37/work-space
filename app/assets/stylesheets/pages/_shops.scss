@@ -715,4 +715,20 @@
   }
 }
 
-// 
+// Shop登録
+.shop-new{
+  @include view-center;
+  .shop-form{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 30px;
+    &-field{
+      width: 400px;
+    }
+  }
+  .shop-send{
+    display: flex;
+    justify-content: flex-end;
+    margin: 50px 100px;
+  }
+}
