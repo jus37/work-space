@@ -73,9 +73,19 @@
           <%= f.collection_check_boxes(:characteristic_ids, Characteristic.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         </div>
         <div class="shop-form">
-          <%= f.label "店舗イメージ", class:"shop-label" %>
-          <div id="shop-image"></div>
-          <%= f.file_field :images, name: 'shop[images][]', id:"publish-shop-image" %>
+          <%= f.label "店舗イメージ1", class:"shop-label" %>
+          <div id="shop-image1"></div>
+          <%= f.file_field :image1, name: 'shop-image-field', id:"publish-shop-image1" %>
+        </div>
+        <div class="shop-form">
+          <%= f.label "店舗イメージ2", class:"shop-label" %>
+          <div id="shop-image2"></div>
+          <%= f.file_field :image2, name: 'shop-image-field', id:"publish-shop-image2" %>
+        </div>
+        <div class="shop-form">
+          <%= f.label "店舗イメージ3", class:"shop-label" %>
+          <div id="shop-image3"></div>
+          <%= f.file_field :image3, name: 'shop-image-field', id:"publish-shop-image3" %>
         </div>
         <div class="shop-send">
           <%= f.submit "登録する" ,class:"shop-btn" %>
