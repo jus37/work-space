@@ -68,24 +68,28 @@
           <%= f.label "ジャンル", class:"shop-label" %>
           <%= f.collection_select(:genre_id, Genre.all, :id, :name, {include_blank: "選択してください"}, {class:"select-box", id:"item-category"}) %>
         </div>
-        <div class="shop-form">
-          <%= f.label "おすすめポイント", class:"shop-label" %>
-          <%= f.collection_check_boxes(:characteristic_ids, Characteristic.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="shop-form shop-check">
+          <div class="select-check-label">
+            <%= f.label "おすすめポイント", class:"shop-label" %>
+          </div>
+          <div class="select-check-shop">
+            <%= f.collection_check_boxes(:characteristic_ids, Characteristic.all, :id, :name, {}, {class:"select-check-box", id:"item-category"}) %>
+          </div>
         </div>
         <div class="shop-form">
           <%= f.label "店舗イメージ1", class:"shop-label" %>
-          <div id="shop-image1"></div>
-          <%= f.file_field :image1, name: 'shop-image-field', id:"publish-shop-image1" %>
+          <div id="shop-image"></div>
+          <%= f.file_field :image1, name: 'shop-image-field', id:"publish-shop-image" %>
         </div>
         <div class="shop-form">
           <%= f.label "店舗イメージ2", class:"shop-label" %>
-          <div id="shop-image2"></div>
-          <%= f.file_field :image2, name: 'shop-image-field', id:"publish-shop-image2" %>
+          <div id="shop-image"></div>
+          <%= f.file_field :image2, name: 'shop-image-field', id:"publish-shop-image" %>
         </div>
         <div class="shop-form">
           <%= f.label "店舗イメージ3", class:"shop-label" %>
-          <div id="shop-image3"></div>
-          <%= f.file_field :image3, name: 'shop-image-field', id:"publish-shop-image3" %>
+          <div id="shop-image"></div>
+          <%= f.file_field :image3, name: 'shop-image-field', id:"publish-shop-image" %>
         </div>
         <div class="shop-send">
           <%= f.submit "登録する" ,class:"shop-btn" %>
