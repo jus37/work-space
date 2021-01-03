@@ -98,6 +98,9 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
     t.string "private_room"
     t.string "wifi"
     t.string "power_supply"
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
     t.bigint "genre_id", null: false
     t.bigint "area_id", null: false
     t.index ["area_id"], name: "index_shops_on_area_id"
