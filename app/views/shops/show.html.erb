@@ -12,10 +12,10 @@
     </div>
     <div class="shop-content">
       <div class="shop-content-image">
-        <% if @shop.image1.nil? && @shop.image2.nil? && @shop.image3.nil?%>
-          <%= image_tag "no_image.jpg",class:"shop-image"%>
+        <% if @shop.images.attached?%>
+          <%= image_tag @shop.images[0],class:"shop-image"%>
         <% else %>
-            <%= image_tag @shop.image1,class:"shop-image"%>
+          <%= image_tag "no_image.jpg",class:"shop-image"%>
         <% end %>
       </div>
       <div class="shop-content-comment">

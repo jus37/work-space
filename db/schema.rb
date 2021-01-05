@@ -84,11 +84,9 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
   end
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "name", null: false
-    t.string "title", null: false
-    t.text "content", null: false
+    t.string "name"
+    t.string "title"
+    t.text "content"
     t.text "open_hour"
     t.text "regular_holiday"
     t.string "telephone"
@@ -98,11 +96,10 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
     t.string "private_room"
     t.string "wifi"
     t.string "power_supply"
-    t.string "image1"
-    t.string "image2"
-    t.string "image3"
     t.bigint "genre_id", null: false
     t.bigint "area_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["area_id"], name: "index_shops_on_area_id"
     t.index ["genre_id"], name: "index_shops_on_genre_id"
   end
