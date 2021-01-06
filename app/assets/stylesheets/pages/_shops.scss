@@ -411,12 +411,15 @@
       padding: 20px 0;
       &-image{
         @include up-down-center;
-        .shop-image{
-          display: block;
-          width: calc(100% /3);
-          // height: 360px;
-          object-fit: cover;
-        }
+        .shop-images{
+          display: flex;
+          .shop-image{
+            display: block;
+            width: calc(100% /3);
+            height: 360px;
+            object-fit: cover;
+          }
+          }
       }
       &-comment{
         margin: 25px 0;

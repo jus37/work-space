@@ -13,7 +13,11 @@
     <div class="shop-content">
       <div class="shop-content-image">
         <% if @shop.images.attached?%>
-          <%= image_tag @shop.images[0],class:"shop-image"%>
+          <div class="shop-images">
+            <%= image_tag @shop.images[0],class:"shop-image"%>
+            <%= image_tag @shop.images[1],class:"shop-image"%>
+            <%= image_tag @shop.images[2],class:"shop-image"%>
+          </div>
         <% else %>
           <%= image_tag "no_image.jpg",class:"shop-image"%>
         <% end %>
