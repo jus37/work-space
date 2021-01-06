@@ -15,8 +15,12 @@
         <% if @shop.images.attached?%>
           <div class="shop-images">
             <%= image_tag @shop.images[0],class:"shop-image"%>
-            <%= image_tag @shop.images[1],class:"shop-image"%>
-            <%= image_tag @shop.images[2],class:"shop-image"%>
+            <% if @shop.images[1].present?%>
+              <%= image_tag @shop.images[1],class:"shop-image"%>
+            <% end %>
+            <% if @shop.images[2].present?%>
+              <%= image_tag @shop.images[2],class:"shop-image"%>
+            <% end %>
           </div>
         <% else %>
           <%= image_tag "no_image.jpg",class:"shop-image"%>
