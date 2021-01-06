@@ -83,6 +83,7 @@ class ShopsController < ApplicationController
           :power_supply,
           :genre_id,
           :area_id,
+          images: [],
           characteristic_ids: []
     )
   end
