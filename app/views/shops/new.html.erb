@@ -1,7 +1,7 @@
 <div class="header">
   <%= render "devise/shared/header" %>
 </div>
-<div class="shop-new">
+<div class="shop-new-edit">
   <div class="breadcrumbs">
     <% breadcrumb :new_shop %>
     <%= render "layouts/breadcrumb"%>
@@ -79,17 +79,17 @@
         <div class="shop-form">
           <%= f.label "店舗イメージ1", class:"shop-label" %>
           <div id="shop-image"></div>
-          <%= f.file_field :image1, name: 'shop-image-field', id:"publish-shop-image" %>
+          <%= f.file_field :image, name: 'shop[images][]', id:"publish-shop-image" %>
         </div>
         <div class="shop-form">
           <%= f.label "店舗イメージ2", class:"shop-label" %>
           <div id="shop-image"></div>
-          <%= f.file_field :image2, name: 'shop-image-field', id:"publish-shop-image" %>
+          <%= f.file_field :image, name: 'shop[images][]', id:"publish-shop-image" %>
         </div>
         <div class="shop-form">
           <%= f.label "店舗イメージ3", class:"shop-label" %>
           <div id="shop-image"></div>
-          <%= f.file_field :image3, name: 'shop-image-field', id:"publish-shop-image" %>
+          <%= f.file_field :image, name: 'shop[images][]', id:"publish-shop-image" %>
         </div>
         <div class="shop-send">
           <%= f.submit "登録する" ,class:"shop-btn" %>
