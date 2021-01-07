@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    binding.pry
     if @review.save
       redirect_to shop_reviews_path(params[:shop_id])
     else
