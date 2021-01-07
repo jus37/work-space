@@ -74,6 +74,6 @@ user_data = [
 ]
 user_data.length.times do |n|
   user = User.new(user_data[n])
-  user.image.attach(io: File.open("db/images/user#{n+1}.jpg"), filename: "user#{n+1}.jpg", content_type: 'application/jpg')
+  user.image.attach(io: File.open("db/images/users/user#{n+1}.jpg"), filename: "user#{n+1}.jpg", content_type: 'application/jpg')
   user.save!
 end
