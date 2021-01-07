@@ -414,6 +414,7 @@
         .shop-images{
           display: flex;
           .shop-image{
+            padding: 0 2.5px;
             display: block;
             width: calc(100% /3);
             height: 360px;
