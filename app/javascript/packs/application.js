@@ -27,3 +27,4 @@ import '@fortawesome/fontawesome-free/js/all';
 window.$ = window.jQuery = require('jquery'); 
 
 require('packs/raty')
+require('./footerFixed')
