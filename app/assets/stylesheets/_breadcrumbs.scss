@@ -1,6 +1,10 @@
 .breadcrumbs{
   font-size: $fSize_content;
+  .current{
+    padding: 0 5px;
+  }
   & a {
+    padding: 0 5px;
     text-decoration: none;
     color: $link_color;
     &:hover {
