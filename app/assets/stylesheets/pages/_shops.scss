@@ -552,6 +552,66 @@
           padding: 12px 16px 8px 16px;
           background-color: ivory;
           @include up-down-center;
+          &-btn{
+            width: 96px;
+            height: 32px;
+            margin: 4px;
+            border: $border_style_hover;
+            border-radius: 4px;
+            background-color: white;
+            color: $color_action;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            @include content-hover;
+            a {
+              text-decoration: none;
+              color: $color_action;
+            }
+            .action-link {
+              @include up-down-center;
+              width: 96px;
+              height: 32px;
+              padding: 4px;
+              .action-name {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                width: 100%;
+              }
+            }
+    
+          }
+          &-no-btn{
+            width: 96px;
+            height: 32px;
+            margin: 4px;
+            border: solid 1px gray;
+            border-radius: 4px;
+            background-color: white;
+            color: $color_action;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            @include content-hover;
+            a {
+              text-decoration: none;
+              color: gray;
+            }
+            .action-link {
+              @include up-down-center;
+              width: 96px;
+              height: 32px;
+              padding: 4px;
+              .action-name {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                width: 100%;
+              }
+            }
+    
+          }
           .shop-clip{
 
           }
