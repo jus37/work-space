@@ -54,9 +54,9 @@ CSV.foreach('db/csv/shop.csv', headers: true) do |row|
   shop_image1 = "db/images/shops/shop#{n}_1.jpg"
   shop_image2 = "db/images/shops/shop#{n}_2.jpg"
   shop_image3 = "db/images/shops/shop#{n}_3.jpg"
-  shop.images.attach(io: File.open("db/images/shops/shop#{n}_1.jpg"), filename: "shop#{n}_1.jpg", content_type: 'application/jpg') if File.exist?(shop_image1)
-  shop.images.attach(io: File.open("db/images/shops/shop#{n}_2.jpg"), filename: "shop#{n}_2.jpg", content_type: 'application/jpg') if File.exist?(shop_image2)
-  shop.images.attach(io: File.open("db/images/shops/shop#{n}_3.jpg"), filename: "shop#{n}_3.jpg", content_type: 'application/jpg') if File.exist?(shop_image3)
+  shop.images.attach(io: File.open("#{Rails.root}/db/images/shops/shop#{n}_1.jpg"), filename: "shop#{n}_1.jpg", content_type: 'application/jpg') if File.exist?(shop_image1)
+  shop.images.attach(io: File.open("#{Rails.root}/db/images/shops/shop#{n}_2.jpg"), filename: "shop#{n}_2.jpg", content_type: 'application/jpg') if File.exist?(shop_image2)
+  shop.images.attach(io: File.open("#{Rails.root}/db/images/shops/shop#{n}_3.jpg"), filename: "shop#{n}_3.jpg", content_type: 'application/jpg') if File.exist?(shop_image3)
   shop.save!
   n += 1
 end
@@ -77,6 +77,6 @@ user_data = [
 ]
 user_data.length.times do |n|
   user = User.new(user_data[n])
-  user.image.attach(io: File.open("db/images/users/user#{n+1}.jpg"), filename: "user#{n+1}.jpg", content_type: 'application/jpg')
+  user.image.attach(io: File.open("#{Rails.root}/db/images/users/user#{n+1}.jpg"), filename: "user#{n+1}.jpg", content_type: 'application/jpg')
   user.save!
 end
