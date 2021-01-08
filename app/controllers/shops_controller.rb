@@ -1,5 +1,4 @@
 class ShopsController < ApplicationController
-
   def index
     @shops = Shop.all.page(params[:page]).per(5)
     @shops_count = Shop.all.count
@@ -22,11 +21,8 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @shop_rate = @shop.reviews.average(:review_point)
     @shop_count = @shop.reviews.count
-    if user_signed_in?
-      @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id)
-    end
+    @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id) if user_signed_in?
   end
-  
 
   def edit
     @shop = Shop.find(params[:id])
@@ -60,31 +56,29 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @shop_rate = @shop.reviews.average(:review_point)
     @shop_count = @shop.reviews.count
-    if user_signed_in?
-      @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id)
-    end
+    @clip = Clip.find_by(shop_id: params[:id], user_id: current_user.id) if user_signed_in?
   end
 
   private
 
   def shop_params
     params.require(:shop).permit(
-          :name, 
-          :title, 
-          :content, 
-          :open_hour, 
-          :regular_holiday,
-          :telephone,
-          :address,
-          :nearest_station,
-          :capacity,
-          :private_room,
-          :wifi,
-          :power_supply,
-          :genre_id,
-          :area_id,
-          images: [],
-          characteristic_ids: []
+      :name,
+      :title,
+      :content,
+      :open_hour,
+      :regular_holiday,
+      :telephone,
+      :address,
+      :nearest_station,
+      :capacity,
+      :private_room,
+      :wifi,
+      :power_supply,
+      :genre_id,
+      :area_id,
+      images: [],
+      characteristic_ids: []
     )
   end
 end

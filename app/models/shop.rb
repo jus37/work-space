@@ -14,7 +14,6 @@ class Shop < ApplicationRecord
   #   validates :open_hour
   #   validates :regular_holiday
   #   validates :address
-    # validates :images seedファイルのために
+  # validates :images seedファイルのために
   # end
-
 end
