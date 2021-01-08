@@ -218,10 +218,9 @@
         }
         .review-info{
           .review-rate{
-            padding: 0 12px;
             border-bottom: $border_style_orNot;
             display: flex;
-            padding: 8px 0;
+            padding: 8px 12px;
             border-top: $border_style_orNot;
             font-size: 20px;
             &-point{
