@@ -7,6 +7,5 @@ class TopsController < ApplicationController
     @areas = Area.all
     @top_characteristics = Characteristic.limit(5)
     @characteristics = Characteristic.all
-
   end
 end
