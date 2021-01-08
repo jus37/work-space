@@ -11,5 +11,7 @@ class Shop < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :address
+    validates :genre_id
+    validates :area_id
   end
 end
