@@ -1,4 +1,4 @@
-Factories.define do
+FactoryBot.define do
   factory :user do
     name {Faker::Name}
     email {Faker::Internet.free_email}

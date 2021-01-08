@@ -1,4 +1,4 @@
-Factories.define do
+FactoryBot.define do
   factory :review do
     review_point {Faker::Number.within(range: 0..5)}
     date {Faker::Date.between(to: Date.today)}
