@@ -1,9 +1,29 @@
 require 'rails_helper'
 
-RSpec.describe "Reviews", type: :system do
+RSpec.describe "レビュー投稿", type: :system do
   before do
-    driven_by(:rack_test)
+    @review = FactoryBot.build(:review)
   end
-
-  pending "add some scenarios (or delete) #{__FILE__}"
+  context 'ログインしたユーザーはレビュー投稿できる' do
+    it '正しい情報を入力すればレビュー投稿ができてレビュー一覧ページに移動する' do
+      # ログインする
+      # 適当な店舗の詳細画面に移動する
+      # 詳細画面に「行った」ボタンがあることを確認する
+      # レビュー投稿画面へ移動する
+      # レビュー情報を入力する
+      # 送信ボタンを押すとレビューモデルのカウントが1上がることを確認する
+      # レビュー一覧画面へ遷移
+      # 投稿したレビューが表示されているか確認する
+    end
+  end
+  context 'レビューが投稿できないとき' do
+    it '誤った情報ではレビュー投稿ができずに投稿ページへ戻ってくる' do
+      # 適当な店舗の詳細画面に移動する
+      # 詳細画面に「行った」ボタンがあることを確認する
+      # レビュー投稿画面へ移動する
+      # レビュー情報を入力する
+      # 送信ボタンを押してもレビューモデルのカウントが上がらないことを確認する
+      # レビュー投稿画面へ戻っていることを確認する
+    end
+  end
 end
