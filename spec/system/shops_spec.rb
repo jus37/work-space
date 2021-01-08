@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Shops", type: :system do
+RSpec.describe "店舗登録", type: :system do
   before do
     driven_by(:rack_test)
   end
