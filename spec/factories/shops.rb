@@ -1,4 +1,4 @@
-Factories.define do
+FactoryBot.define do
   factory :shop do
     name {Faker::Name}
     title {Faker::String.random}

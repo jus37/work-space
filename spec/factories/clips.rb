@@ -1,4 +1,4 @@
-Factories.define do
+FactoryBot.define do
   factory :clip do
     association :user
     association :shop
