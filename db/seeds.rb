@@ -1,9 +1,9 @@
 # ジャンル登録
-Genre.create!(name:"カフェ", image:"genres/genre_cafe.jpg")
-Genre.create!(name:"コワーキングスペース", image:"genres/genre_coworkingspace.jpg")
-Genre.create!(name:"カラオケボックス", image:"genres/genre_karaoke.jpg")
-Genre.create!(name:"漫画喫茶", image:"genres/genre_manngakissa.jpg")
-Genre.create!(name:"ファストフード店", image:"genres/genre_fastfood.jpg")
+Genre.create!(name:"カフェ", image:"genre_cafe.jpg")
+Genre.create!(name:"コワーキングスペース", image:"genre_coworkingspace.jpg")
+Genre.create!(name:"カラオケボックス", image:"genre_karaoke.jpg")
+Genre.create!(name:"漫画喫茶", image:"genre_manngakissa.jpg")
+Genre.create!(name:"ファストフード店", image:"genre_fastfood.jpg")
 Genre.create!(name:"図書館")
 Genre.create!(name:"その他")
 
