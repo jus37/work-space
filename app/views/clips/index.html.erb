@@ -41,7 +41,7 @@
               </div>
               <div class="shop-bottom-comment">
                 <div class="shop-bottom-comment-point">
-                  評価<%= clip.shop.reviews.average(:review_point)%>
+                  評価<%= clip.shop.reviews.average(:review_point).round(1)%>
                 </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= clip.shop.reviews.count%>
