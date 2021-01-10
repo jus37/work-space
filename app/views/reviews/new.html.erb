@@ -17,8 +17,8 @@
       <%= form_with model:@review, url: shop_reviews_path(@shop.id),local: true do |f|%>
         <div class="review-form-body">
           <div class="input-rate", id="star">
-            <%= f.label :rate, "評価"%>
-            <%= f.hidden_field :review_point, min: 0, max: 5, class:"input-review-rate"%>
+            <%= f.label :review_point, "評価"%>
+            <%#= f.hidden_field :star_rate, min: 0, max: 5, class:"input-review-rate"%>
           </div>
           <script>
             $('#star').raty({

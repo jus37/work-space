@@ -24,13 +24,13 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <div class="field-label">
-            <%= f.label :メールアドレス, for: "user_email" %>
+            <%= f.label :email, "メールアドレス" %>
           </div>
           <div class="field-area">
             <%= f.email_field :email, autofocus: true, autocomplete: "off" %>
           </div>
           <div class="field-label">
-            <%= f.label :パスワード, for: "user_password" %>
+            <%= f.label :password, "パスワード" %>
           </div>
           <div class="field-area">
             <%= f.password_field :password, autocomplete: "off" %>
