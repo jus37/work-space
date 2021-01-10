@@ -294,7 +294,7 @@
           @include up-down-center;
           &-btn{
             width: 96px;
-            height: 32px;
+            height: 40px;
             margin: 4px;
             border: $border_style_hover;
             border-radius: 4px;
@@ -311,7 +311,7 @@
             .action-link {
               @include up-down-center;
               width: 96px;
-              height: 32px;
+              height: 40px;
               padding: 4px;
               .action-name {
                 display: table-cell;
@@ -319,12 +319,15 @@
                 text-align: center;
                 width: 100%;
               }
+              .link-clip-comment{
+                font-size: $fSize_content;
+              }
             }
     
           }
           &-no-btn{
             width: 96px;
-            height: 32px;
+            height: 40px;
             margin: 4px;
             border: solid 1px gray;
             border-radius: 4px;
@@ -341,13 +344,16 @@
             .action-link {
               @include up-down-center;
               width: 96px;
-              height: 32px;
+              height: 40px;
               padding: 4px;
               .action-name {
                 display: table-cell;
                 vertical-align: middle;
                 text-align: center;
                 width: 100%;
+              }
+              .link-clip-comment{
+                font-size: $fSize_content;
               }
             }
           }
@@ -552,7 +558,7 @@
           @include up-down-center;
           &-btn{
             width: 96px;
-            height: 32px;
+            height: 40px;
             margin: 4px;
             border: $border_style_hover;
             border-radius: 4px;
@@ -569,7 +575,7 @@
             .action-link {
               @include up-down-center;
               width: 96px;
-              height: 32px;
+              height: 40px;
               padding: 4px;
               .action-name {
                 display: table-cell;
@@ -577,12 +583,15 @@
                 text-align: center;
                 width: 100%;
               }
+              .link-clip-comment{
+                font-size: $fSize_content;
+              }
             }
     
           }
           &-no-btn{
             width: 96px;
-            height: 32px;
+            height: 40px;
             margin: 4px;
             border: solid 1px gray;
             border-radius: 4px;
@@ -599,13 +608,16 @@
             .action-link {
               @include up-down-center;
               width: 96px;
-              height: 32px;
+              height: 40px;
               padding: 4px;
               .action-name {
                 display: table-cell;
                 vertical-align: middle;
                 text-align: center;
                 width: 100%;
+              }
+              .link-clip-comment{
+                font-size: $fSize_content;
               }
             }
     
