@@ -54,6 +54,7 @@
       <div class="action-btn">
         <%=link_to(new_shop_review_path(@shop.id),class:"action-link shop-history") do %>
           <span class="action-name link-clip">行った</span>
+          <span class="action-name link-clip-comment">(口コミの投稿)</span>
         <% end %>
       </div>
     <% else %>
@@ -64,7 +65,7 @@
       </div>
       <div class="action-btn">
         <%=link_to(new_user_session_path,class:"action-link shop-history") do %>
-          <span class="action-name link-clip">行った</span>
+          <span class="action-name link-clip">行った(口コミの投稿)</span>
         <% end %>
       </div>
     <% end %>
