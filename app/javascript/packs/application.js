@@ -11,7 +11,6 @@ require('./preview_user')
 // = require jquery3
 // = require popper 
 // = require bootstrap-sprockets
-require('./footerFixed');
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -25,4 +24,5 @@ require('./footerFixed');
 
 // jQuery呼び出し
 window.$ = window.jQuery = require('jquery'); 
-require('packs/raty')
+require('packs/raty');
+require('packs/footerFixed');

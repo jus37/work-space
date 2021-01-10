@@ -8,12 +8,10 @@ class Shop < ApplicationRecord
   has_many :clips
   has_many :users, through: :clips, dependent: :destroy
 
-  # with_options presence: true do
-  #   validates :name
-  #   validates :title
-  #   validates :open_hour
-  #   validates :regular_holiday
-  #   validates :address
-  # validates :images seedファイルのために
-  # end
+  with_options presence: true do
+    validates :name
+    validates :address
+    validates :genre_id
+    validates :area_id
+  end
 end
