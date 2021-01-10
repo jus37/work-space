@@ -5,7 +5,7 @@ FactoryBot.define do
     password {Faker::Internet.password(min_length: 6, mix_case: true)}
     password_confirmation {password}
     telephone {Faker::Number.number(digits: 11)}
-    comment {Faker::Coffee.blend_name}
+    comment {Faker::Lorem.sentence}
     admin {1}
 
     after(:build) do |item|
