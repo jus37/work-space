@@ -18,7 +18,7 @@
     cancelPlace:  'left',
     click:        undefined,
     half:         false,
-    halfShow:     true,
+    halfShow:     false,
     hints:        ['1.0', '2.0', '3.0', '4.0', '5.0'],
     iconRange:    undefined,
     mouseout:     undefined,
