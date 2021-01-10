@@ -60,7 +60,7 @@
                       score: "<%=shop.reviews.average(:review_point)%>"
                     });
                   </script>  
-                  <%= shop.reviews.average(:review_point)%>
+                  <%= shop.reviews.average(:review_point).round(1)%>
                 </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= shop.reviews.count%>

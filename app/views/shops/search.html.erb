@@ -57,7 +57,7 @@
                       starOn : '<%= asset_path('star-on.png') %>',
                       starHarf: '<%= asset_path('star-half.png')%>',
                       readOnly: true,
-                      score: "<%=shop.reviews.average(:review_point)%>"
+                      score: "<%=shop.reviews.average(:review_point).round(1)%>"
                     });
                   </script>  
                   <%= shop.reviews.average(:review_point)%>
