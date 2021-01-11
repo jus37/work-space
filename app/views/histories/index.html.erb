@@ -40,9 +40,23 @@
                 <%= review.shop.title%>
               </div>
               <div class="shop-bottom-comment">
-                <div class="shop-bottom-comment-point">
-                  評価<%= review.shop.reviews.average(:review_point).round(1)%>
-                </div>
+              <div class="shop-bottom-comment-point", id="shops-star-rate-<%=review.shop_id%>">
+                <script>
+                  $("#shops-star-rate-<%=review.shop_id%>").raty({
+                    size     : 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHarf: '<%= asset_path('star-half.png')%>',
+                    readOnly: true,
+                    score: "<%=review.shop.reviews.average(:review_point)%>"
+                  });
+                </script>  
+                  <% if review.shop.reviews.present?%>
+                    <%= review.shop.reviews.average(:review_point).round(1)%>
+                  <% else %>
+                    <%= review.shop.reviews.average(:review_point)%>
+                  <% end %>
+              </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= review.shop.reviews.count%>
                 </div>

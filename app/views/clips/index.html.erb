@@ -40,9 +40,23 @@
                 <%= clip.shop.title%>
               </div>
               <div class="shop-bottom-comment">
-                <div class="shop-bottom-comment-point">
-                  評価<%= clip.shop.reviews.average(:review_point).round(1)%>
-                </div>
+              <div class="shop-bottom-comment-point", id="shops-star-rate-<%=clip.shop_id%>">
+                <script>
+                  $("#shops-star-rate-<%=clip.shop_id%>").raty({
+                    size     : 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHarf: '<%= asset_path('star-half.png')%>',
+                    readOnly: true,
+                    score: "<%=clip.shop.reviews.average(:review_point)%>"
+                  });
+                </script>  
+                  <% if clip.shop.reviews.present?%>
+                    <%= clip.shop.reviews.average(:review_point).round(1)%>
+                  <% else %>
+                    <%= clip.shop.reviews.average(:review_point)%>
+                  <% end %>
+              </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= clip.shop.reviews.count%>
                 </div>
