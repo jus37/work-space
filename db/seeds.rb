@@ -73,10 +73,34 @@ end
 #ユーザー登録
 user_data = [
   {name: 'ジャス', email: 'jus_37@outlook.jp', password: '123abc', telephone: "***REMOVED***", comment: "I'm master user", admin: "1"},
-  {name: 'テストユーザ', email: 'test@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "hello!", admin:"0"}
+  {name: 'テストユーザ', email: 'test@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "hello!", admin:"0"},
+  {name: 'tomatomato', email: 'tomato@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "大好物はトマト", admin:"0"},
+  {name: 'yamato', email: 'yamato@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "フリーランスで働いています！よろしくおねがいします！", admin:"0"},
+  {name: 'yoko suzuki', email: 'suzuki@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "働きやすいお店開拓中〜", admin:"0"}
 ]
 user_data.length.times do |n|
   user = User.new(user_data[n])
   user.image.attach(io: File.open("#{Rails.root}/db/images/users/user#{n+1}.jpg"), filename: "user#{n+1}.jpg", content_type: 'application/jpg')
   user.save!
 end
+
+# レビュー投稿
+CSV.foreach('db/csv/review.csv', headers: true) do |row|
+  Review.create!(
+    review_point: row['review_point'],
+    title: row['title'],
+    comment: row['comment'],
+    date: row['date'],
+    user_id: row['user_id'],
+    shop_id: row['shop_id']
+  )
+end
+
+# 保存clip
+CSV.foreach('db/csv/clip.csv', headers: true) do |row|
+  Clip.create!(
+    user_id: row['user_id'],
+    shop_id: row['shop_id']
+  )
+end
+

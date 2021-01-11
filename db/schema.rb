@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
     t.float "review_point", null: false
     t.date "date", null: false
     t.string "title", null: false
-    t.string "comment", null: false
+    t.string "comment"
     t.bigint "user_id", null: false
     t.bigint "shop_id", null: false
     t.index ["shop_id"], name: "index_reviews_on_shop_id"

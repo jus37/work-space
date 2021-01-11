@@ -40,7 +40,11 @@
                     score: "<%=shop.reviews.average(:review_point)%>"
                   });
                 </script>  
-                評価<%= shop.reviews.average(:review_point).round(1)%>
+                  <% if shop.reviews.present?%>
+                    <%= shop.reviews.average(:review_point).round(1)%>
+                  <% else %>
+                    <%= shop.reviews.average(:review_point)%>
+                  <% end %>
               </div>
               <div class="shop-bottom-comment-count">
                 口コミ数<%= shop.reviews.count%>

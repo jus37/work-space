@@ -57,10 +57,14 @@
                       starOn : '<%= asset_path('star-on.png') %>',
                       starHarf: '<%= asset_path('star-half.png')%>',
                       readOnly: true,
-                      score: "<%=shop.reviews.average(:review_point).round(1)%>"
+                      score: "<%=shop.reviews.average(:review_point)%>"
                     });
                   </script>  
-                  <%= shop.reviews.average(:review_point)%>
+                  <% if shop.reviews.present?%>
+                    <%= shop.reviews.average(:review_point).round(1)%>
+                  <% else %>
+                    <%= shop.reviews.average(:review_point)%>
+                  <% end %>
                 </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= shop.reviews.count%>
