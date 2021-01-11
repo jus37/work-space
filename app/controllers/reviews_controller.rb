@@ -46,7 +46,11 @@ class ReviewsController < ApplicationController
 
   def set_item
     @shop = Shop.find(params[:shop_id])
-    @shop_rate = @shop.reviews.average(:review_point).round(1)
+    if @shop.reviews.present?
+      @shop_rate = @shop.reviews.average(:review_point).round(1)
+    else
+      @shop_rate =""
+    end
     @shop_count = @shop.reviews.count
     @clip = Clip.find_by(params[shop_id: @shop.id, user_id: current_user.id]) if user_signed_in?
   end
