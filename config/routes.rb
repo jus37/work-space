@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'user_registrations'
+  }
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users#new_guest'
+  end
 
   root to: "tops#index"
   resources :shops do
