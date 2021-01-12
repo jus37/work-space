@@ -13,11 +13,12 @@
         <%= link_to "新規会員登録はこちら", new_registration_path(resource_name), class:"sign-up-btn"%>
       </div>
       <div class="test-sign-in">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{id: "test_new_user"}) do |f|%>
-          <%= f.hidden_field :email, value: "test@com", id:"test_user_email"%>
-          <%= f.hidden_field :password, value: "111111a", id:"test_user_password"%>
-          <%= f.submit "テストユーザーとしてログイン", class:"test-btn"%>
-        <% end %>
+        <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post%>
+        <%#= form_for(resource, as: resource_name, url: session_path(resource_name), html:{id: "test_new_user"}) do |f|%>
+          <%#= f.hidden_field :email, value: "test@com", id:"test_user_email"%>
+          <%#= f.hidden_field :password, value: "111111a", id:"test_user_password"%>
+          <%#= f.submit "テストユーザーとしてログイン", class:"test-btn"%>
+        <%# end %>
       </div>
     </div>
     <div class="user-form">
