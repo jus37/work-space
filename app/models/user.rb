@@ -21,8 +21,9 @@ class User < ApplicationRecord
   validates :password, presence: true, format: { with: PASSWORD_REGEX }
 
   def self.guest
-    find_or_create_by!(email: 'test.com') do |user|
+    find_or_create_by!(email: 'test@com') do |user|
       user.password = "111111a"
     end
+  end
 
 end
