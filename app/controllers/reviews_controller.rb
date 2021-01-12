@@ -33,9 +33,14 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to shop_reviews_path(params[:shop_id])
+    if current_user.email == "test@com"
+      flash[:new_guest] = "ゲストユーザーではレビューの削除はできません"
+      redirect_to root_path
+    else
+      @review = Review.find(params[:id])
+      @review.destroy
+      redirect_to shop_reviews_path(params[:shop_id])
+    end
   end
 
   private
@@ -52,6 +57,6 @@ class ReviewsController < ApplicationController
       @shop_rate =""
     end
     @shop_count = @shop.reviews.count
-    @clip = Clip.find_by(params[shop_id: @shop.id, user_id: current_user.id]) if user_signed_in?
+    @clip = Clip.find_by(shop_id: @shop.id, user_id: current_user.id) if user_signed_in?
   end
 end
