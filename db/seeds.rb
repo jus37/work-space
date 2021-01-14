@@ -1,4 +1,3 @@
-#   Character.create(name: 'Luke', movie: movies.first)
 # ジャンル登録
 Genre.create!(name:"カフェ", image:"genre_cafe.jpg")
 Genre.create!(name:"コワーキングスペース", image:"genre_coworkingspace.jpg")
