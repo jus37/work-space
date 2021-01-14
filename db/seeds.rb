@@ -71,8 +71,10 @@ CSV.foreach('db/csv/shop_caracteristic.csv', headers: true) do |row|
 end
 
 #ユーザー登録
+@user_master_password = ENV['WORK_SPACE_PASSWORD']
+
 user_data = [
-  {name: 'ジャス', email: 'jus_37@outlook.jp', password: '123abc', telephone: "***REMOVED***", comment: "I'm master user", admin: "1"},
+  {name: 'ジャス', email: 'jus_37@outlook.jp', password: @user_master_password, telephone: '00011112222', comment: "I'm master user", admin: "1"},
   {name: 'テストユーザ', email: 'test@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "hello!", admin:"0"},
   {name: 'tomatomato', email: 'tomato@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "大好物はトマト", admin:"0"},
   {name: 'yamato', email: 'yamato@com', password: '111111a', password_confirmation: '111111a', telephone: "00011112222", comment: "フリーランスで働いています！よろしくおねがいします！", admin:"0"},
