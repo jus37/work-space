@@ -43,7 +43,7 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop = Shop.find(params[:id])
-    @shop.destroy
+    @shop.destroy!
     redirect_to root_path
   end
 
