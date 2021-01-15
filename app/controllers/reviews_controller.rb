@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   before_action :set_item
 
   def index
-    @user = User.find(current_user.id)
     @reviews = @shop.reviews.includes(:user)
   end
 

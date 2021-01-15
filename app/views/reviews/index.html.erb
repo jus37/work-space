@@ -34,7 +34,7 @@
                 </div>
               </div>
               <div class="master">
-                <% if review.user == current_user || @user.admin == 1%>
+                <% if review.user == current_user || current_user.admin == 1%>
                   <%= link_to "編集", edit_shop_review_path(shop_id: @shop.id, id: review.id)%>
                   <%= link_to "削除", shop_review_path(shop_id: @shop.id, id: review.id), method: :delete, data: {confirm: "削除しますか？"} %>
                 <% end %>

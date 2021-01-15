@@ -33,6 +33,13 @@
           <% end %>
         </li>
       <% end %>
+      <% if current_user.admin == 1%>
+        <li class="user-nav master-destroy">
+          <%= link_to( user_path(@user.id), method: :delete, class:"user-nav-link", data: {confirm: "このアカウントを削除しますか？"}) do%>
+            <span class="user-nav-name">削除</span>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
