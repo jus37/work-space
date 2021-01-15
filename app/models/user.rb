@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :reviews, dependent: :destroy
-  has_many :clips
+  has_many :clips, dependent: :destroy
   has_many :shops, through: :clips, dependent: :destroy
 
   with_options presence: true do
