@@ -12,22 +12,22 @@ RSpec.describe Review, type: :model do
     end
     context 'レビュー投稿がうまくいかないとき' do
       it '評価点数が空である' do
-        @review.review_point = ""
+        @review.review_point = ''
         @review.valid?
-        expect(@review.errors.full_messages).to include("Review point can't be blank", "Review point is not a number")
+        expect(@review.errors.full_messages).to include("Review point can't be blank", 'Review point is not a number')
       end
       it '評価点数が1~5以外である' do
-        @review.review_point = "100"
+        @review.review_point = '100'
         @review.valid?
-        expect(@review.errors.full_messages).to include("Review point must be less than or equal to 5")
+        expect(@review.errors.full_messages).to include('Review point must be less than or equal to 5')
       end
       it '投稿タイトルが空である' do
-        @review.title = ""
+        @review.title = ''
         @review.valid?
         expect(@review.errors.full_messages).to include("Title can't be blank")
       end
       it '投稿した日付が空である' do
-        @review.date = ""
+        @review.date = ''
         @review.valid?
         expect(@review.errors.full_messages).to include("Date can't be blank")
       end

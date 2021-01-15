@@ -2,10 +2,9 @@ class UserRegistrationsController < Devise::RegistrationsController
   before_action :check_guest, only: [:destroy, :update]
 
   def check_guest
-    if resource.email == 'test@com'
-      flash[:new_guest] = 'ゲストユーザーは編集・削除できません'
-      redirect_to root_path
-    end
-  end
+    return unless resource.email == 'test@com'
 
+    flash[:new_guest] = 'ゲストユーザーは編集・削除できません'
+    redirect_to root_path
+  end
 end

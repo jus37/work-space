@@ -3,8 +3,15 @@ require 'rails_helper'
 # require 'selenium-webdriver'
 # driver = Selenium::WebDriver.for :chrome
 
-RSpec.describe "レビュー投稿", type: :system do
+RSpec.describe 'レビュー投稿', type: :system do
   before do
+    10.times do |n|
+      Area.create(id: n+1, name: Faker::Lorem.word)
+    end
+    7.times do |n|
+      Genre.create(id: n+1, name: Faker::Lorem.word)
+    end
+
     @review = FactoryBot.build(:review)
     @user = FactoryBot.build(:user)
     @shop = FactoryBot.build(:shop)
@@ -30,9 +37,9 @@ RSpec.describe "レビュー投稿", type: :system do
       fill_in 'review_comment', with: @review.comment
       fill_in 'review_date', with: @review.date
       # 送信ボタンを押すとレビューモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[class="review-btn"]').click
-      }.to change {Review.count}.by(1)
+      end.to change { Review.count }.by(1)
       # レビュー一覧画面へ遷移
       # 投稿したレビューが表示されているか確認する
       expect(page).to have_content(@review.title)
@@ -54,13 +61,13 @@ RSpec.describe "レビュー投稿", type: :system do
       visit new_shop_review_path(@shop.id)
       # レビュー情報を入力する
       # find('#star').find("img[alt='5']").click
-      fill_in 'review_title', with: ""
-      fill_in 'review_comment', with: ""
-      fill_in 'review_date', with: ""
+      fill_in 'review_title', with: ''
+      fill_in 'review_comment', with: ''
+      fill_in 'review_date', with: ''
       # 送信ボタンを押してもレビューモデルのカウントが上がらないことを確認する
-      expect{
+      expect  do
         find('input[class="review-btn"]').click
-      }.to change {Review.count}.by(0)
+      end.to change { Review.count }.by(0)
       # レビュー投稿画面へ戻っていることを確認する
       expect(current_path).to eq(shop_reviews_path(@shop.id))
     end

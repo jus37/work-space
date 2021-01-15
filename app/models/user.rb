@@ -22,11 +22,14 @@ class User < ApplicationRecord
 
   def self.guest
     find_or_create_by!(email: 'test@com') do |user|
-      user.password = "111111a"
-      user.name = "ゲストユーザー"
-      user.telephone = "00011112222"
-      user.image.attach(io: File.open("#{Rails.root}/db/images/users/user2.jpg"), filename: "user2.jpg", content_type: 'application/jpg')
+      user.password = '111111a'
+      user.name = 'ゲストユーザー'
+      user.telephone = '00011112222'
+      user.image.attach(
+        io: File.open("#{Rails.root}/db/images/users/user2.jpg"),
+        filename: 'user2.jpg',
+        content_type: 'application/jpg'
+      )
     end
   end
-
 end

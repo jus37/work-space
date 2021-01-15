@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
   end
@@ -16,5 +15,4 @@ class UsersController < ApplicationController
     flash[:new_guest] = 'ゲストユーザーとしてログインしました。'
     redirect_to root_path
   end
-
 end
