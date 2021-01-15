@@ -55,16 +55,13 @@
                     size     : 36,
                     starOff:  '<%= asset_path('star-off.png') %>',
                     starOn : '<%= asset_path('star-on.png') %>',
-                    // starHarf: '<%= asset_path('star-half.png')%>',
                     readOnly: true,
                     score: "<%=shop.reviews.average(:review_point)%>"
                   });
                 </script>  
-                  <% if shop.reviews.present?%>
-                    <%= shop.reviews.average(:review_point).round(1)%>
-                  <% else %>
-                    <%= shop.reviews.average(:review_point)%>
-                  <% end %>
+                <% if shop.reviews.present?%>
+                  <%= shop.reviews.average(:review_point).round(1)%>
+                <% end %>
               </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= shop.reviews.count%>
@@ -78,7 +75,7 @@
               <div class="shop-bottom-review">
                 <% shop.reviews.first(1).each do |review|%>
                   <span class="shop-bottom-review-title"><%= review.title%></span>
-                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
+                  <span class="shop-bottom-review-user"><%= "by　#{review.user.name}"%></span>
                 <% end %>
               </div>
             </div>

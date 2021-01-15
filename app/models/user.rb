@@ -6,19 +6,20 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :reviews, dependent: :destroy
-  has_many :clips, dependent: :destroy
+  has_many :clips
   has_many :shops, through: :clips, dependent: :destroy
 
   with_options presence: true do
     validates :name
+    validates :telephone
   end
 
-  with_options presence: true, format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 } do
+  with_options format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 } do
     validates :telephone
   end
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, presence: true, format: { with: PASSWORD_REGEX }
+  validates :password, format: { with: PASSWORD_REGEX }
 
   def self.guest
     find_or_create_by!(email: 'test@com') do |user|

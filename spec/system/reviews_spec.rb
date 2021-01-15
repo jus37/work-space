@@ -1,15 +1,12 @@
 require 'rails_helper'
-# seleniumでドライバーを使う場合
-# require 'selenium-webdriver'
-# driver = Selenium::WebDriver.for :chrome
 
 RSpec.describe 'レビュー投稿', type: :system do
   before do
     10.times do |n|
-      Area.create(id: n+1, name: Faker::Lorem.word)
+      Area.create(id: n + 1, name: Faker::Lorem.word)
     end
     7.times do |n|
-      Genre.create(id: n+1, name: Faker::Lorem.word)
+      Genre.create(id: n + 1, name: Faker::Lorem.word)
     end
 
     @review = FactoryBot.build(:review)

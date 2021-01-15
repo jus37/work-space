@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   root to: "tops#index"
+
   resources :shops do
     resources :reviews
     resources :clips

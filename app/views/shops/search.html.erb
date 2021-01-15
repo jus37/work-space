@@ -62,8 +62,6 @@
                   </script>  
                   <% if shop.reviews.present?%>
                     <%= shop.reviews.average(:review_point).round(1)%>
-                  <% else %>
-                    <%= shop.reviews.average(:review_point)%>
                   <% end %>
                 </div>
                 <div class="shop-bottom-comment-count">
@@ -78,7 +76,7 @@
               <div class="shop-bottom-review">
                 <% shop.reviews.first(1).each do |review|%>
                   <span class="shop-bottom-review-title"><%= review.title%></span>
-                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
+                  <span class="shop-bottom-review-user"><%= "by　#{review.user.name}"%></span>
                 <% end %>
               </div>
             </div>

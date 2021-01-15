@@ -69,7 +69,7 @@
               <div class="shop-bottom-review">
                 <% clip.shop.reviews.first(1).each do |review|%>
                   <span class="shop-bottom-review-title"><%= review.title%></span>
-                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
+                  <span class="shop-bottom-review-user"><%= "by　#{review.user.name}"%></span>
                 <% end %>
               </div>
             </div>
@@ -79,7 +79,6 @@
     <% end %> 
   </div>
 </div>
-
 <div class="footer">
   <%= render "devise/shared/footer" %>
 </div>

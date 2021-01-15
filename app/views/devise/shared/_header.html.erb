@@ -11,14 +11,14 @@
     </ul>
   </div>
   <div class="main-link">
-    <%# <div class="col-xs-12 col-sm-3"> %>
-      <p class="title"><%= link_to "WORK-SPACE", root_path ,class:"title-name"%></p>
-    <%# </div> %>
+      <p class="title">
+        <%= link_to "WORK-SPACE", root_path ,class:"title-name"%>
+      </p>
     <div class = "search-fields">
       <%= search_form_for @q,url: search_shops_path,class:"search-link" do |f| %>
         <%= f.search_field :area_name_or_nearest_station_cont, placeholder: "エリア・駅[例：梅田、大阪駅]",class:"search-field shop_search shop_search_area"%>
         <%= f.search_field :name_or_genre_name_cont, placeholder: "キーワード[例：店名、カフェ]", class:"search-field genre-search"%>
-        <%= f.submit value:"", class:"search-btn"%>
+        <%= f.submit value:"", class:"search-btn", data: { disable_with: "" }%>
       <% end %>
     </div>
   </div>

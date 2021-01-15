@@ -15,7 +15,7 @@
         <%= link_to shop_path(review.shop.id) do %>
           <div class="shop-top">
             <div class="shop-top-name">
-                <span class="shop-name"><%= review.shop.name%></span>
+              <span class="shop-name"><%= review.shop.name%></span>
             </div>
             <div class="shop-top-info">
               <div class="shop-top-area">
@@ -40,23 +40,20 @@
                 <%= review.shop.title%>
               </div>
               <div class="shop-bottom-comment">
-              <div class="shop-bottom-comment-point", id="shops-star-rate-<%=review.shop_id%>">
-                <script>
-                  $("#shops-star-rate-<%=review.shop_id%>").raty({
-                    size     : 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHarf: '<%= asset_path('star-half.png')%>',
-                    readOnly: true,
-                    score: "<%=review.shop.reviews.average(:review_point)%>"
-                  });
-                </script>  
+                <div class="shop-bottom-comment-point", id="shops-star-rate-<%=review.shop_id%>">
+                  <script>
+                    $("#shops-star-rate-<%=review.shop_id%>").raty({
+                      size     : 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      readOnly: true,
+                      score: "<%=review.shop.reviews.average(:review_point)%>"
+                    });
+                  </script>
                   <% if review.shop.reviews.present?%>
                     <%= review.shop.reviews.average(:review_point).round(1)%>
-                  <% else %>
-                    <%= review.shop.reviews.average(:review_point)%>
                   <% end %>
-              </div>
+                </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= review.shop.reviews.count%>
                 </div>
@@ -69,7 +66,7 @@
               <div class="shop-bottom-review">
                 <% review.shop.reviews.first(1).each do |review|%>
                   <span class="shop-bottom-review-title"><%= review.title%></span>
-                  <span class="shop-bottom-review-user"><%= "by#{review.user.name}"%></span>
+                  <span class="shop-bottom-review-user"><%= "by　#{review.user.name}"%></span>
                 <% end %>
               </div>
             </div>
@@ -78,7 +75,6 @@
       </div>
     <% end %> 
   </div>
-  <%# ユーザーのレビュー内容を表示 %>
 </div>
 <div class="footer">
   <%= render "devise/shared/footer" %>

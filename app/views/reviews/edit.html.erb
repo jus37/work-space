@@ -18,14 +18,12 @@
         <div class="review-form-body">
           <div class="input-rate", id="star">
             <%= f.label :review_point, "評価"%>
-            <%#= f.hidden_field :star_rate, min: 0, max: 5, class:"input-review-rate"%>
           </div>
           <script>
             $('#star').raty({
               size     : 36,
               starOff:  '<%= asset_path('star-off.png') %>',
               starOn : '<%= asset_path('star-on.png') %>',
-              // starHarf: '<%= asset_path('star-half.png')%>',
               scoreName: 'review[review_point]',
               half: false,
             });

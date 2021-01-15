@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Shop, type: :model do
   10.times do |n|
-    Area.create(id: n+1, name: Faker::Lorem.word)
+    Area.create(id: n + 1, name: Faker::Lorem.word)
   end
   7.times do |n|
-    Genre.create(id: n+1, name: Faker::Lorem.word)
+    Genre.create(id: n + 1, name: Faker::Lorem.word)
   end
 
   before do

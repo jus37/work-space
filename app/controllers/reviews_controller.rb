@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_item
+  before_action :set_review, only: [:edit, :update]
+  before_action :set_item, except: [:show, :destroy]
 
   def index
     @reviews = @shop.reviews.includes(:user)
@@ -20,11 +21,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
     if @review.update(review_params)
       redirect_to shop_reviews_path(params[:shop_id])
     else
@@ -47,6 +46,10 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :comment, :review_point, :date).merge(user_id: current_user.id, shop_id: @shop.id)
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 
   def set_item

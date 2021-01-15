@@ -1,6 +1,8 @@
 class UserRegistrationsController < Devise::RegistrationsController
   before_action :check_guest, only: [:destroy, :update]
 
+  private
+
   def check_guest
     return unless resource.email == 'test@com'
 

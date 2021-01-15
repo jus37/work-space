@@ -50,13 +50,12 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
-  gem 'rails-erd'
+  gem 'rails-erd' # ER図の作成
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
@@ -74,11 +73,9 @@ gem 'pry-rails'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
-gem 'active_hash'
 gem 'ransack'
 gem 'gretel'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'jquery-rails'
-gem 'font-awesome-rails'
 gem "aws-sdk-s3", require: false
 gem "kaminari"

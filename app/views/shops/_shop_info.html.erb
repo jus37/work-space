@@ -18,7 +18,6 @@
             size     : 36,
             starOff:  '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
-            // starHarf: '<%= asset_path('star-half.png')%>',
             half: false,
             readOnly: true,
             score: "<%=@shop_rate%>"
@@ -29,7 +28,6 @@
       <div class="shop-comment-count">
         口コミ数<%=@shop_count%>
       </div>
-      <%#= @shop.保存した数%>
     </div>
     <div class="shop-details">
       <%= "エリア：#{@shop.area.name}"%>
