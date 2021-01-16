@@ -9,8 +9,8 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new(shop_params)
-    if @shop.save
+    shop = Shop.new(shop_params)
+    if shop.save
       redirect_to root_path
     else
       render :new
@@ -33,8 +33,8 @@ class ShopsController < ApplicationController
   end
 
   def update
-    @shop = Shop.find(params[:id])
-    if @shop.update(shop_params)
+    shop = Shop.find(params[:id])
+    if shop.update(shop_params)
       redirect_to shop_path(@shop.id)
     else
       render :edit
@@ -42,8 +42,8 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find(params[:id])
-    @shop.destroy!
+    shop = Shop.find(params[:id])
+    shop.destroy!
     redirect_to root_path
   end
 

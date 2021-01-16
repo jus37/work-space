@@ -26,3 +26,8 @@ require('./preview_user')
 window.$ = window.jQuery = require('jquery'); 
 require('packs/raty');
 require('packs/footerFixed');
+
+// turbolinksをつかいながらload時にjavascriptを使う方法
+// document.addEventListener("turbolinks:load", function(){
+//   ...
+// })

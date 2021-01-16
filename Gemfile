@@ -68,7 +68,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'pry-rails'
+gem 'pry-rails' #本番環境にはいらない
 
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
@@ -78,4 +78,4 @@ gem 'gretel'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'jquery-rails'
 gem "aws-sdk-s3", require: false
-gem "kaminari"
+gem "kaminari" #pagyのGemがパフォーマンスがよい

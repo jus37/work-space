@@ -12,8 +12,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    if @review.save
+    review = Review.new(review_params)
+    if review.save
       redirect_to shop_reviews_path(params[:shop_id])
     else
       render :new
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    if @review.update(review_params)
+    if review.update(review_params)
       redirect_to shop_reviews_path(params[:shop_id])
     else
       render :index
@@ -36,8 +36,8 @@ class ReviewsController < ApplicationController
       flash[:new_guest] = 'ゲストユーザーではレビューの削除はできません'
       redirect_to root_path
     else
-      @review = Review.find(params[:id])
-      @review.destroy
+      review = Review.find(params[:id])
+      review.destroy!
       redirect_to shop_reviews_path(params[:shop_id])
     end
   end

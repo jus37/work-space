@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
   create_table "shop_caracteristics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "shop_id"
-    t.bigint "characteristic_id"
+    t.bigint "shop_id", null: false
+    t.bigint "characteristic_id", null: false
     t.index ["characteristic_id"], name: "index_shop_caracteristics_on_characteristic_id"
     t.index ["shop_id"], name: "index_shop_caracteristics_on_shop_id"
   end

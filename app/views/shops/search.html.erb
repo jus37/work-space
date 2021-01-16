@@ -75,7 +75,7 @@
               </div>
               <div class="shop-bottom-review">
                 <% shop.reviews.first(1).each do |review|%>
-                  <span class="shop-bottom-review-title"><%= review.title%></span>
+                  <span class="shop-bottom-review-title"><%= review.title%></span> <%#shop.review.first.title にするかもしくはコントローラーにメソッドつくるeachいらない%>
                   <span class="shop-bottom-review-user"><%= "by　#{review.user.name}"%></span>
                 <% end %>
               </div>

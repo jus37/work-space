@@ -17,7 +17,7 @@ RSpec.describe 'レビュー投稿', type: :system do
   end
   context 'ログインしたユーザーはレビュー投稿できる' do
     it '正しい情報を入力すればレビュー投稿ができてレビュー一覧ページに移動する' do
-      # ログインする
+      # ログインする、パスでなくて直接URLを記入
       visit new_user_session_path
       fill_in 'メールアドレス', with: @user.email
       fill_in 'パスワード', with: @user.password
@@ -28,7 +28,7 @@ RSpec.describe 'レビュー投稿', type: :system do
       expect(page).to have_content('行った')
       # レビュー投稿画面へ移動する
       visit new_shop_review_path(@shop.id)
-      # レビュー情報を入力する
+      # レビュー情報を入力する、実際に入力するものをいれたほうがいい
       find('#star').find("img[alt='5']").click
       fill_in 'review_title', with: @review.title
       fill_in 'review_comment', with: @review.comment

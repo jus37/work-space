@@ -1,4 +1,5 @@
 module ShopsHelper
+  # breadcrumbs用
   def search_word
     if @area.present?
       @area

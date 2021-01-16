@@ -9,14 +9,8 @@ class User < ApplicationRecord
   has_many :clips
   has_many :shops, through: :clips, dependent: :destroy
 
-  with_options presence: true do
-    validates :name
-    validates :telephone
-  end
-
-  with_options format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 } do
-    validates :telephone
-  end
+  validates :name, presence: true
+  validates :telephone, presence: true, format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 }
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, format: { with: PASSWORD_REGEX }
