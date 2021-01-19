@@ -24,7 +24,7 @@
             <%= f.label :email, "メールアドレス※" %>
           </div>
           <div class="field-area">
-            <%= f.email_field :email, autofocus: true, autocomplete: "off" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder:"work-space@com" %>
           </div>
           <div class="field-label">
             <%= f.label :password,"パスワード　半角英数字6文字以上※" %>
@@ -42,13 +42,13 @@
             <%= f.label :name, "アカウント名※" %>
           </div>
           <div class="field-area">
-            <%= f.text_field :name, autocomplete: "off" %>
+            <%= f.text_field :name, autocomplete: "off", placeholder:"work-space さん" %>
           </div>
           <div class="field-label">
             <%= f.label :telephone, "電話番号" %>
           </div>
           <div class="field-area">
-            <%= f.text_field :telephone, autocomplete: "off" %>
+            <%= f.text_field :telephone, autocomplete: "off", placeholder:"00011112222" %>
           </div>
         </div>
         <div class="actions">
