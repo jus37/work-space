@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_080435) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.string "telephone", null: false
+    t.string "telephone"
     t.text "comment"
     t.integer "admin"
     t.string "reset_password_token"
