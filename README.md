@@ -17,6 +17,12 @@ https://work-space.me/ <br>
 作成背景や制作に対する想いは以下のURLで記載しております。<br>
 https://qiita.com/jus_37/private/d2d60fa0c0aa239104e7
 
+## アプリの使い方
+
+下記メールアドレスとパスワードを入力することでログイン可能です。<br>
+Email：test@com<br>
+Password：111111a<br>
+
 ## 機能
 
 検索機能：エリアやジャンルなど、入力したキーワードに合致するお店が検索可能<br> <br>
