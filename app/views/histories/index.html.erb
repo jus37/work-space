@@ -10,61 +10,61 @@
     <%= render "users/header"%>
   </div>
   <div class="shop">
-    <% @reviews.each do |review| %>
+    <% @shops.each do |shop| %>
       <div class="shop-list">
-        <%= link_to shop_path(review.shop.id) do %>
+        <%= link_to shop_path(shop.id) do %>
           <div class="shop-top">
             <div class="shop-top-name">
-              <span class="shop-name"><%= review.shop.name%></span>
+              <span class="shop-name"><%= shop.name%></span>
             </div>
             <div class="shop-top-info">
               <div class="shop-top-area">
-                <%= "[#{review.shop.area.name}]"%>
-                <%= review.shop.nearest_station%>
+                <%= "[#{shop.area.name}]"%>
+                <%= shop.nearest_station%>
               </div>
               <div class="shop-top-genre">
-                <%= "　/　#{review.shop.genre.name}"%>
+                <%= "　/　#{shop.genre.name}"%>
               </div>
             </div>
           </div>
           <div class="shop-info">
             <div class="shop-box">
-              <% if review.shop.images.present? %>
-                <%= image_tag review.shop.images[0], class:"shop-image"%>
+              <% if shop.images.present? %>
+                <%= image_tag shop.images[0], class:"shop-image"%>
               <% else %>
                 <%= image_tag "no_image.jpg", class:"shop-image"%>
               <% end %>
             </div>
             <div class="shop-bottom">
               <div class="shop-bottom-title">
-                <%= review.shop.title%>
+                <%= shop.title%>
               </div>
               <div class="shop-bottom-comment">
-                <div class="shop-bottom-comment-point", id="shops-star-rate-<%=review.shop_id%>">
+                <div class="shop-bottom-comment-point", id="shops-star-rate-<%=shop.id%>">
                   <script>
-                    $("#shops-star-rate-<%=review.shop_id%>").raty({
+                    $("#shops-star-rate-<%=shop.id%>").raty({
                       size     : 36,
                       starOff:  '<%= asset_path('star-off.png') %>',
                       starOn : '<%= asset_path('star-on.png') %>',
                       readOnly: true,
-                      score: "<%=review.shop.reviews.average(:review_point)%>"
+                      score: "<%=shop.reviews.average(:review_point)%>"
                     });
                   </script>
-                  <% if review.shop.reviews.present?%>
-                    <%= review.shop.reviews.average(:review_point).round(1)%>
+                  <% if shop.reviews.present?%>
+                    <%= shop.reviews.average(:review_point).round(1)%>
                   <% end %>
                 </div>
                 <div class="shop-bottom-comment-count">
-                  口コミ数<%= review.shop.reviews.count%>
+                  口コミ数<%= shop.reviews.count%>
                 </div>
               </div>
               <div class="shop-bottom-characteristic">
-                <% review.shop.characteristics.each do |characteristic|%>
+                <% shop.characteristics.each do |characteristic|%>
                   <span class="shop-bottom-characteristic-name"><%= characteristic.name%></span>
                 <% end %>
               </div>
               <div class="shop-bottom-review">
-                <% review.shop.reviews.first(1).each do |review|%>
+                <% shop.reviews.first(1).each do |review|%>
                   <span class="shop-bottom-review-title"><%= review.title%></span>
                   <span class="shop-bottom-review-user"><%= "by　#{review.user.name}"%></span>
                 <% end %>
