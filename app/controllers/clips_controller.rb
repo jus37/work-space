@@ -3,7 +3,8 @@ class ClipsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @clips = Clip.where(user_id: @user.id)
+    clips = Clip.where(user_id: @user.id)
+    @shops = Shop.where(id: clips.map{|clip| clip.shop_id})
   end
 
   def create
