@@ -14,4 +14,5 @@ class Shop < ApplicationRecord
     validates :genre_id
     validates :area_id
   end
+
 end

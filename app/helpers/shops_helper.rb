@@ -29,4 +29,13 @@ module ShopsHelper
       "店舗一覧 #{Shop.all.count}件"
     end
   end
+
+  def image_display(shop)
+    if shop.images.attached?
+      image_tag(shop.images[0].variant(resize:'136x136').processed, class:"shop-image")
+    else
+      image_tag("no_image.jpg", class:"shop-image")
+    end
+  end
+
 end

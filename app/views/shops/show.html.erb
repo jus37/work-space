@@ -14,12 +14,12 @@
       <div class="shop-content-image">
         <% if @shop.images.attached?%>
           <div class="shop-images">
-            <%= image_tag @shop.images[0],class:"shop-image"%>
+            <%= image_tag @shop.images[0].variant(resize:'320x360').processed,class:"shop-image"%>
             <% if @shop.images[1].present?%>
-              <%= image_tag @shop.images[1],class:"shop-image"%>
+              <%= image_tag @shop.images[1].variant(resize:'320x360').processed,class:"shop-image"%>
             <% end %>
             <% if @shop.images[2].present?%>
-              <%= image_tag @shop.images[2],class:"shop-image"%>
+              <%= image_tag @shop.images[2].variant(resize:'320x360').processed,class:"shop-image"%>
             <% end %>
           </div>
         <% else %>
@@ -31,7 +31,7 @@
         <p class="shop-content-comment-content"><%= @shop.content%></p>
       </div>
       <div class="shop-content-info">
-          <%= render "shop_content"%>
+        <%= render "shop_content"%>
       </div>
     </div>
   </div>
