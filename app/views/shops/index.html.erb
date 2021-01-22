@@ -45,20 +45,20 @@
                 <%= shop.title%>
               </div>
               <div class="shop-bottom-comment">
-              <div class="shop-bottom-comment-point", id="shops-star-rate-<%=shop.id%>">
-                <script>
-                  $("#shops-star-rate-<%=shop.id%>").raty({
-                    size     : 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    readOnly: true,
-                    score: "<%=shop.reviews.average(:review_point)%>"
-                  });
-                </script>  
-                <% if shop.reviews.present?%>
-                  <%= shop.reviews.average(:review_point).round(1)%>
-                <% end %>
-              </div>
+                <div class="shop-bottom-comment-point", id="shops-star-rate-<%=shop.id%>">
+                  <script>
+                    $("#shops-star-rate-<%=shop.id%>").raty({
+                      size     : 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      readOnly: true,
+                      score: "<%=shop.reviews.average(:review_point)%>"
+                    });
+                  </script>  
+                  <% if shop.reviews.present?%>
+                    <%= shop.reviews.average(:review_point).round(1)%>
+                  <% end %>
+                </div>
                 <div class="shop-bottom-comment-count">
                   口コミ数<%= shop.reviews.count%>
                 </div>
