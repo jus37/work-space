@@ -1,7 +1,7 @@
 <div class="user">
   <div class="user-box">
     <%if @user.image.attached?%>
-      <%= image_tag @user.image,class:"user-image"%>
+      <%= image_tag @user.image.variant(resize:'88x88').processed,class:"user-image"%>
     <% else %>
       <%= image_tag "no_image.jpg",class:"user-image"%>
     <% end %>
