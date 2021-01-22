@@ -38,12 +38,7 @@
           </div>
           <div class="shop-info">
             <div class="shop-box">
-              <% if shop.images.present? %>
-              <%# resizeを行う（1回だけなので処理が軽くなる）imageの表示はhelperへ %>
-                <%= image_tag shop.images[0], class:"shop-image"%> 
-              <% else %>
-                <%= image_tag "no_image.jpg", class:"shop-image"%>
-              <% end %>
+              <%= image_display(shop)%>
             </div>
             <div class="shop-bottom">
               <div class="shop-bottom-title">
