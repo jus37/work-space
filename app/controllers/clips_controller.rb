@@ -3,7 +3,7 @@ class ClipsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @shops = Shop.includes(clips: :user).where(id: Clip.where(user_id: @user.id).select(:shop_id))
+    @shops = Shop.with_attached_images.includes(:area, :genre, :shop_caracteristics, :characteristics, reviews: :user).where(id: Clip.where(user_id: @user.id).select(:shop_id))
   end
 
   def create
