@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    if review.update(review_params)
+    if @review.update(review_params)
       redirect_to shop_reviews_path(params[:shop_id])
     else
       render :index
