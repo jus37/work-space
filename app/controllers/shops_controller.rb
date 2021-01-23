@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.all.includes(reviews: :user).page(params[:page]).per(5)
+    @shops = Shop.with_attached_images.includes(:area, :genre, :shop_caracteristics, :characteristics, reviews: :user).page(params[:page]).per(5)
     @shops_count = Shop.all.count
   end
 
