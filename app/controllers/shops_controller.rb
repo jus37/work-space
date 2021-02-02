@@ -5,6 +5,10 @@ class ShopsController < ApplicationController
   end
 
   def new
+    unless current_user.admin == 1
+      flash[:top_message] = '新規店舗登録は権限を持つ人のみ可能です'
+      redirect_to root_path
+    end
     @shop = Shop.new
   end
 
@@ -29,7 +33,11 @@ class ShopsController < ApplicationController
   end
 
   def edit
-    @shop = Shop.find(params[:id])
+    unless current_user.admin == 1
+      flash[:top_message] = '店舗情報編集は権限を持つ人のみ可能です'
+      redirect_to root_path
+    end
+      @shop = Shop.find(params[:id])
   end
 
   def update
