@@ -21,6 +21,10 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    unless current_user == @review.user
+      flash[:review_edit] = '他人のレビューは編集できません'
+      redirect_to root_path 
+    end
   end
 
   def update
