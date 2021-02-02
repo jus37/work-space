@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
 
   def edit
     unless current_user == @review.user
-      flash[:review_edit] = '他人のレビューは編集できません'
+      flash[:top_message] = '他人のレビューは編集できません'
       redirect_to root_path 
     end
   end
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if current_user.email == 'test@com'
-      flash[:new_guest] = 'ゲストユーザーではレビューの削除はできません'
+      flash[:top_message] = 'ゲストユーザーではレビューの削除はできません'
       redirect_to root_path
     else
       review = Review.find(params[:id])
