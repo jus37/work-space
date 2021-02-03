@@ -3,11 +3,11 @@
   padding-top: 10px;
   border-bottom: 1px solid rgb(192, 192, 192);
   .top-link{
-    margin-bottom: 10px;
     .account{
       list-style-type: none;
       display: flex;
       justify-content: flex-end;
+      margin: 0px !important;
       li{
         margin: 0 5px;
       }
@@ -20,13 +20,11 @@
   .main-link{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
     .title{
+      background-image: image-url("work-space_logo.png");
       margin-right: 20px;
-      &-name {
-        text-decoration: none;
-        color: #000000;
-        font-size: 30px;
-      }
     }
     .search-fields{
       width: 70%;
