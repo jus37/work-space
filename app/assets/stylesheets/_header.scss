@@ -21,12 +21,8 @@
     display: flex;
     justify-content: space-between;
     .title{
+      background-image: image-url("work-space_logo.png");
       margin-right: 20px;
-      &-name {
-        text-decoration: none;
-        color: #000000;
-        font-size: 30px;
-      }
     }
     .search-fields{
       width: 70%;
