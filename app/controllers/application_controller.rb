@@ -15,3 +15,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :telephone, :image, :comment])
   end
 end
+
+#gitkraken test
